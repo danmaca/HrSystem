@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.Diagnostics.HealthChecks;
 
-namespace Havit.NewProjectTemplate.Services.HealthChecks;
+namespace DanM.HrSystem.Services.HealthChecks;
 
 public abstract class BaseHealthCheck : IHealthCheck
 {

@@ -1,9 +1,9 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
 		<TargetFramework>net8.0</TargetFramework>
-		<AssemblyName>Havit.NewProjectTemplate.DependencyInjection</AssemblyName>
-		<RootNamespace>Havit.NewProjectTemplate.DependencyInjection</RootNamespace>
+		<AssemblyName>DanM.HrSystem.DependencyInjection</AssemblyName>
+		<RootNamespace>DanM.HrSystem.DependencyInjection</RootNamespace>
 	</PropertyGroup>
 
 	<ItemGroup>

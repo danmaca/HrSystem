@@ -1,6 +1,6 @@
 ﻿using ProtoBuf;
 
-namespace Havit.NewProjectTemplate.Contracts;
+namespace DanM.HrSystem.Contracts;
 
 [ProtoContract]
 public class DataFragmentResult<TItem>

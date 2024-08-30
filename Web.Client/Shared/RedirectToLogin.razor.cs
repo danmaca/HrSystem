@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Components;
 
-namespace Havit.NewProjectTemplate.Web.Client.Shared;
+namespace DanM.HrSystem.Web.Client.Shared;
 
 // zdroj: https://github.com/dotnet/blazor-samples/tree/main/8.0/BlazorWebAppOidc
 

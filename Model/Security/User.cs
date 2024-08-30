@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using Havit.NewProjectTemplate.Primitives.Security;
+using DanM.HrSystem.Primitives.Security;
 
-namespace Havit.NewProjectTemplate.Model.Security;
+namespace DanM.HrSystem.Model.Security;
 
 public class User
 {

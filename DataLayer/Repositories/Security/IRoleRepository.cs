@@ -1,4 +1,4 @@
-﻿namespace Havit.NewProjectTemplate.DataLayer.Repositories.Security;
+﻿namespace DanM.HrSystem.DataLayer.Repositories.Security;
 
 public partial interface IRoleRepository
 {

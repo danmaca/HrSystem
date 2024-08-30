@@ -1,9 +1,9 @@
-<Project Sdk="Microsoft.NET.Sdk.BlazorWebAssembly">
+﻿<Project Sdk="Microsoft.NET.Sdk.BlazorWebAssembly">
 
 	<PropertyGroup>
 		<TargetFramework>net8.0</TargetFramework>
-		<AssemblyName>Havit.NewProjectTemplate.Web.Client</AssemblyName>
-		<RootNamespace>Havit.NewProjectTemplate.Web.Client</RootNamespace>
+		<AssemblyName>DanM.HrSystem.Web.Client</AssemblyName>
+		<RootNamespace>DanM.HrSystem.Web.Client</RootNamespace>
 		<BlazorWebAssemblyLoadAllGlobalizationData>true</BlazorWebAssemblyLoadAllGlobalizationData>
 		<NoDefaultLaunchSettingsFile>true</NoDefaultLaunchSettingsFile>
 		<StaticWebAssetProjectMode>Default</StaticWebAssetProjectMode>

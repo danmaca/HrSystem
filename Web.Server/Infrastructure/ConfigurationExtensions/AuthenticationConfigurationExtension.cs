@@ -1,13 +1,13 @@
 ﻿using System.Security.Claims;
-using Havit.NewProjectTemplate.Facades.Infrastructure.Security.Claims;
-using Havit.NewProjectTemplate.Web.Client;
-using Havit.NewProjectTemplate.Web.Server.Infrastructure.Security;
+using DanM.HrSystem.Facades.Infrastructure.Security.Claims;
+using DanM.HrSystem.Web.Client;
+using DanM.HrSystem.Web.Server.Infrastructure.Security;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.IdentityModel.JsonWebTokens;
 using Microsoft.IdentityModel.Protocols.OpenIdConnect;
 
-namespace Havit.NewProjectTemplate.Web.Server.Infrastructure.ConfigurationExtensions;
+namespace DanM.HrSystem.Web.Server.Infrastructure.ConfigurationExtensions;
 
 public static class AuthenticationConfigurationExtension
 {

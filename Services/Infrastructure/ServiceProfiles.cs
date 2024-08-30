@@ -1,4 +1,4 @@
-﻿namespace Havit.NewProjectTemplate.Services.Infrastructure;
+﻿namespace DanM.HrSystem.Services.Infrastructure;
 
 public static class ServiceProfiles
 {

@@ -1,8 +1,8 @@
 ﻿using Havit.Data.Patterns.DataSeeds;
-using Havit.NewProjectTemplate.Model.Security;
-using Havit.NewProjectTemplate.Primitives.Security;
+using DanM.HrSystem.Model.Security;
+using DanM.HrSystem.Primitives.Security;
 
-namespace Havit.NewProjectTemplate.DataLayer.Seeds.Core.Security;
+namespace DanM.HrSystem.DataLayer.Seeds.Core.Security;
 
 public class RoleSeed : DataSeed<CoreProfile>
 {

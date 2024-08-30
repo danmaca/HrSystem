@@ -1,9 +1,9 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
 		<TargetFramework>net8.0</TargetFramework>
-		<AssemblyName>Havit.NewProjectTemplate.DataLayer</AssemblyName>
-		<RootNamespace>Havit.NewProjectTemplate.DataLayer</RootNamespace>
+		<AssemblyName>DanM.HrSystem.DataLayer</AssemblyName>
+		<RootNamespace>DanM.HrSystem.DataLayer</RootNamespace>
 	</PropertyGroup>
 
 	<ItemGroup>

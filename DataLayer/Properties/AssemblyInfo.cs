@@ -1,4 +1,4 @@
-﻿namespace Havit.NewProjectTemplate.DataLayer.Properties;
+﻿namespace DanM.HrSystem.DataLayer.Properties;
 
 public class AssemblyInfo
 {

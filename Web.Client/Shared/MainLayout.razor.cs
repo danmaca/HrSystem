@@ -1,4 +1,4 @@
-﻿namespace Havit.NewProjectTemplate.Web.Client.Shared;
+﻿namespace DanM.HrSystem.Web.Client.Shared;
 
 public partial class MainLayout
 {

@@ -1,7 +1,7 @@
-﻿using Havit.NewProjectTemplate.Model.Localizations;
+﻿using DanM.HrSystem.Model.Localizations;
 using System.ComponentModel.DataAnnotations;
 
-namespace Havit.NewProjectTemplate.Model.Common;
+namespace DanM.HrSystem.Model.Common;
 
 public class CountryLocalization : ILocalization<Country>
 {

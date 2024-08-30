@@ -1,19 +1,19 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Havit.NewProjectTemplate.Entity.Tests;
+namespace DanM.HrSystem.Entity.Tests;
 
 [TestClass]
-public class NewProjectTemplateDbContextTests
+public class HrSystemDbContextTests
 {
 	[TestMethod]
-	public void NewProjectTemplateDbContext_CheckModelConventions()
+	public void HrSystemDbContext_CheckModelConventions()
 	{
 		// Arrange
-		DbContextOptions<NewProjectTemplateDbContext> options = new DbContextOptionsBuilder<NewProjectTemplateDbContext>()
-			.UseInMemoryDatabase(nameof(NewProjectTemplateDbContext))
+		DbContextOptions<HrSystemDbContext> options = new DbContextOptionsBuilder<HrSystemDbContext>()
+			.UseInMemoryDatabase(nameof(HrSystemDbContext))
 			.Options;
-		NewProjectTemplateDbContext dbContext = new NewProjectTemplateDbContext(options);
+		HrSystemDbContext dbContext = new HrSystemDbContext(options);
 
 		// Act
 		Havit.Data.EntityFrameworkCore.ModelValidation.ModelValidator modelValidator = new Havit.Data.EntityFrameworkCore.ModelValidation.ModelValidator();

@@ -1,7 +1,7 @@
 ﻿using Havit.Data.EntityFrameworkCore.Patterns.QueryServices;
-using Havit.NewProjectTemplate.Contracts;
+using DanM.HrSystem.Contracts;
 
-namespace Havit.NewProjectTemplate.DataLayer;
+namespace DanM.HrSystem.DataLayer;
 
 public static class DataFragmentExtensions
 {

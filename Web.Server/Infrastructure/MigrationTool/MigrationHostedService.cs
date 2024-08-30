@@ -1,8 +1,8 @@
 ﻿using Havit.AspNetCore.ExceptionMonitoring.Services;
-using Havit.NewProjectTemplate.Services.Infrastructure.MigrationTool;
+using DanM.HrSystem.Services.Infrastructure.MigrationTool;
 using Microsoft.Extensions.Options;
 
-namespace Havit.NewProjectTemplate.Web.Server.Infrastructure.MigrationTool;
+namespace DanM.HrSystem.Web.Server.Infrastructure.MigrationTool;
 
 public class MigrationHostedService : IHostedService
 {

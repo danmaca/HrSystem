@@ -1,9 +1,9 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
 		<TargetFramework>net8.0</TargetFramework>
-		<AssemblyName>Havit.NewProjectTemplate.Facades</AssemblyName>
-		<RootNamespace>Havit.NewProjectTemplate.Facades</RootNamespace>
+		<AssemblyName>DanM.HrSystem.Facades</AssemblyName>
+		<RootNamespace>DanM.HrSystem.Facades</RootNamespace>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -11,7 +11,7 @@
 	</ItemGroup>
 	
 	<ItemGroup>
-		<InternalsVisibleTo Include="Havit.NewProjectTemplate.Facades.Tests" />
+		<InternalsVisibleTo Include="DanM.HrSystem.Facades.Tests" />
 	</ItemGroup>
 
 	<ItemGroup>

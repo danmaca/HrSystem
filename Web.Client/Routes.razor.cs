@@ -1,8 +1,8 @@
-﻿using Havit.NewProjectTemplate.Contracts.Infrastructure;
-using Havit.NewProjectTemplate.Resources;
+﻿using DanM.HrSystem.Contracts.Infrastructure;
+using DanM.HrSystem.Resources;
 using Microsoft.AspNetCore.Components;
 
-namespace Havit.NewProjectTemplate.Web.Client;
+namespace DanM.HrSystem.Web.Client;
 
 public partial class Routes
 {

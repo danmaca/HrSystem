@@ -1,9 +1,9 @@
-﻿using Havit.NewProjectTemplate.Web.Client.Infrastructure.Security;
+﻿using DanM.HrSystem.Web.Client.Infrastructure.Security;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Components.Web;
 
-namespace Havit.NewProjectTemplate.Web.Server.Infrastructure.Security;
+namespace DanM.HrSystem.Web.Server.Infrastructure.Security;
 
 // zdroj: https://github.com/dotnet/blazor-samples/tree/main/8.0/BlazorWebAppOidc
 

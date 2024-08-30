@@ -1,8 +1,8 @@
-﻿using Havit.NewProjectTemplate.Contracts;
-using Havit.NewProjectTemplate.Contracts.Infrastructure;
+﻿using DanM.HrSystem.Contracts;
+using DanM.HrSystem.Contracts.Infrastructure;
 using Microsoft.AspNetCore.Components;
 
-namespace Havit.NewProjectTemplate.Web.Client.Pages.Admin.Components;
+namespace DanM.HrSystem.Web.Client.Pages.Admin.Components;
 
 public partial class DataSeeds : ComponentBase
 {

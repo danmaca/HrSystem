@@ -1,8 +1,8 @@
 ﻿using Havit.Data.Patterns.DataSeeds;
-using Havit.NewProjectTemplate.Model.Common;
-using Havit.NewProjectTemplate.Model.Localizations;
+using DanM.HrSystem.Model.Common;
+using DanM.HrSystem.Model.Localizations;
 
-namespace Havit.NewProjectTemplate.DataLayer.Seeds.Core.Common;
+namespace DanM.HrSystem.DataLayer.Seeds.Core.Common;
 
 public class CountrySeed : DataSeed<CoreProfile>
 {

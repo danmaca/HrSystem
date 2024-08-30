@@ -1,10 +1,10 @@
 ﻿using Havit.Data.Patterns.DataSeeds;
-using Havit.NewProjectTemplate.DataLayer.Seeds.Core;
+using DanM.HrSystem.DataLayer.Seeds.Core;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Microsoft.Extensions.DependencyInjection;
-using Havit.NewProjectTemplate.TestHelpers;
+using DanM.HrSystem.TestHelpers;
 
-namespace Havit.NewProjectTemplate.IntegrationTests.DataLayer.Seeds;
+namespace DanM.HrSystem.IntegrationTests.DataLayer.Seeds;
 
 [TestClass]
 public class DataSeedingTests : IntegrationTestBase

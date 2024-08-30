@@ -1,4 +1,4 @@
-﻿namespace Havit.NewProjectTemplate.Model.Security;
+﻿namespace DanM.HrSystem.Model.Security;
 
 public class UserRole
 {

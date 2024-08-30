@@ -1,9 +1,9 @@
 ﻿using System.Linq.Expressions;
 using Havit.Data.EntityFrameworkCore.Patterns.Repositories;
-using Havit.NewProjectTemplate.Model.Security;
+using DanM.HrSystem.Model.Security;
 using Microsoft.EntityFrameworkCore;
 
-namespace Havit.NewProjectTemplate.DataLayer.Repositories.Security;
+namespace DanM.HrSystem.DataLayer.Repositories.Security;
 
 public partial class UserDbRepository : IUserRepository
 {

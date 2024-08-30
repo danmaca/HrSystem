@@ -1,8 +1,8 @@
 ﻿using System.Runtime.InteropServices;
-using Havit.NewProjectTemplate.DependencyInjection.Configuration;
-using Havit.NewProjectTemplate.Web.Server.Infrastructure.LoggingExtensions;
+using DanM.HrSystem.DependencyInjection.Configuration;
+using DanM.HrSystem.Web.Server.Infrastructure.LoggingExtensions;
 
-namespace Havit.NewProjectTemplate.Web.Server;
+namespace DanM.HrSystem.Web.Server;
 
 public static class Program
 {

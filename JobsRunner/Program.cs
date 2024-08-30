@@ -8,10 +8,10 @@ using Havit.AspNetCore.ExceptionMonitoring.Services;
 using Havit.Hangfire.Extensions.BackgroundJobs;
 using Havit.Hangfire.Extensions.Filters;
 using Havit.Hangfire.Extensions.RecurringJobs;
-using Havit.NewProjectTemplate.DependencyInjection;
-using Havit.NewProjectTemplate.DependencyInjection.Configuration;
-using Havit.NewProjectTemplate.JobsRunner.Infrastructure.ApplicationInsights;
-using Havit.NewProjectTemplate.Services.Jobs;
+using DanM.HrSystem.DependencyInjection;
+using DanM.HrSystem.DependencyInjection.Configuration;
+using DanM.HrSystem.JobsRunner.Infrastructure.ApplicationInsights;
+using DanM.HrSystem.Services.Jobs;
 using Microsoft.ApplicationInsights;
 using Microsoft.ApplicationInsights.DependencyCollector;
 using Microsoft.ApplicationInsights.Extensibility;
@@ -22,7 +22,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
-namespace Havit.NewProjectTemplate.JobsRunner;
+namespace DanM.HrSystem.JobsRunner;
 
 public static class Program
 {

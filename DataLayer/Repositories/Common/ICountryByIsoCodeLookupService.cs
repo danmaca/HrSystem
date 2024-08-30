@@ -1,7 +1,7 @@
 ﻿
-using Havit.NewProjectTemplate.Model.Common;
+using DanM.HrSystem.Model.Common;
 
-namespace Havit.NewProjectTemplate.DataLayer.Repositories.Common;
+namespace DanM.HrSystem.DataLayer.Repositories.Common;
 
 public interface ICountryByIsoCodeLookupService
 {

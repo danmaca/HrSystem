@@ -1,12 +1,12 @@
 ﻿using Havit.Data.EntityFrameworkCore;
 using Havit.Data.Patterns.DataSeeds;
 using Havit.Extensions.DependencyInjection.Abstractions;
-using Havit.NewProjectTemplate.DataLayer.Seeds.Core;
+using DanM.HrSystem.DataLayer.Seeds.Core;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Havit.NewProjectTemplate.Services.Infrastructure.MigrationTool;
+namespace DanM.HrSystem.Services.Infrastructure.MigrationTool;
 
 [Service]
 public class MigrationService : IMigrationService

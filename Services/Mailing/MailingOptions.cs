@@ -1,4 +1,4 @@
-﻿namespace Havit.NewProjectTemplate.Services.Mailing;
+﻿namespace DanM.HrSystem.Services.Mailing;
 
 public class MailingOptions
 {

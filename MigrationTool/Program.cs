@@ -1,11 +1,11 @@
-﻿using Havit.NewProjectTemplate.DependencyInjection;
-using Havit.NewProjectTemplate.Services.Infrastructure.MigrationTool;
+﻿using DanM.HrSystem.DependencyInjection;
+using DanM.HrSystem.Services.Infrastructure.MigrationTool;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
-namespace Havit.NewProjectTemplate.MigrationTool;
+namespace DanM.HrSystem.MigrationTool;
 
 public static class Program
 {

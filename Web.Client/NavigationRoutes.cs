@@ -1,4 +1,4 @@
-﻿namespace Havit.NewProjectTemplate.Web.Client;
+﻿namespace DanM.HrSystem.Web.Client;
 
 public static class NavigationRoutes
 {

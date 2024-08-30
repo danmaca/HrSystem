@@ -1,4 +1,4 @@
-﻿namespace Havit.NewProjectTemplate.Facades.Properties;
+﻿namespace DanM.HrSystem.Facades.Properties;
 
 public class AssemblyInfo
 {

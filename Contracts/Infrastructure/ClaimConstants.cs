@@ -1,8 +1,8 @@
-﻿namespace Havit.NewProjectTemplate.Contracts.Infrastructure.Security;
+﻿namespace DanM.HrSystem.Contracts.Infrastructure.Security;
 
 public static class ClaimConstants
 {
 	public const string UserIdClaim = "UserId";
-	public const string ApplicationIssuer = "NewProjectTemplate";
+	public const string ApplicationIssuer = "HrSystem";
 
 }

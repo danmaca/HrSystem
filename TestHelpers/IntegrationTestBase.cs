@@ -1,13 +1,13 @@
 ﻿using Havit.Data.EntityFrameworkCore;
 using Havit.Data.Patterns.DataSeeds;
-using Havit.NewProjectTemplate.DataLayer.Seeds.Core;
-using Havit.NewProjectTemplate.DependencyInjection;
+using DanM.HrSystem.DataLayer.Seeds.Core;
+using DanM.HrSystem.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Havit.NewProjectTemplate.TestHelpers;
+namespace DanM.HrSystem.TestHelpers;
 
 public class IntegrationTestBase
 {

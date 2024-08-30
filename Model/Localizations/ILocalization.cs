@@ -1,4 +1,4 @@
-﻿namespace Havit.NewProjectTemplate.Model.Localizations;
+﻿namespace DanM.HrSystem.Model.Localizations;
 
 public interface ILocalization<TLocalizedEntity> : Havit.Model.Localizations.ILocalization<TLocalizedEntity, Language>
 {

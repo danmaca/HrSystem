@@ -1,7 +1,7 @@
 ﻿using Microsoft.ApplicationInsights.Channel;
 using Microsoft.ApplicationInsights.Extensibility;
 
-namespace Havit.NewProjectTemplate.Web.Server.Infrastructure.ApplicationInsights;
+namespace DanM.HrSystem.Web.Server.Infrastructure.ApplicationInsights;
 
 public class CloudRoleNameTelemetryInitializer : ITelemetryInitializer
 {

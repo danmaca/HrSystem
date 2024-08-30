@@ -1,4 +1,4 @@
-﻿namespace Havit.NewProjectTemplate.DependencyInjection;
+﻿namespace DanM.HrSystem.DependencyInjection;
 
 internal class InstallConfiguration
 {

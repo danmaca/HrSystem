@@ -1,9 +1,9 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
 		<TargetFramework>net8.0</TargetFramework>
-		<AssemblyName>Havit.NewProjectTemplate.Primitives</AssemblyName>
-		<RootNamespace>Havit.NewProjectTemplate.Primitives</RootNamespace>
+		<AssemblyName>DanM.HrSystem.Primitives</AssemblyName>
+		<RootNamespace>DanM.HrSystem.Primitives</RootNamespace>
 	</PropertyGroup>
 
 	<ItemGroup>

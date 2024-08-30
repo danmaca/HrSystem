@@ -2,7 +2,7 @@
 using System.Text.Json;
 using Microsoft.Extensions.Diagnostics.HealthChecks;
 
-namespace Havit.NewProjectTemplate.Web.Server.Infrastructure.HealthChecks;
+namespace DanM.HrSystem.Web.Server.Infrastructure.HealthChecks;
 
 public static class HealthCheckWriter
 {

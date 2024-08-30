@@ -1,4 +1,4 @@
-﻿namespace Havit.NewProjectTemplate.Web.Client.Infrastructure.Configuration;
+﻿namespace DanM.HrSystem.Web.Client.Infrastructure.Configuration;
 
 public class ApplicationInsightsOptions
 {

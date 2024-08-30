@@ -1,10 +1,10 @@
-﻿using Havit.NewProjectTemplate.Web.Client.Infrastructure.Configuration;
+﻿using DanM.HrSystem.Web.Client.Infrastructure.Configuration;
 using Microsoft.ApplicationInsights.Extensibility;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 
-namespace Havit.NewProjectTemplate.Web.Server.Controllers;
+namespace DanM.HrSystem.Web.Server.Controllers;
 
 [AllowAnonymous]
 public class WebClientAppSettingsController(

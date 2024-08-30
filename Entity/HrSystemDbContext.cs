@@ -1,19 +1,19 @@
 ﻿using Havit.Data.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
-namespace Havit.NewProjectTemplate.Entity;
+namespace DanM.HrSystem.Entity;
 
-public class NewProjectTemplateDbContext : Havit.Data.EntityFrameworkCore.DbContext
+public class HrSystemDbContext : Havit.Data.EntityFrameworkCore.DbContext
 {
 	/// <summary>
 	/// Constructor for unit tests.
 	/// </summary>
-	internal NewProjectTemplateDbContext()
+	internal HrSystemDbContext()
 	{
 		// NOOP
 	}
 
-	public NewProjectTemplateDbContext(DbContextOptions options) : base(options)
+	public HrSystemDbContext(DbContextOptions options) : base(options)
 	{
 		// NOOP
 	}
@@ -25,7 +25,7 @@ public class NewProjectTemplateDbContext : Havit.Data.EntityFrameworkCore.DbCont
 
 		// modelBuilder.HasSequence<int>("XySequence");
 
-		modelBuilder.RegisterModelFromAssembly(typeof(Havit.NewProjectTemplate.Model.Localizations.Language).Assembly);
+		modelBuilder.RegisterModelFromAssembly(typeof(DanM.HrSystem.Model.Localizations.Language).Assembly);
 		modelBuilder.ApplyConfigurationsFromAssembly(this.GetType().Assembly);
 	}
 }

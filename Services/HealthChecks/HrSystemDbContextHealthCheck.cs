@@ -1,13 +1,13 @@
 ﻿using Havit.Data.EntityFrameworkCore;
 using Microsoft.Extensions.Diagnostics.HealthChecks;
 
-namespace Havit.NewProjectTemplate.Services.HealthChecks;
+namespace DanM.HrSystem.Services.HealthChecks;
 
-public class NewProjectTemplateDbContextHealthCheck : BaseHealthCheck
+public class HrSystemDbContextHealthCheck : BaseHealthCheck
 {
 	private readonly IDbContext _dbContext;
 
-	public NewProjectTemplateDbContextHealthCheck(IDbContext dbContext)
+	public HrSystemDbContextHealthCheck(IDbContext dbContext)
 	{
 		_dbContext = dbContext;
 	}

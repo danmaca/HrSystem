@@ -1,8 +1,8 @@
-﻿using Havit.NewProjectTemplate.Model.Security;
+﻿using DanM.HrSystem.Model.Security;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace Havit.NewProjectTemplate.Entity.Configurations.Security;
+namespace DanM.HrSystem.Entity.Configurations.Security;
 
 public class RoleConfiguration : IEntityTypeConfiguration<Role>
 {

@@ -1,8 +1,8 @@
-﻿using Havit.NewProjectTemplate.Services.Mailing;
+﻿using DanM.HrSystem.Services.Mailing;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Havit.NewProjectTemplate.Web.Server.Infrastructure.ConfigurationExtensions;
+namespace DanM.HrSystem.Web.Server.Infrastructure.ConfigurationExtensions;
 
 public static class MailingConfig
 {

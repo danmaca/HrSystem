@@ -1,4 +1,4 @@
-﻿namespace Havit.NewProjectTemplate.Services.Properties;
+﻿namespace DanM.HrSystem.Services.Properties;
 
 public class AssemblyInfo
 {

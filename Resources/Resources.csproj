@@ -1,9 +1,9 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
-	  <AssemblyName>Havit.NewProjectTemplate.Resources</AssemblyName>
-	  <RootNamespace>Havit.NewProjectTemplate.Resources</RootNamespace>
+	  <AssemblyName>DanM.HrSystem.Resources</AssemblyName>
+	  <RootNamespace>DanM.HrSystem.Resources</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>

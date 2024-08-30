@@ -1,6 +1,6 @@
 ﻿using MimeKit;
 
-namespace Havit.NewProjectTemplate.Services.Mailing;
+namespace DanM.HrSystem.Services.Mailing;
 
 public interface IMailingService
 {

@@ -1,7 +1,7 @@
-﻿using Havit.NewProjectTemplate.TestHelpers;
+﻿using DanM.HrSystem.TestHelpers;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Havit.NewProjectTemplate.TestsForLocalDebugging;
+namespace DanM.HrSystem.TestsForLocalDebugging;
 
 public class TestForLocalDebuggingBase : IntegrationTestBase
 {

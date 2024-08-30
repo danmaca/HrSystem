@@ -1,10 +1,10 @@
 ﻿using System.Security.Claims;
-using Havit.NewProjectTemplate.Contracts.Infrastructure.Security;
-using Havit.NewProjectTemplate.DataLayer.Repositories.Security;
-using Havit.NewProjectTemplate.Model.Security;
-using Havit.NewProjectTemplate.Services.Infrastructure.Security;
+using DanM.HrSystem.Contracts.Infrastructure.Security;
+using DanM.HrSystem.DataLayer.Repositories.Security;
+using DanM.HrSystem.Model.Security;
+using DanM.HrSystem.Services.Infrastructure.Security;
 
-namespace Havit.NewProjectTemplate.Web.Server.Infrastructure.Security;
+namespace DanM.HrSystem.Web.Server.Infrastructure.Security;
 
 public class ApplicationAuthenticationService : IApplicationAuthenticationService
 {

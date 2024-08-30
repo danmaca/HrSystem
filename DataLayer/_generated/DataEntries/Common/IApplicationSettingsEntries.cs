@@ -5,10 +5,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Havit.NewProjectTemplate.DataLayer.DataEntries.Common;
+namespace DanM.HrSystem.DataLayer.DataEntries.Common;
 
 [System.CodeDom.Compiler.GeneratedCode("Havit.Data.EntityFrameworkCore.CodeGenerator", "1.0")]
 public interface IApplicationSettingsEntries : Havit.Data.Patterns.DataEntries.IDataEntries
 {
-	Havit.NewProjectTemplate.Model.Common.ApplicationSettings Current { get; }
+	DanM.HrSystem.Model.Common.ApplicationSettings Current { get; }
 }

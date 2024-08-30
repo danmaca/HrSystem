@@ -1,11 +1,11 @@
 ﻿using Blazored.LocalStorage;
-using Havit.NewProjectTemplate.Contracts.Infrastructure;
-using Havit.NewProjectTemplate.Web.Client.Pages.Admin.Components;
-using Havit.NewProjectTemplate.Web.Client.Resources;
-using Havit.NewProjectTemplate.Web.Client.Resources.Pages.Admin;
+using DanM.HrSystem.Contracts.Infrastructure;
+using DanM.HrSystem.Web.Client.Pages.Admin.Components;
+using DanM.HrSystem.Web.Client.Resources;
+using DanM.HrSystem.Web.Client.Resources.Pages.Admin;
 using Microsoft.AspNetCore.Components;
 
-namespace Havit.NewProjectTemplate.Web.Client.Pages.Admin;
+namespace DanM.HrSystem.Web.Client.Pages.Admin;
 
 public partial class AdminIndex : ComponentBase
 {

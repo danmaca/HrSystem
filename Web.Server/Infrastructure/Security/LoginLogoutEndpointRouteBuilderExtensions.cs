@@ -1,10 +1,10 @@
-﻿using Havit.NewProjectTemplate.Web.Server.Infrastructure.ConfigurationExtensions;
+﻿using DanM.HrSystem.Web.Server.Infrastructure.ConfigurationExtensions;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.OpenIdConnect;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Havit.NewProjectTemplate.Web.Server.Infrastructure.Security;
+namespace DanM.HrSystem.Web.Server.Infrastructure.Security;
 
 // zdroj: https://github.com/dotnet/blazor-samples/tree/main/8.0/BlazorWebAppOidc
 

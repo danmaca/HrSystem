@@ -1,4 +1,4 @@
-﻿namespace Havit.NewProjectTemplate.Services.Infrastructure.MigrationTool;
+﻿namespace DanM.HrSystem.Services.Infrastructure.MigrationTool;
 
 public interface IMigrationService
 {

@@ -1,4 +1,4 @@
-﻿namespace Havit.NewProjectTemplate.Web.Server.Infrastructure.MigrationTool;
+﻿namespace DanM.HrSystem.Web.Server.Infrastructure.MigrationTool;
 
 public class MigrationsOptions
 {

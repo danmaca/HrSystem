@@ -1,8 +1,8 @@
-﻿using Havit.NewProjectTemplate.Model.Localizations;
+﻿using DanM.HrSystem.Model.Localizations;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace Havit.NewProjectTemplate.Entity.Configurations.Localizations;
+namespace DanM.HrSystem.Entity.Configurations.Localizations;
 
 public class LanguageConfiguration : IEntityTypeConfiguration<Language>
 {

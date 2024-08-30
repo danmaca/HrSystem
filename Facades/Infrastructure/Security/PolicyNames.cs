@@ -1,4 +1,4 @@
-﻿namespace Havit.NewProjectTemplate.Facades.Infrastructure.Security;
+﻿namespace DanM.HrSystem.Facades.Infrastructure.Security;
 
 public static class PolicyNames
 {

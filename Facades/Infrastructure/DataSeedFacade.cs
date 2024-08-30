@@ -2,15 +2,15 @@
 using Havit.Data.Patterns.DataSeeds;
 using Havit.Data.Patterns.DataSeeds.Profiles;
 using Havit.Extensions.DependencyInjection.Abstractions;
-using Havit.NewProjectTemplate.Contracts;
-using Havit.NewProjectTemplate.Contracts.Infrastructure;
-using Havit.NewProjectTemplate.DataLayer.Seeds.Core;
-using Havit.NewProjectTemplate.Model.Security;
-using Havit.NewProjectTemplate.Primitives.Security;
+using DanM.HrSystem.Contracts;
+using DanM.HrSystem.Contracts.Infrastructure;
+using DanM.HrSystem.DataLayer.Seeds.Core;
+using DanM.HrSystem.Model.Security;
+using DanM.HrSystem.Primitives.Security;
 using Havit.Services.Caching;
 using Microsoft.AspNetCore.Authorization;
 
-namespace Havit.NewProjectTemplate.Facades.Infrastructure;
+namespace DanM.HrSystem.Facades.Infrastructure;
 
 [Service]
 [Authorize(Roles = nameof(RoleEntry.SystemAdministrator))]

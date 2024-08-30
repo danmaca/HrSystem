@@ -1,6 +1,6 @@
-﻿using Havit.NewProjectTemplate.Model.Security;
+﻿using DanM.HrSystem.Model.Security;
 
-namespace Havit.NewProjectTemplate.DataLayer.Repositories.Security;
+namespace DanM.HrSystem.DataLayer.Repositories.Security;
 
 public partial interface IUserRepository
 {
