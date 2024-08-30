@@ -5,8 +5,10 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace DanM.HrSystem.Entity.Migrations
 {
+    /// <inheritdoc />
     public partial class Initial : Migration
     {
+        /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
@@ -120,6 +122,39 @@ namespace DanM.HrSystem.Entity.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Person",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    FirstName = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: false),
+                    LastName = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: false),
+                    PersonalNumber = table.Column<string>(type: "nvarchar(10)", maxLength: 10, nullable: true),
+                    Email = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: true),
+                    CreatedById = table.Column<int>(type: "int", nullable: false),
+                    CreatedDtt = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: false),
+                    UpdatedById = table.Column<int>(type: "int", nullable: true),
+                    UpdatedDtt = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: true),
+                    State = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Person", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Person_User_CreatedById",
+                        column: x => x.CreatedById,
+                        principalTable: "User",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Person_User_UpdatedById",
+                        column: x => x.UpdatedById,
+                        principalTable: "User",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "UserRole",
                 columns: table => new
                 {
@@ -161,9 +196,20 @@ namespace DanM.HrSystem.Entity.Migrations
                 column: "LanguageId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_CountryLocalization_ParentId",
+                name: "IX_CountryLocalization_ParentId_LanguageId",
                 table: "CountryLocalization",
-                column: "ParentId");
+                columns: new[] { "ParentId", "LanguageId" },
+                unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Person_CreatedById",
+                table: "Person",
+                column: "CreatedById");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Person_UpdatedById",
+                table: "Person",
+                column: "UpdatedById");
 
             migrationBuilder.CreateIndex(
                 name: "IX_User_IdentityProviderExternalId",
@@ -178,6 +224,7 @@ namespace DanM.HrSystem.Entity.Migrations
                 column: "RoleId");
         }
 
+        /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
@@ -188,6 +235,9 @@ namespace DanM.HrSystem.Entity.Migrations
 
             migrationBuilder.DropTable(
                 name: "CountryLocalization");
+
+            migrationBuilder.DropTable(
+                name: "Person");
 
             migrationBuilder.DropTable(
                 name: "UserRole");
