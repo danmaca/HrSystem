@@ -1,0 +1,22 @@
+﻿@if (true)
+{
+	<HxGrid @ref="gridComponent"
+		  DataProvider="GetDataAsync"
+		  PageSize="40"
+		  FooterRowCssClass="fw-bold"
+		  TItem="EmployeeGridDto">
+	 <Columns>
+		  <HxGridColumn HeaderText="Jméno"
+						  TItem="EmployeeGridDto"
+						  ItemTextSelector="i => i.FirstName"
+						  SortKeySelector="i => i.FirstName"
+						  IsDefaultSortColumn="true"
+						  FooterText="Celkový součet" />
+@* 		  <HxGridColumn HeaderText="Předběžná částka"
+						  TItem="ResultItemDto"
+						  ItemTextSelector='i => $"{(i.ValueSum / grandTotal * budget):n0} Kč"'
+						  SortKeySelector="i => i.ValueSum"
+						  FooterText="@($"{budget:n0} Kč")" /> *@
+	 </Columns>
+</HxGrid>
+}

@@ -102,29 +102,7 @@ namespace DanM.HrSystem.Entity.Migrations
                     b.ToTable("CountryLocalization");
                 });
 
-            modelBuilder.Entity("DanM.HrSystem.Model.Localizations.Language", b =>
-                {
-                    b.Property<int>("Id")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Culture")
-                        .HasMaxLength(10)
-                        .HasColumnType("nvarchar(10)");
-
-                    b.Property<string>("Name")
-                        .HasMaxLength(200)
-                        .HasColumnType("nvarchar(200)");
-
-                    b.Property<string>("UiCulture")
-                        .HasMaxLength(10)
-                        .HasColumnType("nvarchar(10)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Language");
-                });
-
-            modelBuilder.Entity("DanM.HrSystem.Model.Persons.Person", b =>
+            modelBuilder.Entity("DanM.HrSystem.Model.Employees.Employee", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -171,7 +149,29 @@ namespace DanM.HrSystem.Entity.Migrations
 
                     b.HasIndex("UpdatedById");
 
-                    b.ToTable("Person");
+                    b.ToTable("Employee");
+                });
+
+            modelBuilder.Entity("DanM.HrSystem.Model.Localizations.Language", b =>
+                {
+                    b.Property<int>("Id")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Culture")
+                        .HasMaxLength(10)
+                        .HasColumnType("nvarchar(10)");
+
+                    b.Property<string>("Name")
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
+
+                    b.Property<string>("UiCulture")
+                        .HasMaxLength(10)
+                        .HasColumnType("nvarchar(10)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Language");
                 });
 
             modelBuilder.Entity("DanM.HrSystem.Model.Security.Role", b =>
@@ -280,7 +280,7 @@ namespace DanM.HrSystem.Entity.Migrations
                     b.Navigation("Parent");
                 });
 
-            modelBuilder.Entity("DanM.HrSystem.Model.Persons.Person", b =>
+            modelBuilder.Entity("DanM.HrSystem.Model.Employees.Employee", b =>
                 {
                     b.HasOne("DanM.HrSystem.Model.Security.User", "CreatedBy")
                         .WithMany()

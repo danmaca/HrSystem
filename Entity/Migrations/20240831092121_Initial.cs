@@ -122,7 +122,7 @@ namespace DanM.HrSystem.Entity.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Person",
+                name: "Employee",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -139,15 +139,15 @@ namespace DanM.HrSystem.Entity.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Person", x => x.Id);
+                    table.PrimaryKey("PK_Employee", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Person_User_CreatedById",
+                        name: "FK_Employee_User_CreatedById",
                         column: x => x.CreatedById,
                         principalTable: "User",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_Person_User_UpdatedById",
+                        name: "FK_Employee_User_UpdatedById",
                         column: x => x.UpdatedById,
                         principalTable: "User",
                         principalColumn: "Id",
@@ -202,13 +202,13 @@ namespace DanM.HrSystem.Entity.Migrations
                 unique: true);
 
             migrationBuilder.CreateIndex(
-                name: "IX_Person_CreatedById",
-                table: "Person",
+                name: "IX_Employee_CreatedById",
+                table: "Employee",
                 column: "CreatedById");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Person_UpdatedById",
-                table: "Person",
+                name: "IX_Employee_UpdatedById",
+                table: "Employee",
                 column: "UpdatedById");
 
             migrationBuilder.CreateIndex(
@@ -237,7 +237,7 @@ namespace DanM.HrSystem.Entity.Migrations
                 name: "CountryLocalization");
 
             migrationBuilder.DropTable(
-                name: "Person");
+                name: "Employee");
 
             migrationBuilder.DropTable(
                 name: "UserRole");

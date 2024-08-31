@@ -1,4 +1,4 @@
-﻿using DanM.HrSystem.DataLayer.DataSources.Persons;
+﻿using DanM.HrSystem.DataLayer.DataSources.Employees;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using DanM.HrSystem.Entity;
@@ -29,7 +29,7 @@ public class DataLayerTests
 			Assert.Fail(errors);
 		}
 
-		var pers = new PersonDbDataSource(dbContext, new SoftDeleteManager(new FakeTimeService(DateTime.Now)));
+		var pers = new EmployeeDbDataSource(dbContext, new SoftDeleteManager(new FakeTimeService(DateTime.Now)));
 		var d = pers.Data;
 	}
 }

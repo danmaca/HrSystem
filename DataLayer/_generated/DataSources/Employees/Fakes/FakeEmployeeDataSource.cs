@@ -9,18 +9,18 @@ using Havit.Data.EntityFrameworkCore.Patterns.DataSources.Fakes;
 using Havit.Data.EntityFrameworkCore.Patterns.SoftDeletes;
 using Havit.Data.Patterns.Attributes;
 
-namespace DanM.HrSystem.DataLayer.DataSources.Persons.Fakes;
+namespace DanM.HrSystem.DataLayer.DataSources.Employees.Fakes;
 
 [Fake]
 [System.CodeDom.Compiler.GeneratedCode("Havit.Data.EntityFrameworkCore.CodeGenerator", "1.0")]
-public class FakePersonDataSource : FakeDataSource<DanM.HrSystem.Model.Persons.Person>, DanM.HrSystem.DataLayer.DataSources.Persons.IPersonDataSource
+public class FakeEmployeeDataSource : FakeDataSource<DanM.HrSystem.Model.Employees.Employee>, DanM.HrSystem.DataLayer.DataSources.Employees.IEmployeeDataSource
 {
-	public FakePersonDataSource(params DanM.HrSystem.Model.Persons.Person[] data)
-		: this((IEnumerable<DanM.HrSystem.Model.Persons.Person>)data)
+	public FakeEmployeeDataSource(params DanM.HrSystem.Model.Employees.Employee[] data)
+		: this((IEnumerable<DanM.HrSystem.Model.Employees.Employee>)data)
 	{			
 	}
 
-	public FakePersonDataSource(IEnumerable<DanM.HrSystem.Model.Persons.Person> data, ISoftDeleteManager softDeleteManager = null)
+	public FakeEmployeeDataSource(IEnumerable<DanM.HrSystem.Model.Employees.Employee> data, ISoftDeleteManager softDeleteManager = null)
 		: base(data, softDeleteManager)
 	{
 	}

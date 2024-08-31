@@ -5,13 +5,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace DanM.HrSystem.Contracts.ModelMetadata.Persons;
+using Havit.Data.Patterns.Repositories;
+
+namespace DanM.HrSystem.DataLayer.Repositories.Employees;
 
 [System.CodeDom.Compiler.GeneratedCode("Havit.Data.EntityFrameworkCore.CodeGenerator", "1.0")]
-public static class PersonMetadata
+public partial interface IEmployeeRepository : IRepository<DanM.HrSystem.Model.Employees.Employee>
 {
-	public const int EmailMaxLength = 255;
-	public const int FirstNameMaxLength = 30;
-	public const int LastNameMaxLength = 30;
-	public const int PersonalNumberMaxLength = 10;
 }

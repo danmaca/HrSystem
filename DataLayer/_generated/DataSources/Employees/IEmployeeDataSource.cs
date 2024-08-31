@@ -5,11 +5,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-using Havit.Data.Patterns.Repositories;
+using Havit.Data.Patterns.DataSources;
 
-namespace DanM.HrSystem.DataLayer.Repositories.Persons;
+namespace DanM.HrSystem.DataLayer.DataSources.Employees;
 
 [System.CodeDom.Compiler.GeneratedCode("Havit.Data.EntityFrameworkCore.CodeGenerator", "1.0")]
-public partial interface IPersonRepository : IRepository<DanM.HrSystem.Model.Persons.Person>
+public interface IEmployeeDataSource : IDataSource<DanM.HrSystem.Model.Employees.Employee>
 {
 }

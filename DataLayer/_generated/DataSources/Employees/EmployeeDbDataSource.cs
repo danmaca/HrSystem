@@ -9,12 +9,12 @@ using Havit.Data.EntityFrameworkCore;
 using Havit.Data.EntityFrameworkCore.Patterns.DataSources;
 using Havit.Data.EntityFrameworkCore.Patterns.SoftDeletes;
 
-namespace DanM.HrSystem.DataLayer.DataSources.Persons;
+namespace DanM.HrSystem.DataLayer.DataSources.Employees;
 
 [System.CodeDom.Compiler.GeneratedCode("Havit.Data.EntityFrameworkCore.CodeGenerator", "1.0")]
-public partial class PersonDbDataSource : DbDataSource<DanM.HrSystem.Model.Persons.Person>, IPersonDataSource
+public partial class EmployeeDbDataSource : DbDataSource<DanM.HrSystem.Model.Employees.Employee>, IEmployeeDataSource
 {
-	public PersonDbDataSource(IDbContext dbContext, ISoftDeleteManager softDeleteManager)
+	public EmployeeDbDataSource(IDbContext dbContext, ISoftDeleteManager softDeleteManager)
 		: base(dbContext, softDeleteManager)
 	{
 	}

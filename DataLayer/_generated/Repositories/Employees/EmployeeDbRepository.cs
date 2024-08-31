@@ -13,14 +13,13 @@ using Havit.Data.Patterns.DataEntries;
 using Havit.Data.Patterns.DataLoaders;
 using Havit.Data.Patterns.Infrastructure;
 
-namespace DanM.HrSystem.DataLayer.Repositories.Persons;
+namespace DanM.HrSystem.DataLayer.Repositories.Employees;
 
 [System.CodeDom.Compiler.GeneratedCode("Havit.Data.EntityFrameworkCore.CodeGenerator", "1.0")]
-public abstract class PersonDbRepositoryBase : DbRepository<DanM.HrSystem.Model.Persons.Person>
+public partial class EmployeeDbRepository : EmployeeDbRepositoryBase, IEmployeeRepository
 {
-	protected PersonDbRepositoryBase(IDbContext dbContext, IEntityKeyAccessor<DanM.HrSystem.Model.Persons.Person, int> entityKeyAccessor, IDataLoader dataLoader, ISoftDeleteManager softDeleteManager, IEntityCacheManager entityCacheManager, IRepositoryQueryProvider repositoryQueryProvider)
+	public EmployeeDbRepository(IDbContext dbContext, IEntityKeyAccessor<DanM.HrSystem.Model.Employees.Employee, int> entityKeyAccessor, IDataLoader dataLoader, ISoftDeleteManager softDeleteManager, IEntityCacheManager entityCacheManager, IRepositoryQueryProvider repositoryQueryProvider)
 		: base(dbContext, entityKeyAccessor, dataLoader, softDeleteManager, entityCacheManager, repositoryQueryProvider)
 	{
 	}
-
 }
