@@ -9,11 +9,6 @@ public partial class EmployeeGridTable
 	private List<EmployeeGridDto> data;
 	private HxGrid<EmployeeGridDto> gridComponent;
 
-	protected override async Task OnParametersSetAsync()
-	{
-		await gridComponent.RefreshDataAsync();
-	}
-
 	private async Task<GridDataProviderResult<EmployeeGridDto>> GetDataAsync(GridDataProviderRequest<EmployeeGridDto> request)
 	{
 		try
