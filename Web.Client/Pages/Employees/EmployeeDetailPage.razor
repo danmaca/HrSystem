@@ -1,0 +1,98 @@
+﻿<div class="@CssClassHelper.Combine("entry-card", CssClass)">
+	@if ((Entry is not null) && EmployeesDataStore.IsLoaded)
+	{
+		<EditForm EditContext="editContext">
+			<FluentValidationValidator />
+			<HxFormState Enabled="@(Entry.Submitted is null)">
+				<HxCard>
+					<BodyTemplate>
+						<div class="row g-4">
+							@{
+								string employeePickerBaseCssClass = (RenderCloseButton ? "col-10" : null) + " col-lg-8";
+							}
+
+							@if (!RecipientLocked)
+							{
+								<div class="@employeePickerBaseCssClass">
+									<EmployeePicker @bind-Value="Entry.RecipientId" ExcludeCurrentEmployee="true" />
+								</div>
+							}
+							else if (Entry.RecipientId.HasValue)
+							{
+								<div class="@CssClassHelper.Combine(employeePickerBaseCssClass, "d-flex align-items-center")">
+									<h5 class="mb-0">
+										@(RenderAuthor ? "pro " : null) @EmployeesDataStore.GetByKey(Entry.RecipientId.Value).Name
+
+										@if (RenderAuthor)
+										{
+											<text> od @EmployeesDataStore.GetByKey(Entry.CreatedById.Value).Name</text>
+										}
+
+									</h5>
+								</div>
+							}
+
+							@if (RenderCloseButton)
+							{
+								<div class="col-1 d-flex d-lg-none align-items-center justify-content-center px-0">
+									<HxCloseButton OnClick="HandleCloseButtonClick" />
+								</div>
+							}
+
+							<div class="@(RenderCloseButton ? "col-lg-3" : "col-lg-4")">
+								<HxInputNumber @bind-Value="@Entry.Value" />
+							</div>
+
+							@if (RenderCloseButton)
+							{
+								<div class="col-1 d-none d-lg-flex align-items-center justify-content-center px-lg-2">
+									<HxCloseButton OnClick="HandleCloseButtonClick" />
+								</div>
+							}
+
+							<div class="col-lg-12">
+								<HxInputTextArea Placeholder="@(Entry.Submitted is null ? "Oceňuji... (volitelný text)" : null)" @bind-Value="@Entry.Text" />
+							</div>
+						</div>
+
+						<div class="d-lg-flex justify-content-between my-2">
+							<EntryTagsPicker @bind-Value="Entry.Tags" CssClass="me-lg-5" />
+
+							<div class="signature-and-visibility d-flex gap-3 ms-auto ms-lg-0">
+								<HxSwitch @bind-Value="Entry.Signed">
+									<LabelTemplate>
+										S&nbsp;podpisem
+									</LabelTemplate>
+								</HxSwitch>
+								<EntryVisibilityPicker @bind-Value="Entry.Public" />
+							</div>
+						</div>
+						<div class="d-flex">
+							@if (Entry.Created is not null)
+							{
+								<small class="text-muted align-self-end">vloženo @Entry.Created.Value.ToShortDateString()</small>
+							}
+
+							@if (Entry.Submitted is null)
+							{
+								<div class="d-lg-flex gap-1 ms-lg-auto flex-grow-1 flex-lg-grow-0">
+									@if (Entry.Id != default)
+									{
+										<HxButton Icon="BootstrapIcon.Trash"
+									  Color="ThemeColor.Light"
+									  OnClick="HandleDeleteClick" />
+
+									}
+									<HxButton Color="ThemeColor.Primary"
+									  OnValidClick="HandleCreateOrUpdateButtonClick"
+									  CssClass="w-100"
+									  Text="@(EdittingEntry ? "Uložit" : "Přidat")" />
+								</div>
+							}
+						</div>
+					</BodyTemplate>
+				</HxCard>
+			</HxFormState>
+		</EditForm>
+	}
+</div>

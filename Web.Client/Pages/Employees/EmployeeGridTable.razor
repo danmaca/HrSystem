@@ -1,7 +1,8 @@
-﻿<HxGrid @ref="gridComponent"
+﻿<HxGrid @ref="conGrid"
 		  DataProvider="GetDataAsync"
 		  PageSize="40"
 		  FooterRowCssClass="fw-bold"
+		  SelectedDataItemChanged="GridItemSelected"
 		  TItem="EmployeeGridDto">
 	<Columns>
 		<HxGridColumn HeaderText="Příjmení"

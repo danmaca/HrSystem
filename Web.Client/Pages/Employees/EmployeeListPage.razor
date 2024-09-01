@@ -1,14 +1,9 @@
 ﻿@attribute [Route(HrNavigationRoutes.Employees.EmployeeList)]
-<h4>Diagnostic Information Page</h4>
+<h4>Zaměstnanci</h4>
 <HxCard>
-	<HeaderTemplate>
-		<h5>AuthorizationView</h5>
-	</HeaderTemplate>
 	<BodyTemplate>
-
 		<AuthorizeView>
 			<Authorized>
-				<h6>Authorized</h6>
 				<EmployeeGridTable />
 			</Authorized>
 			<NotAuthorized>
