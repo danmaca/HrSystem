@@ -7,5 +7,6 @@ public static class HrNavigationRoutes
 	public static class Employees
 	{
 		public const string EmployeeList = "/employees/";
+		public const string EmployeeDetail = "/employee/";
 	}
 }

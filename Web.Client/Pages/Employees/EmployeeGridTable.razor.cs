@@ -6,6 +6,7 @@ public partial class EmployeeGridTable
 {
 	[Inject] protected IEmployeeFacade EmployeeFacade { get; set; }
 	[Inject] protected IHxMessageBoxService MessageBox { get; set; }
+	[Inject] protected NavigationManager Navigation { get; set; }
 
 	private List<EmployeeGridDto> gridData;
 	private HxGrid<EmployeeGridDto> conGrid;
@@ -23,8 +24,9 @@ public partial class EmployeeGridTable
 		}
 	}
 
-	private async Task GridItemSelected(EmployeeGridDto item)
+	private Task GridItemSelected(EmployeeGridDto item)
 	{
-		await MessageBox.ConfirmAsync("Potvrzení", "Opravdu si přejete všechny koncepty potvrdit?");
+		this.Navigation.NavigateTo(HrNavigationRoutes.Employees.EmployeeDetail + item.EmployeeId);
+		return Task.CompletedTask;
 	}
 }

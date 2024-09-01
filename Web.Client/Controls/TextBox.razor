@@ -1,0 +1,10 @@
+﻿@using DanM.HrSystem.Contracts.ControlDatas
+@using DanM.HrSystem.Web.Client.Controls.Framework
+@using Microsoft.AspNetCore.Components.Sections
+@inherits CaptionControlBase<TextControlData>
+
+<CaptionControlWrapper CaptionControl="@this">
+	<ElementContent>
+		<HxInputText @bind-Value="@Data.Text" />
+	</ElementContent>
+</CaptionControlWrapper>

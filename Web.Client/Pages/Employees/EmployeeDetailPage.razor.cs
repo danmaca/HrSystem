@@ -1,60 +1,45 @@
-﻿using System.Text;
-using Havit.Bonusario.Web.Client.DataStores;
-using Microsoft.AspNetCore.Components.Authorization;
+﻿using DanM.HrSystem.Contracts.ControlDatas;
+using Havit;
 using Microsoft.AspNetCore.Components.Forms;
 
 namespace DanM.HrSystem.Web.Client.Pages.Employees;
 
-public partial class EntryCard
+public partial class EmployeeDetailPage
 {
-	[Parameter] public EmployeeGridDto Entry { get; set; }
-	[Parameter] public bool RecipientLocked { get; set; } = false;
-	[Parameter] public bool ShowAuthor { get; set; } = false;
+	[Parameter] public int? Id { get; set; }
+	[Parameter] public EmployeeDetailDto Entity { get; set; }
 	[Parameter] public EventCallback OnEntryDeleted { get; set; }
-	[Parameter] public EventCallback<EntryDto> OnEntryCreated { get; set; }
-	[Parameter] public EventCallback<EntryDto> OnEntryUpdated { get; set; }
+	[Parameter] public EventCallback<EmployeeDetailDto> OnEntryCreated { get; set; }
+	[Parameter] public EventCallback<EmployeeDetailDto> OnEntryUpdated { get; set; }
 	[Parameter] public EventCallback OnCloseButtonClicked { get; set; }
-	[Parameter] public string CssClass { get; set; }
 
 	[Inject] protected IEmployeeFacade EmployeeFacade { get; set; }
-	[Inject] protected IEmployeesDataStore EmployeesDataStore { get; set; }
-	[Inject] protected IEntryFacade EntryFacade { get; set; }
 
 	private EditContext editContext;
 
-	private bool RenderAuthor => ShowAuthor && Entry.CreatedById.HasValue;
-	/// <summary>
-	/// Indicates whether the entry is being edited or created.
-	/// If <c>true</c>, it is being edited. If <c>false</c> it is a new entry.
-	/// </summary>
-	private bool EdittingEntry => Entry.Id != default;
+	private bool EdittingEntry => Entity.Id != default;
 	private bool RenderCloseButton => OnCloseButtonClicked.HasDelegate;
 
 	protected override void OnInitialized()
 	{
-		editContext = new(new EntryDto());
+		this.Entity = new EmployeeDetailDto();
+		this.Entity.tbxFirstName = new TextControlData();
+		this.Entity.tbxFirstName.CaptionText = "jmeno";
+		this.Entity.tbxFirstName.Text = "moje";
+		editContext = new EditContext(this.Entity);
 	}
 
 	protected override void OnParametersSet()
 	{
-		editContext = new EditContext(Entry);
-	}
-
-	protected override async Task OnInitializedAsync()
-	{
-		await EmployeesDataStore.EnsureDataAsync();
-	}
-
-	private async Task HandleDeleteClick()
-	{
-		Contract.Assert(Entry.Submitted is null, "Nelze smazat odeslaný záznam.");
-		await EntryFacade.DeleteEntryAsync(Dto.FromValue(Entry.Id));
-		await OnEntryDeleted.InvokeAsync();
+		//editContext = new EditContext(Entity);
 	}
 
 	private async Task HandleCreateOrUpdateButtonClick()
 	{
-		if (Entry.Id == default && Entry.Submitted is null)
+		this.Entity.tbxFirstName.Text += "x";
+		return;
+
+		if (Entity.Id == default)
 		{
 			await CreateNewEntry();
 		}
@@ -66,13 +51,12 @@ public partial class EntryCard
 
 	private async Task CreateNewEntry()
 	{
-		Contract.Assert(Entry.Id == default, "Záznam již není nový.");
-		Contract.Assert(Entry.PeriodId != default, "PeriodId musí být nastaven.");
+		Contract.Assert(Entity.Id == default, "Záznam již není nový.");
 
 		try
 		{
-			this.Entry.Id = (await EntryFacade.CreateEntryAsync(this.Entry)).Value;
-			await OnEntryCreated.InvokeAsync(this.Entry);
+			//this.Entity.Id = (await EntryFacade.CreateEntryAsync(this.Entity)).Value;
+			await OnEntryCreated.InvokeAsync(this.Entity);
 		}
 		catch (OperationFailedException)
 		{
@@ -82,7 +66,7 @@ public partial class EntryCard
 
 	private async Task UpdateEntry()
 	{
-		if ((Entry.Id == default) || (Entry.Submitted is not null))
+		if (Entity.Id == default)
 		{
 			return;
 		}
@@ -91,18 +75,13 @@ public partial class EntryCard
 		{
 			try
 			{
-				await EntryFacade.UpdateEntryAsync(this.Entry);
-				await OnEntryUpdated.InvokeAsync(this.Entry);
+				//await EntryFacade.UpdateEntryAsync(this.Entity);
+				await OnEntryUpdated.InvokeAsync(this.Entity);
 			}
 			catch (OperationFailedException)
 			{
 				// NOOP
 			}
 		}
-	}
-
-	private async Task HandleCloseButtonClick()
-	{
-		await OnCloseButtonClicked.InvokeAsync();
 	}
 }
