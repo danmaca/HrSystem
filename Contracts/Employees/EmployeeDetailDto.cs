@@ -5,7 +5,7 @@ namespace DanM.HrSystem.Contracts.Employees;
 
 public class EmployeeDetailDto
 {
-	public int Id { get; set; }
+	public int? Id { get; set; }
 	public int EmployeeId { get; set; }
 	public string FirstName { get; set; }
 	public string LastName { get; set; }
@@ -19,8 +19,4 @@ public class EmployeeDetailDto
 
 	public TextControlData tbxFirstName { get; set; } = new TextControlData();
 	public TextControlData tbxLastName { get; set; } = new TextControlData();
-}
-
-public class GetEmployeeDetailDtoInfo
-{
 }

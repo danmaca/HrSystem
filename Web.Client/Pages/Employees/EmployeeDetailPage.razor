@@ -1,5 +1,5 @@
 ﻿@using DanM.HrSystem.Web.Client.Pages.Framework
-@attribute [Route(HrNavigationRoutes.Employees.EmployeeDetail + "{Id:int?}")]
+@attribute [Route($"{HrNavigationRoutes.Employees.EmployeeDetail}{{{nameof(EntityId)}:int?}}")]
 @inherits DetailPageBase
 @if (this.Entity != null)
 {
