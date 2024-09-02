@@ -5,6 +5,13 @@
 
 <CaptionControlWrapper CaptionControl="@this">
 	<ElementContent>
-		<HxInputText @bind-Value="@Data.Text" />
+		@if (@Data.IsEditable)
+		{
+			<HxInputText @bind-Value="@Data.Text" />
+		}
+		else
+		{
+			<div>@Data.Text</div>
+		}
 	</ElementContent>
 </CaptionControlWrapper>

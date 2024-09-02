@@ -12,10 +12,15 @@ public class EmployeeDetailDto
 	public string PersonalNumber { get; set; }
 	public string Email { get; set; }
 	public int CreatedById { get; set; }
-	public DateTimeOffset CreatedDtt { get; set; }
+	public DateTime CreatedDtt { get; set; }
 	public int? UpdatedById { get; set; }
-	public DateTimeOffset? UpdatedDtt { get; set; }
+	public DateTime? UpdatedDtt { get; set; }
 	public EntityState State { get; set; }
 
-	public TextControlData tbxFirstName { get; set; }
+	public TextControlData tbxFirstName { get; set; } = new TextControlData();
+	public TextControlData tbxLastName { get; set; } = new TextControlData();
+}
+
+public class GetEmployeeDetailDtoInfo
+{
 }

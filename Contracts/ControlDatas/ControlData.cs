@@ -2,4 +2,5 @@
 
 public class ControlData
 {
+	public bool IsEditable { get; set; }
 }

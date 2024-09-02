@@ -1,6 +1,7 @@
 ﻿using DanM.HrSystem.Contracts;
 using DanM.HrSystem.Contracts.Employees;
 using DanM.HrSystem.DataLayer.Repositories.Employees;
+using DanM.HrSystem.Model.Employees;
 using Havit.Extensions.DependencyInjection.Abstractions;
 using Microsoft.AspNetCore.Authorization;
 
@@ -27,5 +28,23 @@ public class EmployeeFacade : IEmployeeFacade
 			LastName = e.LastName,
 			State = e.State,
 		}).ToList();
+	}
+
+	public async Task<EmployeeDetailDto> GetEmployeeDetailDtoAsync(GetEmployeeDetailDtoInfo info, CancellationToken cancellationToken = default)
+	{
+		int? entityId = 1;
+		var dto = new EmployeeDetailDto();
+		dto.tbxFirstName.Text = "jmeno";
+		dto.tbxLastName.Text = "prijmeni";
+
+		Employee entity;
+		if (entityId != null)
+			entity = await _employeeRepository.GetObjectAsync(entityId.Value, cancellationToken);
+		else
+			entity = new Employee();
+
+		dto.tbxFirstName.Text = entity.FirstName;
+		dto.tbxLastName.Text = entity.LastName;
+		return dto;
 	}
 }

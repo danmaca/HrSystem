@@ -20,18 +20,10 @@ public partial class EmployeeDetailPage
 	private bool EdittingEntry => Entity.Id != default;
 	private bool RenderCloseButton => OnCloseButtonClicked.HasDelegate;
 
-	protected override void OnInitialized()
+	protected override async Task OnInitializedAsync()
 	{
-		this.Entity = new EmployeeDetailDto();
-		this.Entity.tbxFirstName = new TextControlData();
-		this.Entity.tbxFirstName.CaptionText = "jmeno";
-		this.Entity.tbxFirstName.Text = "moje";
+		this.Entity = await this.EmployeeFacade.GetEmployeeDetailDtoAsync(new GetEmployeeDetailDtoInfo());
 		editContext = new EditContext(this.Entity);
-	}
-
-	protected override void OnParametersSet()
-	{
-		//editContext = new EditContext(Entity);
 	}
 
 	private async Task HandleCreateOrUpdateButtonClick()
@@ -47,6 +39,11 @@ public partial class EmployeeDetailPage
 		{
 			await UpdateEntry();
 		}
+	}
+
+	private async Task HandleEditable()
+	{
+		this.Entity.tbxFirstName.IsEditable = !this.Entity.tbxFirstName.IsEditable;
 	}
 
 	private async Task CreateNewEntry()
