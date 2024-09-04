@@ -1,3 +1,15 @@
-﻿.capCon-caption {
-	font-size: .9rem;
+﻿.capControl {
+	display: flex;
+	align-items: flex-start;
+	width: 30%;
 }
+
+	.capControl .caption {
+		font-size: .8rem;
+		margin-right: 10px;
+		width: 30%;
+	}
+
+	.capControl .element {
+		font-size: .9rem;
+	}
