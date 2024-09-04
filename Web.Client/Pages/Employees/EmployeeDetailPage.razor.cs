@@ -12,15 +12,15 @@ public partial class EmployeeDetailPage
 	[Parameter] public EventCallback<EmployeeDetailDto> OnEntryCreated { get; set; }
 	[Parameter] public EventCallback<EmployeeDetailDto> OnEntryUpdated { get; set; }
 
-	[Inject] protected IEmployeeFacade EmployeeFacade { get; set; }
+	[Inject] protected IEmployeeDetailController Controller { get; set; }
 
 	private EditContext editContext;
 
-	private bool EdittingEntry => Entity.Id != default;
+	private bool IsNewEntity => this.EntityId == null;
 
 	protected override async Task OnInitializedAsync()
 	{
-		this.Entity = await this.EmployeeFacade.GetEmployeeDetailDtoAsync(new EntityRequestInfo(this.EntityId));
+		this.Entity = await this.Controller.GetDetailDtoAsync(new EntityRequestInfo(this.EntityId));
 		editContext = new EditContext(this.Entity);
 	}
 
@@ -28,13 +28,15 @@ public partial class EmployeeDetailPage
 	{
 		var dto = (EmployeeDetailDto)editContext.Model;
 		dto.Id = this.EntityId;
-		var result = await this.EmployeeFacade.PersistEmployeeDetailDtoAsync(dto);
+		var result = await this.Controller.PersistDetailDtoAsync(dto);
 		this.EntityId = result.Value;
 		dto.Id = result.Value;
 	}
 
 	private async Task HandleEditable()
 	{
+		this.Entity = await this.Controller.GetDetailDtoAsync(new EntityRequestInfo(this.EntityId));
+		editContext = new EditContext(this.Entity);
 		this.Entity.tbxFirstName.IsEditable = !this.Entity.tbxFirstName.IsEditable;
 	}
 

@@ -3,11 +3,11 @@
 namespace DanM.HrSystem.Web.Client.Controls.Framework;
 
 public class CaptionControlBase<TData> : DataControlBase<TData>, ICaptionControlBase
-	where TData : CaptionControlData
+	where TData : ICaptionControlData
 {
-	CaptionControlData IDataControlBase<CaptionControlData>.ControlData { get => this.Data; set => this.Data = (TData)value; }
+	ICaptionControlData IDataControlBase<ICaptionControlData>.ControlData { get => this.Data; set => this.Data = (TData)value; }
 }
 
-public interface ICaptionControlBase : IDataControlBase<CaptionControlData>
+public interface ICaptionControlBase : IDataControlBase<ICaptionControlData>
 {
 }

@@ -24,6 +24,10 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Include="wwwroot\css\Framework\FrameworkStyles.css" />
+	</ItemGroup>
+
+	<ItemGroup>
 		<PackageReference Include="BlazorApplicationInsights" />
 		<PackageReference Include="Blazored.FluentValidation" />
 		<PackageReference Include="Blazored.LocalStorage" />

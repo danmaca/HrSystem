@@ -11,8 +11,8 @@
 				<div>detail</div>
 				<div class="row g-4">
 					<div>
-						<TextBox Data="@Entity.tbxFirstName" />
 						<TextBox Data="@Entity.tbxLastName" />
+						<TextBox Data="@Entity.tbxFirstName" />
 					</div>
 				</div>
 
@@ -26,7 +26,7 @@
 						<HxButton Color="ThemeColor.Primary"
 									 OnValidClick="HandleCreateOrUpdateButtonClick"
 									 CssClass="w-100"
-									 Text="@(EdittingEntry ? "Uložit" : "Přidat")" />
+										 Text="@(IsNewEntity ? "Vytvořit" : "Uložit")" />
 
 						<HxButton Color="ThemeColor.Primary"
 									 OnValidClick="HandleEditable"
