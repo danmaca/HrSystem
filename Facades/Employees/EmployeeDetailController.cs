@@ -1,7 +1,10 @@
 ﻿using DanM.HrSystem.Contracts;
 using DanM.HrSystem.Contracts.Employees;
 using DanM.HrSystem.DataLayer.Repositories.Employees;
+using DanM.HrSystem.Facades.Framework.Controllers;
+using DanM.HrSystem.Facades.ModelDescriptors;
 using DanM.HrSystem.Model.Employees;
+using DanM.HrSystem.Services.Framework.Binders;
 using Havit.Data.Patterns.UnitOfWorks;
 using Havit.Extensions.DependencyInjection.Abstractions;
 using Microsoft.AspNetCore.Authorization;
@@ -10,15 +13,21 @@ namespace DanM.HrSystem.Facades.Employees;
 
 [Service]
 [Authorize]
-public class EmployeeDetailController : IEmployeeDetailController
+public class EmployeeDetailController : DetailControllerBase, IEmployeeDetailController
 {
+	private readonly IStandardBinders _binders;
+	private readonly IEmployeeDescriptor _employeeDescriptor;
 	private readonly IEmployeeRepository _employeeRepository;
 	private readonly IUnitOfWork _unitOfWork;
 
 	public EmployeeDetailController(
+		IStandardBinders binders,
+		IEmployeeDescriptor employeeDescriptor,
 		IEmployeeRepository employeeRepository,
 		IUnitOfWork unitOfWork)
 	{
+		_binders = binders;
+		_employeeDescriptor = employeeDescriptor;
 		_employeeRepository = employeeRepository;
 		_unitOfWork = unitOfWork;
 	}
@@ -35,8 +44,12 @@ public class EmployeeDetailController : IEmployeeDetailController
 		else
 			entity = new Employee();
 
-		dto.tbxFirstName.Text = entity.FirstName;
-		dto.tbxLastName.Text = entity.LastName;
+		var ctx = new BindingContext();
+		ctx.Mode = BindingMode.UpdateForm;
+		ctx.BindingEntity = entity;
+
+		_binders.TextBinder.Bind(ctx, dto.tbxFirstName, _employeeDescriptor.FirstName);
+		_binders.TextBinder.Bind(ctx, dto.tbxLastName, _employeeDescriptor.LastName);
 		return dto;
 	}
 
