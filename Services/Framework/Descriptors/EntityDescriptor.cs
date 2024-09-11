@@ -4,6 +4,8 @@ namespace DanM.HrSystem.Services.Framework.Descriptors;
 
 public class EntityDescriptor
 {
+	internal const string PropertyAttributeSuffix = "Prop";
+
 	public EntityDescriptor()
 	{
 		InitializeDescriptor();
@@ -26,14 +28,18 @@ public class EntityDescriptor<TEntity> : EntityDescriptor
 		base.OnInitializeDescriptor();
 
 		var entityProps = TypeDescriptor.GetProperties(typeof(TEntity)).OfType<PropertyDescriptor>();
-		var descProps = TypeDescriptor.GetProperties(GetType()).OfType<PropertyDescriptor>();
+		var descProps = TypeDescriptor.GetProperties(GetType()).OfType<PropertyDescriptor>()
+			.Where(obj => obj.Name.EndsWith(PropertyAttributeSuffix))
+			.ToArray();
 
 		foreach (var descProp in descProps)
 		{
 			var descPropObject = descProp.GetValue(this) as IEntityProperty;
 			if (descPropObject != null)
 			{
-				var entityPropObject = entityProps.FirstOrDefault(obj => obj.Name == descProp.Name);
+				string descPropName = descProp.Name.Substring(0, descProp.Name.Length - PropertyAttributeSuffix.Length);
+
+				var entityPropObject = entityProps.FirstOrDefault(obj => obj.Name == descPropName);
 				if (entityPropObject != null)
 				{
 					descPropObject.ObjectValueGetter = obj => entityPropObject.GetValue(obj);

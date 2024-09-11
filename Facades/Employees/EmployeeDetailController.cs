@@ -35,8 +35,6 @@ public class EmployeeDetailController : DetailControllerBase, IEmployeeDetailCon
 	public async Task<EmployeeDetailDto> GetDetailDtoAsync(EntityRequestInfo info, CancellationToken cancellationToken = default)
 	{
 		var dto = new EmployeeDetailDto();
-		dto.tbxFirstName.CaptionText = "Jméno";
-		dto.tbxLastName.CaptionText = "Příjmení";
 
 		Employee entity;
 		if (info.EntityId != null)
@@ -48,8 +46,8 @@ public class EmployeeDetailController : DetailControllerBase, IEmployeeDetailCon
 		ctx.Mode = BindingMode.UpdateForm;
 		ctx.BindingEntity = entity;
 
-		_binders.TextBinder.Bind(ctx, dto.tbxFirstName, _employeeDescriptor.FirstName);
-		_binders.TextBinder.Bind(ctx, dto.tbxLastName, _employeeDescriptor.LastName);
+		_binders.TextBinder.Bind(ctx, dto.tbxFirstName, _employeeDescriptor.FirstNameProp);
+		_binders.TextBinder.Bind(ctx, dto.tbxLastName, _employeeDescriptor.LastNameProp);
 		return dto;
 	}
 

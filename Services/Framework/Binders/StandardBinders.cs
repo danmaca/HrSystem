@@ -9,7 +9,7 @@ public class StandardBinders : IStandardBinders
 
 	public StandardBinders(ITextBinder textBinder)
 	{
-		TextBinder = textBinder;
+		this.TextBinder = textBinder;
 	}
 }
 

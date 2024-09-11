@@ -5,10 +5,12 @@ using Havit.Extensions.DependencyInjection.Abstractions;
 namespace DanM.HrSystem.Services.Framework.Binders;
 
 [Service]
-public class TextBinder : ITextBinder
+public class TextBinder : CaptionControlDataBinder, ITextBinder
 {
 	public void Bind(BindingContext context, TextControlData data, StringProperty property)
 	{
+		this.BindProperty(context, data, property);
+
 		switch (context.Mode)
 		{
 			case BindingMode.UpdateForm:

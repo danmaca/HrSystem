@@ -8,12 +8,12 @@ namespace DanM.HrSystem.Facades.ModelDescriptors;
 [Service(Lifetime = ServiceLifetime.Singleton)]
 public class EmployeeDescriptor : EntityDescriptor<Employee>, IEmployeeDescriptor
 {
-	public StringProperty FirstName { get; set; } = new StringProperty();
-	public StringProperty LastName { get; set; } = new StringProperty();
+	public StringProperty FirstNameProp { get; set; } = new StringProperty(() => "Jméno");
+	public StringProperty LastNameProp { get; set; } = new StringProperty(() => "Příjmení");
 }
 
 public interface IEmployeeDescriptor
 {
-	StringProperty FirstName { get; set; }
-	StringProperty LastName { get; set; }
+	StringProperty FirstNameProp { get; set; }
+	StringProperty LastNameProp { get; set; }
 }
