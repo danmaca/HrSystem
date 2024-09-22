@@ -1,11 +1,11 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using DanM.HrSystem.Model.Common;
+using DanM.HrSystem.Model.Framework;
 using DanM.HrSystem.Model.Security;
 using DanM.HrSystem.Primitives.Common;
 
 namespace DanM.HrSystem.Model.Employees;
 
-public class Employee
+public class Employee : IEntity
 {
 	public int Id { get; set; }
 

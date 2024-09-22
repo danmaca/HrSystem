@@ -1,5 +1,14 @@
-﻿namespace DanM.HrSystem.Facades.Framework.Controllers;
+﻿using DanM.HrSystem.Contracts.ControlDatas;
 
-public class ControllerBase
+namespace DanM.HrSystem.Facades.Framework.Controllers;
+
+public abstract class ControllerBase<TData> : IControllerBase<TData>
+	where TData : ControllerData
+{
+	public TData Data { get; protected set; }
+}
+
+
+public interface IControllerBase<TData>
 {
 }

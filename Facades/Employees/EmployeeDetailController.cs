@@ -13,7 +13,7 @@ namespace DanM.HrSystem.Facades.Employees;
 
 [Service]
 [Authorize]
-public class EmployeeDetailController : DetailControllerBase, IEmployeeDetailController
+public class EmployeeDetailController : DetailControllerBase<Employee, EmployeeDetailData>, IEmployeeDetailController
 {
 	private readonly IStandardBinders _binders;
 	private readonly IEmployeeDescriptor _employeeDescriptor;
@@ -32,37 +32,40 @@ public class EmployeeDetailController : DetailControllerBase, IEmployeeDetailCon
 		_unitOfWork = unitOfWork;
 	}
 
-	public async Task<EmployeeDetailDto> GetDetailDtoAsync(EntityRequestInfo info, CancellationToken cancellationToken = default)
+	protected override async Task<Employee> OnCreateEntityAsync()
 	{
-		var dto = new EmployeeDetailDto();
-
 		Employee entity;
-		if (info.EntityId != null)
-			entity = await _employeeRepository.GetObjectAsync(info.EntityId.Value, cancellationToken);
+		if (this.Data.EntityId != null)
+			entity = await _employeeRepository.GetObjectAsync(this.Data.EntityId.Value);
 		else
 			entity = new Employee();
+		return entity;
+	}
+
+	protected override void OnBindingProperties()
+	{
+		base.OnBindingProperties();
 
 		var ctx = new BindingContext();
 		ctx.Mode = BindingMode.UpdateForm;
-		ctx.BindingEntity = entity;
+		ctx.BindingEntity = this.Entity;
 
-		_binders.TextBinder.Bind(ctx, dto.tbxFirstName, _employeeDescriptor.FirstNameProp);
-		_binders.TextBinder.Bind(ctx, dto.tbxLastName, _employeeDescriptor.LastNameProp);
-		return dto;
+		_binders.TextBinder.Bind(ctx, this.Data.tbxFirstName, _employeeDescriptor.FirstNameProp);
+		_binders.TextBinder.Bind(ctx, this.Data.tbxLastName, _employeeDescriptor.LastNameProp);
 	}
 
-	public async Task<Dto<int>> PersistDetailDtoAsync(EmployeeDetailDto dto, CancellationToken cancellationToken = default)
+	public async Task<Dto<int>> PersistDetailDtoAsync(EmployeeDetailData dto, CancellationToken cancellationToken = default)
 	{
 		Employee entity;
-		if (dto.Id != null)
-			entity = await _employeeRepository.GetObjectAsync(dto.Id.Value, cancellationToken);
+		if (dto.EntityId != null)
+			entity = await _employeeRepository.GetObjectAsync(dto.EntityId.Value, cancellationToken);
 		else
 			entity = new Employee();
 
 		entity.FirstName = dto.tbxFirstName.Text;
 		entity.LastName = dto.tbxLastName.Text;
 
-		if (dto.Id != null)
+		if (dto.EntityId != null)
 			_unitOfWork.AddForUpdate(entity);
 		else
 			_unitOfWork.AddForInsert(entity);

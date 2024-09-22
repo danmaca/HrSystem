@@ -1,8 +1,9 @@
-﻿namespace DanM.HrSystem.Contracts.Employees;
+﻿using DanM.HrSystem.Contracts.Framework.Controllers;
+
+namespace DanM.HrSystem.Contracts.Employees;
 
 [ApiContract]
-public interface IEmployeeDetailController
+public interface IEmployeeDetailController : IDetailControllerBase<EmployeeDetailData>
 {
-	Task<EmployeeDetailDto> GetDetailDtoAsync(EntityRequestInfo info, CancellationToken cancellationToken = default);
-	Task<Dto<int>> PersistDetailDtoAsync(EmployeeDetailDto dto, CancellationToken cancellationToken = default);
+	Task<Dto<int>> PersistDetailDtoAsync(EmployeeDetailData dto, CancellationToken cancellationToken = default);
 }

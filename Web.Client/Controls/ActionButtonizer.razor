@@ -1,0 +1,8 @@
+﻿@using DanM.HrSystem.Contracts.ControlDatas
+@using DanM.HrSystem.Web.Client.Controls.Framework
+@inherits DataControlBase<ActionButtonizerData>
+
+@foreach (var action in this.Data.Actions)
+{
+	<HxButton Text="@action.Text" />
+}

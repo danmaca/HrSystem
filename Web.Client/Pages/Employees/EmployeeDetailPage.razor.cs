@@ -1,53 +1,41 @@
-﻿using DanM.HrSystem.Contracts;
-using DanM.HrSystem.Contracts.ControlDatas;
-using Havit;
-using Microsoft.AspNetCore.Components.Forms;
+﻿using Havit;
 
 namespace DanM.HrSystem.Web.Client.Pages.Employees;
 
 public partial class EmployeeDetailPage
 {
-	[Parameter] public int? EntityId { get; set; }
-	[Parameter] public EmployeeDetailDto Entity { get; set; }
-	[Parameter] public EventCallback<EmployeeDetailDto> OnEntryCreated { get; set; }
-	[Parameter] public EventCallback<EmployeeDetailDto> OnEntryUpdated { get; set; }
+	[Parameter] public EventCallback<EmployeeDetailData> OnEntryCreated { get; set; }
+	[Parameter] public EventCallback<EmployeeDetailData> OnEntryUpdated { get; set; }
 
 	[Inject] protected IEmployeeDetailController Controller { get; set; }
 
-	private EditContext editContext;
-
-	private bool IsNewEntity => this.EntityId == null;
-
-	protected override async Task OnInitializedAsync()
+	protected override async Task<EmployeeDetailData> CallControllerRequest()
 	{
-		this.Entity = await this.Controller.GetDetailDtoAsync(new EntityRequestInfo(this.EntityId));
-		editContext = new EditContext(this.Entity);
+		return await this.Controller.GetDetailDataAsync(this.Data);
 	}
 
 	private async Task HandleCreateOrUpdateButtonClick()
 	{
-		var dto = (EmployeeDetailDto)editContext.Model;
-		dto.Id = this.EntityId;
+		var dto = (EmployeeDetailData)conEditContext.Model;
 		var result = await this.Controller.PersistDetailDtoAsync(dto);
-		this.EntityId = result.Value;
-		dto.Id = result.Value;
+		dto.EntityId = result.Value;
 	}
 
 	private async Task HandleEditable()
 	{
-		this.Entity = await this.Controller.GetDetailDtoAsync(new EntityRequestInfo(this.EntityId));
-		editContext = new EditContext(this.Entity);
-		this.Entity.tbxFirstName.IsEditable = !this.Entity.tbxFirstName.IsEditable;
+		//this.Data = await this.Controller.GetDetailDataAsync(this.Data);
+		//editContext = new EditContext(this.Data);
+		//this.Data.tbxFirstName.IsEditable = !this.Data.tbxFirstName.IsEditable;
 	}
 
 	private async Task CreateNewEntry()
 	{
-		Contract.Assert(Entity.Id == default, "Záznam již není nový.");
+		Contract.Assert(Data.EntityId == null, "Záznam již není nový.");
 
 		try
 		{
 			//this.Entity.Id = (await EntryFacade.CreateEntryAsync(this.Entity)).Value;
-			await OnEntryCreated.InvokeAsync(this.Entity);
+			await OnEntryCreated.InvokeAsync(this.Data);
 		}
 		catch (OperationFailedException)
 		{
@@ -57,17 +45,17 @@ public partial class EmployeeDetailPage
 
 	private async Task UpdateEntry()
 	{
-		if (Entity.Id == default)
+		if (Data.EntityId == null)
 		{
 			return;
 		}
 
-		if (editContext.Validate())
+		if (conEditContext.Validate())
 		{
 			try
 			{
 				//await EntryFacade.UpdateEntryAsync(this.Entity);
-				await OnEntryUpdated.InvokeAsync(this.Entity);
+				await OnEntryUpdated.InvokeAsync(this.Data);
 			}
 			catch (OperationFailedException)
 			{

@@ -1,37 +1,38 @@
 ﻿@using DanM.HrSystem.Web.Client.Pages.Framework
 @attribute [Route($"{HrNavigationRoutes.Employees.EmployeeDetail}{{{nameof(EntityId)}:int?}}")]
-@inherits DetailPageBase
-@if (this.Entity != null)
+@inherits DetailPageBase<EmployeeDetailData>
+@if (Data != null)
 {
-<EditForm EditContext="editContext">
+<EditForm EditContext="conEditContext">
 	<FluentValidationValidator />
 	<HxFormState>
 		<HxCard>
 			<BodyTemplate>
 				<div>detail</div>
+				<ActionButtonizer Data="@Data.conActionButtonizer" />
 				<div class="row g-4">
 					<div>
-						<TextBox Data="@Entity.tbxLastName" />
-						<TextBox Data="@Entity.tbxFirstName" />
+						<TextBox Data="@Data.tbxLastName" />
+						<TextBox Data="@Data.tbxFirstName" />
 					</div>
 				</div>
 
 				<div class="d-flex">
-					@if (Entity.UpdatedDtt is not null)
+					@if (Data.UpdatedDtt is not null)
 					{
-						<small class="text-muted align-self-end">vloženo @Entity.UpdatedDtt.Value.ToString("g")</small>
+						<small class="text-muted align-self-end">vloženo @Data.UpdatedDtt.Value.ToString("g")</small>
 					}
 
 					<div class="d-lg-flex gap-1 ms-lg-auto flex-grow-1 flex-lg-grow-0">
 						<HxButton Color="ThemeColor.Primary"
-									 OnValidClick="HandleCreateOrUpdateButtonClick"
-									 CssClass="w-100"
-										 Text="@(IsNewEntity ? "Vytvořit" : "Uložit")" />
+										OnValidClick="HandleCreateOrUpdateButtonClick"
+										CssClass="w-100"
+										Text="@(IsNewEntity ? "Vytvořit" : "Uložit")" />
 
 						<HxButton Color="ThemeColor.Primary"
-									 OnValidClick="HandleEditable"
-									 CssClass="w-100"
-									 Text="Editable" />
+										OnValidClick="HandleEditable"
+										CssClass="w-100"
+										Text="Editable" />
 					</div>
 				</div>
 			</BodyTemplate>

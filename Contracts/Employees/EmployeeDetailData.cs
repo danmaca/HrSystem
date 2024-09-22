@@ -3,10 +3,8 @@ using DanM.HrSystem.Primitives.Common;
 
 namespace DanM.HrSystem.Contracts.Employees;
 
-public class EmployeeDetailDto
+public class EmployeeDetailData : DetailControllerData
 {
-	public int? Id { get; set; }
-	public int EmployeeId { get; set; }
 	public string FirstName { get; set; }
 	public string LastName { get; set; }
 	public string PersonalNumber { get; set; }
