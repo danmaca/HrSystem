@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Components.Forms;
 namespace DanM.HrSystem.Web.Client.Pages.Framework;
 
 public abstract class DataPageBase<TData> : PageBase
-	where TData : ControllerData, new()
+	where TData : IControllerData, new()
 {
 	public TData Data { get; private set; }
 	protected EditContext conEditContext;

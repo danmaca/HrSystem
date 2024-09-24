@@ -3,7 +3,7 @@
 namespace DanM.HrSystem.Contracts.Framework.Controllers;
 
 public interface IControllerBase<TData>
-	where TData : ControllerData
+	where TData : IControllerData
 {
 	Task<TData> GetDetailDataAsync(TData data, CancellationToken cancellationToken = default);
 }

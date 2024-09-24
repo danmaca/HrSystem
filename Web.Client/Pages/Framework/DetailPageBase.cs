@@ -7,12 +7,12 @@ public abstract class DetailPageBase<TData> : DataPageBase<TData>
 {
 	[Parameter] public int? EntityId { get; set; }
 
-	protected bool IsNewEntity => this.Data?.EntityId == null;
+	protected bool IsNewEntity => this.Data?.Setup.EntityId == null;
 
 	protected override void PrepareControllerData()
 	{
 		base.PrepareControllerData();
 
-		this.Data.EntityId = this.EntityId;
+		this.Data.Setup.EntityId = this.EntityId;
 	}
 }

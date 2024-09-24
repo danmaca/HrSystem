@@ -1,6 +1,5 @@
 ﻿namespace DanM.HrSystem.Contracts.ControlDatas;
 
-public abstract class DetailControllerData : ControllerData
+public abstract class DetailControllerData : ControllerData<DetailControllerSetup>
 {
-	public int? EntityId { get; set; }
 }

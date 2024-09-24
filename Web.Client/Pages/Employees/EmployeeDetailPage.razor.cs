@@ -1,4 +1,5 @@
-﻿using Havit;
+﻿using DanM.HrSystem.Contracts.Framework.Controllers;
+using Havit;
 
 namespace DanM.HrSystem.Web.Client.Pages.Employees;
 
@@ -7,10 +8,12 @@ public partial class EmployeeDetailPage
 	[Parameter] public EventCallback<EmployeeDetailData> OnEntryCreated { get; set; }
 	[Parameter] public EventCallback<EmployeeDetailData> OnEntryUpdated { get; set; }
 
+	[Inject] protected IControllerManager ControllerManager { get; set; }
 	[Inject] protected IEmployeeDetailController Controller { get; set; }
 
 	protected override async Task<EmployeeDetailData> CallControllerRequest()
 	{
+		//var response = await this.ControllerManager.GetControllerDataAsync(new ControllerManagerRequest());
 		return await this.Controller.GetDetailDataAsync(this.Data);
 	}
 
@@ -18,7 +21,7 @@ public partial class EmployeeDetailPage
 	{
 		var dto = (EmployeeDetailData)conEditContext.Model;
 		var result = await this.Controller.PersistDetailDtoAsync(dto);
-		dto.EntityId = result.Value;
+		dto.Setup.EntityId = result.Value;
 	}
 
 	private async Task HandleEditable()
@@ -30,7 +33,7 @@ public partial class EmployeeDetailPage
 
 	private async Task CreateNewEntry()
 	{
-		Contract.Assert(Data.EntityId == null, "Záznam již není nový.");
+		Contract.Assert(Data.Setup.EntityId == null, "Záznam již není nový.");
 
 		try
 		{
@@ -45,7 +48,7 @@ public partial class EmployeeDetailPage
 
 	private async Task UpdateEntry()
 	{
-		if (Data.EntityId == null)
+		if (Data.Setup.EntityId == null)
 		{
 			return;
 		}
