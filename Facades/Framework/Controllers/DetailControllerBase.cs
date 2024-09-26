@@ -1,5 +1,4 @@
 ﻿using DanM.HrSystem.Contracts.ControlDatas;
-using DanM.HrSystem.Contracts.Framework.Controllers;
 using DanM.HrSystem.Model.Framework;
 using DanM.HrSystem.Services.Framework.Binders;
 
@@ -20,6 +19,13 @@ public abstract class DetailControllerBase<TEntity, TData> : ControllerBase<TDat
 		this.Binders = services.Binders;
 	}
 
+	protected override void OnDataSet()
+	{
+		base.OnDataSet();
+
+		this.Data.Setup.EntityId = this.Data.Setup.Navigation.Params.GetInt("Id");
+	}
+
 	protected abstract Task<TEntity> OnLoadEntityAsync();
 
 	protected virtual TEntity OnCreateEntity()
@@ -27,13 +33,12 @@ public abstract class DetailControllerBase<TEntity, TData> : ControllerBase<TDat
 		return new TEntity();
 	}
 
-	public async Task<TData> GetDetailDataAsync(TData data, CancellationToken cancellationToken = default)
+	protected override async Task OnLoadAsync()
 	{
-		this.Data = data;
+		await base.OnLoadAsync();
 
 		this.Entity = await this.GetEntityAsync();
 		this.BindProperties(BindingMode.UpdateForm);
-		return data;
 	}
 
 	protected async Task<TEntity> GetEntityAsync()
@@ -58,4 +63,9 @@ public abstract class DetailControllerBase<TEntity, TData> : ControllerBase<TDat
 	protected virtual void OnBindingProperties(BindingContext ctx)
 	{
 	}
+}
+
+public interface IDetailControllerBase<TData> : IControllerBase<TData>
+	where TData : DetailControllerData
+{
 }

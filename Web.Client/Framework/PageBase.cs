@@ -1,10 +1,10 @@
-﻿namespace DanM.HrSystem.Web.Client.Pages.Framework;
+﻿namespace DanM.HrSystem.Web.Client.Framework;
 
 public class PageBase : ComponentBase
 {
 	protected override async Task OnInitializedAsync()
 	{
-		await this.OnPageInit();
+		await OnPageInit();
 	}
 
 	protected virtual Task OnPageInit()

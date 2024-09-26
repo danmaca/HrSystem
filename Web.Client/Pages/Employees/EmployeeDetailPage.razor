@@ -1,10 +1,8 @@
-﻿@using DanM.HrSystem.Web.Client.Pages.Framework
+﻿@using DanM.HrSystem.Web.Client.Framework
 @attribute [Route($"{HrNavigationRoutes.Employees.EmployeeDetail}{{{nameof(EntityId)}:int?}}")]
 @inherits DetailPageBase<EmployeeDetailData>
 @if (Data != null)
 {
-<EditForm EditContext="conEditContext">
-	<FluentValidationValidator />
 	<HxFormState>
 		<HxCard>
 			<BodyTemplate>
@@ -18,10 +16,10 @@
 				</div>
 
 				<div class="d-flex">
-					@if (Data.UpdatedDtt is not null)
+					@* @if (Data.UpdatedDtt is not null)
 					{
 						<small class="text-muted align-self-end">vloženo @Data.UpdatedDtt.Value.ToString("g")</small>
-					}
+					} *@
 
 					<div class="d-lg-flex gap-1 ms-lg-auto flex-grow-1 flex-lg-grow-0">
 						<HxButton Color="ThemeColor.Primary"
@@ -38,5 +36,4 @@
 			</BodyTemplate>
 		</HxCard>
 	</HxFormState>
-</EditForm>
 }

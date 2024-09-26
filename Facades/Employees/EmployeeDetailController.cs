@@ -1,5 +1,6 @@
 ﻿using DanM.HrSystem.Contracts;
 using DanM.HrSystem.Contracts.Employees;
+using DanM.HrSystem.Contracts.Framework.Controllers;
 using DanM.HrSystem.DataLayer.Repositories.Employees;
 using DanM.HrSystem.Facades.Framework.Controllers;
 using DanM.HrSystem.Facades.ModelDescriptors;
@@ -65,4 +66,8 @@ public class EmployeeDetailController : DetailControllerBase<Employee, EmployeeD
 		await _unitOfWork.CommitAsync(cancellationToken);
 		return Dto.FromValue(entity.Id);
 	}
+}
+
+public interface IEmployeeDetailController : IDetailControllerBase<EmployeeDetailData>
+{
 }

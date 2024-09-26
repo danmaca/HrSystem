@@ -5,5 +5,5 @@ namespace DanM.HrSystem.Contracts.Framework.Controllers;
 [ApiContract]
 public interface IControllerManager
 {
-	Task<ControllerManagerResponse> GetControllerDataAsync(ControllerManagerRequest request, CancellationToken cancellationToken = default);
+	Task<ControllerCallResponse> GetControllerDataAsync(ControllerCallRequest request, CancellationToken cancellationToken = default);
 }

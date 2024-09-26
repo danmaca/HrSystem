@@ -25,16 +25,16 @@
       },
       "distributionName": ""
     },
-    "http": {
-      "commandName": "Project",
-      "launchBrowser": true,
-      "launchUrl": "http://localhost:5127",
-      "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
-      },
-      "inspectUri": "{wsProtocol}://{url.hostname}:{url.port}/_framework/debug/ws-proxy?browser={browserInspectUri}",
-      "applicationUrl": "http://localhost:5127"
-    }
+	"http": {
+		"commandName": "Project",
+		"launchBrowser": true,
+		"launchUrl": "http://localhost:44301",
+		"environmentVariables": {
+			"ASPNETCORE_ENVIRONMENT": "Development"
+		},
+		"inspectUri": "{wsProtocol}://{url.hostname}:{url.port}/_framework/debug/ws-proxy?browser={browserInspectUri}",
+		"applicationUrl": "http://localhost:59799;https://localhost:44301"
+	}
   },
   "iisSettings": {
     "windowsAuthentication": false,

@@ -1,4 +1,5 @@
 ﻿using System.Runtime.InteropServices;
+using DanM.HrSystem.Contracts.Infrastructure;
 using DanM.HrSystem.DependencyInjection.Configuration;
 using DanM.HrSystem.Web.Server.Infrastructure.LoggingExtensions;
 
@@ -17,6 +18,8 @@ public static class Program
 
 		ConfigureMiddleware(app);
 		ConfigureEndpoints(app);
+
+		new LibraryInitialization().InitLibrary();
 
 		app.Run();
 	}

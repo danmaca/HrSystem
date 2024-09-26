@@ -9,19 +9,9 @@ public partial class EmployeeDetailPage
 	[Parameter] public EventCallback<EmployeeDetailData> OnEntryUpdated { get; set; }
 
 	[Inject] protected IControllerManager ControllerManager { get; set; }
-	[Inject] protected IEmployeeDetailController Controller { get; set; }
-
-	protected override async Task<EmployeeDetailData> CallControllerRequest()
-	{
-		//var response = await this.ControllerManager.GetControllerDataAsync(new ControllerManagerRequest());
-		return await this.Controller.GetDetailDataAsync(this.Data);
-	}
 
 	private async Task HandleCreateOrUpdateButtonClick()
 	{
-		var dto = (EmployeeDetailData)conEditContext.Model;
-		var result = await this.Controller.PersistDetailDtoAsync(dto);
-		dto.Setup.EntityId = result.Value;
 	}
 
 	private async Task HandleEditable()
@@ -43,27 +33,6 @@ public partial class EmployeeDetailPage
 		catch (OperationFailedException)
 		{
 			// NOOP
-		}
-	}
-
-	private async Task UpdateEntry()
-	{
-		if (Data.Setup.EntityId == null)
-		{
-			return;
-		}
-
-		if (conEditContext.Validate())
-		{
-			try
-			{
-				//await EntryFacade.UpdateEntryAsync(this.Entity);
-				await OnEntryUpdated.InvokeAsync(this.Data);
-			}
-			catch (OperationFailedException)
-			{
-				// NOOP
-			}
 		}
 	}
 }
