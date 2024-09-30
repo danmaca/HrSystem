@@ -22,6 +22,8 @@ public abstract class ControllerBase<TData> : IControllerBase<TData>
 			requestInfo.Navigation = null;
 		}
 
+		contentData.Setup.IsPostback = requestInfo.IsPostback;
+
 		this.Data = (TData)contentData;
 
 		await this.OnProcessControllerAsync();
@@ -33,12 +35,12 @@ public abstract class ControllerBase<TData> : IControllerBase<TData>
 
 	protected async Task OnProcessControllerAsync()
 	{
-		this.OnDataSet();
+		this.OnControllerDataSet();
 		await this.OnInitAsync();
 		await this.OnLoadAsync();
 	}
 
-	protected virtual void OnDataSet()
+	protected virtual void OnControllerDataSet()
 	{
 	}
 

@@ -19,19 +19,16 @@ public class EmployeeDetailController : DetailControllerBase<Employee, EmployeeD
 	private readonly IDetailControllerServices _services;
 	private readonly IEmployeeDescriptor _employeeDescriptor;
 	private readonly IEmployeeRepository _employeeRepository;
-	private readonly IUnitOfWork _unitOfWork;
 
 	public EmployeeDetailController(
 		IDetailControllerServices services,
 		IEmployeeDescriptor employeeDescriptor,
-		IEmployeeRepository employeeRepository,
-		IUnitOfWork unitOfWork)
+		IEmployeeRepository employeeRepository)
 		: base(services)
 	{
 		_services = services;
 		_employeeDescriptor = employeeDescriptor;
 		_employeeRepository = employeeRepository;
-		_unitOfWork = unitOfWork;
 	}
 
 	protected override async Task<Employee> OnLoadEntityAsync()
@@ -45,26 +42,6 @@ public class EmployeeDetailController : DetailControllerBase<Employee, EmployeeD
 
 		this.Binders.TextBinder.Bind(ctx, this.Data.tbxFirstName, _employeeDescriptor.FirstNameProp);
 		this.Binders.TextBinder.Bind(ctx, this.Data.tbxLastName, _employeeDescriptor.LastNameProp);
-	}
-
-	public async Task<Dto<int>> PersistDetailDtoAsync(EmployeeDetailData dto, CancellationToken cancellationToken = default)
-	{
-		Employee entity;
-		if (dto.Setup.EntityId != null)
-			entity = await _employeeRepository.GetObjectAsync(dto.Setup.EntityId.Value, cancellationToken);
-		else
-			entity = new Employee();
-
-		entity.FirstName = dto.tbxFirstName.Text;
-		entity.LastName = dto.tbxLastName.Text;
-
-		if (dto.Setup.EntityId != null)
-			_unitOfWork.AddForUpdate(entity);
-		else
-			_unitOfWork.AddForInsert(entity);
-
-		await _unitOfWork.CommitAsync(cancellationToken);
-		return Dto.FromValue(entity.Id);
 	}
 }
 

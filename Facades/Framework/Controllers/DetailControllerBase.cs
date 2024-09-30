@@ -5,23 +5,22 @@ using DanM.HrSystem.Services.Framework.Binders;
 namespace DanM.HrSystem.Facades.Framework.Controllers;
 
 public abstract class DetailControllerBase<TEntity, TData> : ControllerBase<TData>, IDetailControllerBase<TData>
-	where TEntity : IEntity, new()
+	where TEntity : IEntity, class, new()
 	where TData : DetailControllerData
 {
 	private readonly IDetailControllerServices _services;
 
 	public TEntity Entity { get; set; }
-	public IStandardBinders Binders { get; }
+	public IStandardBinders Binders => _services.Binders;
 
 	protected DetailControllerBase(IDetailControllerServices services)
 	{
 		_services = services;
-		this.Binders = services.Binders;
 	}
 
-	protected override void OnDataSet()
+	protected override void OnControllerDataSet()
 	{
-		base.OnDataSet();
+		base.OnControllerDataSet();
 
 		this.Data.Setup.EntityId = this.Data.Setup.Navigation.Params.GetInt("Id");
 	}
@@ -33,12 +32,33 @@ public abstract class DetailControllerBase<TEntity, TData> : ControllerBase<TDat
 		return new TEntity();
 	}
 
+	protected override async Task OnInitAsync()
+	{
+		await base.OnInitAsync();
+
+		this.Entity = await this.GetEntityAsync();
+	}
+
 	protected override async Task OnLoadAsync()
 	{
 		await base.OnLoadAsync();
 
-		this.Entity = await this.GetEntityAsync();
+		if (this.Data.Setup.IsPostback == false)
+		{
+			await this.UpdateFormAsync();
+		}
+	}
+
+	protected virtual Task UpdateFormAsync()
+	{
 		this.BindProperties(BindingMode.UpdateForm);
+		return Task.CompletedTask;
+	}
+
+	protected virtual Task UpdateEntityAsync()
+	{
+		this.BindProperties(BindingMode.UpdateEntity);
+		return Task.CompletedTask;
 	}
 
 	protected async Task<TEntity> GetEntityAsync()
@@ -62,6 +82,18 @@ public abstract class DetailControllerBase<TEntity, TData> : ControllerBase<TDat
 
 	protected virtual void OnBindingProperties(BindingContext ctx)
 	{
+	}
+
+	public async Task PersistDetailDtoAsync()
+	{
+		await this.UpdateEntityAsync();
+
+		if (this.Data.Setup.EntityId != null)
+			_services.UnitOfWork.AddForUpdate(this.Entity);
+		else
+			_services.UnitOfWork.AddForInsert(this.Entity);
+
+		await _services.UnitOfWork.CommitAsync();
 	}
 }
 

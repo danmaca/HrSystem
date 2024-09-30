@@ -1,7 +1,6 @@
 ﻿using DanM.HrSystem.Contracts.ControlDatas;
 using DanM.HrSystem.Contracts.Framework.Controllers;
 using DanM.HrSystem.Web.Client.Framework.Communication;
-using Microsoft.AspNetCore.Components.Forms;
 
 namespace DanM.HrSystem.Web.Client.Framework;
 
@@ -34,9 +33,15 @@ public abstract class DataPageBase<TData> : PageBase
 		request.ContentData = this.Data;
 
 		if (this.Data == null)
+		{
 			this.InitialControllerRequest(request);
+			request.IsPostback = false;
+		}
 		else
+		{
 			this.PrepareControllerRequest(request);
+			request.IsPostback = true;
+		}
 
 		var response = await _serverCommunicator.CallController(request);
 		return response;

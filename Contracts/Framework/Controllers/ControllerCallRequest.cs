@@ -8,9 +8,9 @@ namespace DanM.HrSystem.Contracts.Framework.Controllers;
 public class ControllerCallRequest
 {
 	[DataMember]
-	public IControllerData ContentData { get; set; }
-	[DataMember]
 	public bool IsPostback { get; set; }
+	[DataMember]
+	public IControllerData ContentData { get; set; }
 	[DataMember]
 	public string ContentDataTypeName { get; set; }
 	[DataMember]
