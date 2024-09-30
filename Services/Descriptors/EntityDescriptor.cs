@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 
-namespace DanM.HrSystem.Services.Framework.Descriptors;
+namespace DanM.HrSystem.Services.Descriptors;
 
 public class EntityDescriptor
 {

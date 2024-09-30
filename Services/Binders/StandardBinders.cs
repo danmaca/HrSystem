@@ -1,6 +1,6 @@
 ﻿using Havit.Extensions.DependencyInjection.Abstractions;
 
-namespace DanM.HrSystem.Services.Framework.Binders;
+namespace DanM.HrSystem.Services.Binders;
 
 [Service]
 public class StandardBinders : IStandardBinders

@@ -1,7 +1,7 @@
 ﻿using DanM.HrSystem.Contracts.ControlDatas;
-using DanM.HrSystem.Services.Framework.Descriptors;
+using DanM.HrSystem.Services.Descriptors;
 
-namespace DanM.HrSystem.Services.Framework.Binders;
+namespace DanM.HrSystem.Services.Binders;
 
 public abstract class ControlDataBinder : IControlDataBinder
 {

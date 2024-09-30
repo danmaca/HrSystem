@@ -1,11 +1,11 @@
 ﻿using DanM.HrSystem.Contracts.ControlDatas;
 using DanM.HrSystem.Model.Framework;
-using DanM.HrSystem.Services.Framework.Binders;
+using DanM.HrSystem.Services.Binders;
 
 namespace DanM.HrSystem.Facades.Framework.Controllers;
 
 public abstract class DetailControllerBase<TEntity, TData> : ControllerBase<TData>, IDetailControllerBase<TData>
-	where TEntity : IEntity, class, new()
+	where TEntity : class, IEntity, new()
 	where TData : DetailControllerData
 {
 	private readonly IDetailControllerServices _services;

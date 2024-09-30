@@ -1,8 +1,8 @@
 ﻿using DanM.HrSystem.Contracts.ControlDatas;
-using DanM.HrSystem.Services.Framework.Descriptors;
+using DanM.HrSystem.Services.Descriptors;
 using Havit.Extensions.DependencyInjection.Abstractions;
 
-namespace DanM.HrSystem.Services.Framework.Binders;
+namespace DanM.HrSystem.Services.Binders;
 
 [Service]
 public class TextBinder : CaptionControlDataBinder, ITextBinder

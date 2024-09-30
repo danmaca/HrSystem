@@ -1,12 +1,9 @@
-﻿using DanM.HrSystem.Contracts;
-using DanM.HrSystem.Contracts.Employees;
-using DanM.HrSystem.Contracts.Framework.Controllers;
+﻿using DanM.HrSystem.Contracts.Employees;
 using DanM.HrSystem.DataLayer.Repositories.Employees;
 using DanM.HrSystem.Facades.Framework.Controllers;
 using DanM.HrSystem.Facades.ModelDescriptors;
 using DanM.HrSystem.Model.Employees;
-using DanM.HrSystem.Services.Framework.Binders;
-using Havit.Data.Patterns.UnitOfWorks;
+using DanM.HrSystem.Services.Binders;
 using Havit.Extensions.DependencyInjection.Abstractions;
 using Microsoft.AspNetCore.Authorization;
 

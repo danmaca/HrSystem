@@ -1,5 +1,5 @@
 ﻿using DanM.HrSystem.Model.Employees;
-using DanM.HrSystem.Services.Framework.Descriptors;
+using DanM.HrSystem.Services.Descriptors;
 using Havit.Extensions.DependencyInjection.Abstractions;
 using Microsoft.Extensions.DependencyInjection;
 

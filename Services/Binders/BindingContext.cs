@@ -1,6 +1,6 @@
 ﻿using DanM.HrSystem.Model.Framework;
 
-namespace DanM.HrSystem.Services.Framework.Binders;
+namespace DanM.HrSystem.Services.Binders;
 
 public class BindingContext
 {

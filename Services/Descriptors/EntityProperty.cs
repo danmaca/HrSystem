@@ -1,6 +1,6 @@
-﻿using DanM.HrSystem.Services.Framework.Binders;
+﻿using DanM.HrSystem.Services.Binders;
 
-namespace DanM.HrSystem.Services.Framework.Descriptors;
+namespace DanM.HrSystem.Services.Descriptors;
 
 public class EntityProperty : IEntityProperty
 {
@@ -10,12 +10,12 @@ public class EntityProperty : IEntityProperty
 
 	public EntityProperty(Func<string> captionText)
 	{
-		this.CaptionText = captionText;
+		CaptionText = captionText;
 	}
 
 	public string GetCaptionText(BindingContext context)
 	{
-		return this.CaptionText();
+		return CaptionText();
 	}
 }
 

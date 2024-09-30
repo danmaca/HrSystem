@@ -1,4 +1,4 @@
-﻿using DanM.HrSystem.Services.Framework.Binders;
+﻿using DanM.HrSystem.Services.Binders;
 using Havit.Data.Patterns.UnitOfWorks;
 using Havit.Extensions.DependencyInjection.Abstractions;
 
