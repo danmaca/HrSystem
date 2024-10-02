@@ -1,5 +1,5 @@
 ﻿using System.Security.Claims;
-using DanM.HrSystem.Facades.Infrastructure.Security.Claims;
+using DanM.Core.Facades.Infrastructure.Security.Claims;
 using DanM.HrSystem.Web.Client;
 using DanM.HrSystem.Web.Server.Infrastructure.Security;
 using Microsoft.AspNetCore.Authentication;

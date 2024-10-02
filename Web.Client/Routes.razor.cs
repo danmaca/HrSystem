@@ -1,4 +1,4 @@
-﻿using DanM.HrSystem.Contracts.Infrastructure;
+﻿using DanM.Core.Contracts.Infrastructure;
 using DanM.HrSystem.Resources;
 using Microsoft.AspNetCore.Components;
 

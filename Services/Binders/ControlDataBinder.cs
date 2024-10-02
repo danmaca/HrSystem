@@ -1,4 +1,4 @@
-﻿using DanM.HrSystem.Contracts.ControlDatas;
+﻿using DanM.Core.Contracts.ControlDatas;
 using DanM.HrSystem.Services.Descriptors;
 
 namespace DanM.HrSystem.Services.Binders;

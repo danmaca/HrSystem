@@ -1,5 +1,5 @@
 ﻿using Havit.Extensions.DependencyInjection.Abstractions;
-using DanM.HrSystem.Contracts.Infrastructure;
+using DanM.Core.Contracts.Infrastructure;
 using MailKit.Net.Smtp;
 using Microsoft.Extensions.Options;
 using MimeKit;

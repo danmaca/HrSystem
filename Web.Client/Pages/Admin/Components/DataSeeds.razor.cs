@@ -1,5 +1,5 @@
-﻿using DanM.HrSystem.Contracts;
-using DanM.HrSystem.Contracts.Infrastructure;
+﻿using DanM.Core.Contracts;
+using DanM.Core.Contracts.Infrastructure;
 using Microsoft.AspNetCore.Components;
 
 namespace DanM.HrSystem.Web.Client.Pages.Admin.Components;

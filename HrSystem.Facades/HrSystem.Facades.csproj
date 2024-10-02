@@ -2,8 +2,8 @@
 
 	<PropertyGroup>
 		<TargetFramework>net8.0</TargetFramework>
-		<AssemblyName>DanM.Core.Facades</AssemblyName>
-		<RootNamespace>DanM.Core.Facades</RootNamespace>
+		<AssemblyName>DanM.HrSystem.Facades</AssemblyName>
+		<RootNamespace>DanM.HrSystem.Facades</RootNamespace>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -23,6 +23,8 @@
 	<ItemGroup>
 		<ProjectReference Include="..\Contracts\Contracts.csproj" />
 		<ProjectReference Include="..\DataLayer\DataLayer.csproj" />
+		<ProjectReference Include="..\Facades\Facades.csproj" />
+		<ProjectReference Include="..\HrSystem.Contracts\HrSystem.Contracts.csproj" />
 		<ProjectReference Include="..\Model\Model.csproj" />
 		<ProjectReference Include="..\Primitives\Primitives.csproj" />
 		<ProjectReference Include="..\Services\Services.csproj" />

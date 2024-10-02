@@ -1,4 +1,5 @@
-﻿using DanM.HrSystem.Contracts.Framework.Controllers;
+﻿using DanM.Core.Contracts.Framework.Controllers;
+using DanM.HrSystem.Contracts.Employees;
 using Havit;
 
 namespace DanM.HrSystem.Web.Client.Pages.Employees;

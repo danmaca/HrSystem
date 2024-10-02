@@ -2,7 +2,7 @@
 using Havit.Data.Patterns.UnitOfWorks;
 using Havit.Extensions.DependencyInjection.Abstractions;
 
-namespace DanM.HrSystem.Facades.Framework.Controllers;
+namespace DanM.Core.Facades.Framework.Controllers;
 
 [Service]
 public class DetailControllerServices : IDetailControllerServices

@@ -1,6 +1,6 @@
-﻿using DanM.HrSystem.Contracts.ControlDatas;
-using DanM.HrSystem.Contracts.Framework.Controllers;
-using DanM.HrSystem.Contracts.Framework.Navigation;
+﻿using DanM.Core.Contracts.ControlDatas;
+using DanM.Core.Contracts.Framework.Controllers;
+using DanM.Core.Contracts.Framework.Navigation;
 
 namespace DanM.HrSystem.Web.Client.Framework;
 

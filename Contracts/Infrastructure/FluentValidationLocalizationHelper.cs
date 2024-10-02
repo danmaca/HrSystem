@@ -3,7 +3,7 @@ using FluentValidation;
 using FluentValidation.Resources;
 using Microsoft.Extensions.Localization;
 
-namespace DanM.HrSystem.Contracts.Infrastructure;
+namespace DanM.Core.Contracts.Infrastructure;
 public static class FluentValidationLocalizationHelper
 {
 	public static void RegisterDefaultValidationMessages(IStringLocalizer localizer)

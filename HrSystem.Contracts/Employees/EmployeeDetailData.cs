@@ -1,4 +1,4 @@
-﻿using DanM.HrSystem.Contracts.ControlDatas;
+﻿using DanM.Core.Contracts.ControlDatas;
 
 namespace DanM.HrSystem.Contracts.Employees;
 

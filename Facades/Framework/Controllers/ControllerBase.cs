@@ -1,7 +1,7 @@
-﻿using DanM.HrSystem.Contracts.ControlDatas;
-using DanM.HrSystem.Contracts.Framework.Controllers;
+﻿using DanM.Core.Contracts.ControlDatas;
+using DanM.Core.Contracts.Framework.Controllers;
 
-namespace DanM.HrSystem.Facades.Framework.Controllers;
+namespace DanM.Core.Facades.Framework.Controllers;
 
 public abstract class ControllerBase<TData> : IControllerBase<TData>
 	where TData : IControllerData

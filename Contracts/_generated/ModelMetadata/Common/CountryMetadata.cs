@@ -5,7 +5,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace DanM.HrSystem.Contracts.ModelMetadata.Common;
+namespace DanM.Core.Contracts.ModelMetadata.Common;
 
 [System.CodeDom.Compiler.GeneratedCode("Havit.Data.EntityFrameworkCore.CodeGenerator", "1.0")]
 public static class CountryMetadata

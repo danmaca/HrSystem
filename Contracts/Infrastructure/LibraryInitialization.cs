@@ -1,7 +1,7 @@
-﻿using DanM.HrSystem.Contracts.ControlDatas;
+﻿using DanM.Core.Contracts.ControlDatas;
 using DanM.HrSystem.Primitives.Utils;
 
-namespace DanM.HrSystem.Contracts.Infrastructure;
+namespace DanM.Core.Contracts.Infrastructure;
 
 public class LibraryInitialization
 {

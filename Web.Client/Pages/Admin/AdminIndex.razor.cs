@@ -1,5 +1,5 @@
 ﻿using Blazored.LocalStorage;
-using DanM.HrSystem.Contracts.Infrastructure;
+using DanM.Core.Contracts.Infrastructure;
 using DanM.HrSystem.Web.Client.Pages.Admin.Components;
 using DanM.HrSystem.Web.Client.Resources;
 using DanM.HrSystem.Web.Client.Resources.Pages.Admin;

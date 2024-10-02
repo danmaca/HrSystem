@@ -2,8 +2,8 @@
 
 	<PropertyGroup>
 		<TargetFramework>net8.0</TargetFramework>
-		<AssemblyName>DanM.Core.Contracts</AssemblyName>
-		<RootNamespace>DanM.Core.Contracts</RootNamespace>
+		<AssemblyName>DanM.HrSystem.Contracts</AssemblyName>
+		<RootNamespace>DanM.HrSystem.Contracts</RootNamespace>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -13,6 +13,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<ProjectReference Include="..\Contracts\Contracts.csproj" />
 		<ProjectReference Include="..\Primitives\Primitives.csproj" />
 		<ProjectReference Include="..\Resources\Resources.csproj" />
 	</ItemGroup>

@@ -1,6 +1,6 @@
 ﻿using Havit.ComponentModel;
 
-namespace DanM.HrSystem.Contracts.Infrastructure;
+namespace DanM.Core.Contracts.Infrastructure;
 
 [ApiContract]
 public interface IDataSeedFacade

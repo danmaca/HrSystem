@@ -2,10 +2,10 @@
 using Hangfire;
 using Hangfire.Dashboard;
 using Havit.Blazor.Grpc.Server;
-using DanM.HrSystem.Contracts;
-using DanM.HrSystem.Contracts.Infrastructure;
+using DanM.Core.Contracts;
+using DanM.Core.Contracts.Infrastructure;
 using DanM.HrSystem.DependencyInjection;
-using DanM.HrSystem.Facades.Infrastructure.Security;
+using DanM.Core.Facades.Infrastructure.Security;
 using DanM.HrSystem.Primitives.Security;
 using DanM.HrSystem.Services.HealthChecks;
 using DanM.HrSystem.Services.Infrastructure.Security;

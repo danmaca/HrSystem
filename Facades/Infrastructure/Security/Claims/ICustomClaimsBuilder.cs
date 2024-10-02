@@ -1,6 +1,6 @@
 ﻿using System.Security.Claims;
 
-namespace DanM.HrSystem.Facades.Infrastructure.Security.Claims;
+namespace DanM.Core.Facades.Infrastructure.Security.Claims;
 
 public interface ICustomClaimsBuilder
 {

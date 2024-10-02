@@ -1,4 +1,4 @@
-﻿namespace DanM.HrSystem.Facades.Infrastructure.Security;
+﻿namespace DanM.Core.Facades.Infrastructure.Security;
 
 public static class PolicyNames
 {

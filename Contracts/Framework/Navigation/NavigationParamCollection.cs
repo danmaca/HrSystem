@@ -1,6 +1,6 @@
 ﻿using System.Collections.ObjectModel;
 
-namespace DanM.HrSystem.Contracts.Framework.Navigation;
+namespace DanM.Core.Contracts.Framework.Navigation;
 
 public class NavigationParamCollection : Collection<NavigationParam>
 {

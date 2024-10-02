@@ -1,5 +1,5 @@
-﻿using DanM.HrSystem.Contracts.ControlDatas;
-using DanM.HrSystem.Contracts.Framework.Controllers;
+﻿using DanM.Core.Contracts.ControlDatas;
+using DanM.Core.Contracts.Framework.Controllers;
 using DanM.HrSystem.Web.Client.Framework.Communication;
 
 namespace DanM.HrSystem.Web.Client.Framework;

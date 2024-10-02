@@ -1,6 +1,6 @@
 ﻿using ProtoBuf;
 
-namespace DanM.HrSystem.Contracts;
+namespace DanM.Core.Contracts;
 
 [ProtoContract]
 public class DataFragmentResult<TItem>

@@ -3,8 +3,8 @@
 	<PropertyGroup>
 		<TargetFramework>net8.0</TargetFramework>
 		<IsPackable>false</IsPackable>
-		<AssemblyName>DanM.HrSystem.Facades.Tests</AssemblyName>
-		<RootNamespace>DanM.HrSystem.Facades.Tests</RootNamespace>
+		<AssemblyName>DanM.Core.Facades.Tests</AssemblyName>
+		<RootNamespace>DanM.Core.Facades.Tests</RootNamespace>
 		<PublishDir>obj\$(Configuration)\publish</PublishDir>
 		<EnableMSTestRunner>true</EnableMSTestRunner>
 		<OutputType>Exe</OutputType>

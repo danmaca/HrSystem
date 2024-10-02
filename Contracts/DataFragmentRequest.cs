@@ -1,7 +1,7 @@
 ﻿using Havit.Collections;
 using ProtoBuf;
 
-namespace DanM.HrSystem.Contracts;
+namespace DanM.Core.Contracts;
 
 [ProtoContract]
 public class DataFragmentRequest<TFilter>

@@ -1,4 +1,4 @@
-﻿namespace DanM.HrSystem.Contracts.ControlDatas;
+﻿namespace DanM.Core.Contracts.ControlDatas;
 
 public class CaptionControlData : ControlData, ICaptionControlData
 {

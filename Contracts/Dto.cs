@@ -1,7 +1,7 @@
 ﻿#pragma warning disable SA1402 // File may only contain a single class
 using ProtoBuf;
 
-namespace DanM.HrSystem.Contracts;
+namespace DanM.Core.Contracts;
 
 [ProtoContract]
 public class Dto<TValue>

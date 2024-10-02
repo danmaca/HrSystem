@@ -1,4 +1,4 @@
-﻿namespace DanM.HrSystem.Contracts.Infrastructure.Security;
+﻿namespace DanM.Core.Contracts.Infrastructure.Security;
 
 public static class ClaimConstants
 {

@@ -1,7 +1,7 @@
-﻿using DanM.HrSystem.Contracts.Employees;
+﻿using DanM.Core.Facades.Framework.Controllers;
+using DanM.Core.Facades.ModelDescriptors;
+using DanM.HrSystem.Contracts.Employees;
 using DanM.HrSystem.DataLayer.Repositories.Employees;
-using DanM.HrSystem.Facades.Framework.Controllers;
-using DanM.HrSystem.Facades.ModelDescriptors;
 using DanM.HrSystem.Model.Employees;
 using DanM.HrSystem.Services.Binders;
 using Havit.Extensions.DependencyInjection.Abstractions;

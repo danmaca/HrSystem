@@ -3,7 +3,7 @@ using DanM.HrSystem.Services.Descriptors;
 using Havit.Extensions.DependencyInjection.Abstractions;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace DanM.HrSystem.Facades.ModelDescriptors;
+namespace DanM.Core.Facades.ModelDescriptors;
 
 [Service(Lifetime = ServiceLifetime.Singleton)]
 public class EmployeeDescriptor : EntityDescriptor<Employee>, IEmployeeDescriptor

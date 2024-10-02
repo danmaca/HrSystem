@@ -1,4 +1,4 @@
-﻿namespace DanM.HrSystem.Contracts.Framework.Communication;
+﻿namespace DanM.Core.Contracts.Framework.Communication;
 
 [ApiContract]
 public interface IClientServerCommunicator

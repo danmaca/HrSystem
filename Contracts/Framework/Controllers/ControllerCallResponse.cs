@@ -1,7 +1,7 @@
 ﻿using System.Runtime.Serialization;
-using DanM.HrSystem.Contracts.ControlDatas;
+using DanM.Core.Contracts.ControlDatas;
 
-namespace DanM.HrSystem.Contracts.Framework.Controllers;
+namespace DanM.Core.Contracts.Framework.Controllers;
 
 [DataContract]
 public class ControllerCallResponse

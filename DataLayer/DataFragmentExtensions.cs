@@ -1,5 +1,5 @@
 ﻿using Havit.Data.EntityFrameworkCore.Patterns.QueryServices;
-using DanM.HrSystem.Contracts;
+using DanM.Core.Contracts;
 
 namespace DanM.HrSystem.DataLayer;
 

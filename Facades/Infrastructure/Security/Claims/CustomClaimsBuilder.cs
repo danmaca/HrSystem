@@ -3,14 +3,14 @@ using System.Security.Claims;
 using System.Threading;
 using Havit.Data.Patterns.UnitOfWorks;
 using Havit.Extensions.DependencyInjection.Abstractions;
-using DanM.HrSystem.Contracts.Infrastructure.Security;
+using DanM.Core.Contracts.Infrastructure.Security;
 using DanM.HrSystem.DataLayer.Repositories.Security;
 using DanM.HrSystem.Model.Security;
 using DanM.HrSystem.Primitives.Security;
 using DanM.HrSystem.Services.Infrastructure;
 using Havit.Services.Caching;
 
-namespace DanM.HrSystem.Facades.Infrastructure.Security.Claims;
+namespace DanM.Core.Facades.Infrastructure.Security.Claims;
 
 [Service(Profile = ServiceProfiles.WebServer)]
 public class CustomClaimsBuilder : ICustomClaimsBuilder

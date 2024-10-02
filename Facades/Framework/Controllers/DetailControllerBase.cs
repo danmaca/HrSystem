@@ -1,8 +1,8 @@
-﻿using DanM.HrSystem.Contracts.ControlDatas;
+﻿using DanM.Core.Contracts.ControlDatas;
 using DanM.HrSystem.Model.Framework;
 using DanM.HrSystem.Services.Binders;
 
-namespace DanM.HrSystem.Facades.Framework.Controllers;
+namespace DanM.Core.Facades.Framework.Controllers;
 
 public abstract class DetailControllerBase<TEntity, TData> : ControllerBase<TData>, IDetailControllerBase<TData>
 	where TEntity : class, IEntity, new()

@@ -1,6 +1,6 @@
-﻿using DanM.HrSystem.Contracts.Framework.Navigation;
+﻿using DanM.Core.Contracts.Framework.Navigation;
 
-namespace DanM.HrSystem.Contracts.ControlDatas;
+namespace DanM.Core.Contracts.ControlDatas;
 
 public class ControllerSetup
 {
