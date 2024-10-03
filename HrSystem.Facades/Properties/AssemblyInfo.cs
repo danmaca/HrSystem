@@ -1,4 +1,4 @@
-﻿namespace DanM.Core.Facades.Properties;
+﻿namespace DanM.HrSystem.Facades.Properties;
 
 public class AssemblyInfo
 {

@@ -12,7 +12,7 @@ public partial class EmployeeGridTable
 	private List<EmployeeGridDto> gridData;
 	private HxGrid<EmployeeGridDto> conGrid;
 
-	 private async Task<GridDataProviderResult<EmployeeGridDto>> GetDataAsync(GridDataProviderRequest<EmployeeGridDto> request)
+	private async Task<GridDataProviderResult<EmployeeGridDto>> GetDataAsync(GridDataProviderRequest<EmployeeGridDto> request)
 	{
 		try
 		{

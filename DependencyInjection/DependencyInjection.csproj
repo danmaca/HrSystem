@@ -18,6 +18,7 @@
 		<ProjectReference Include="..\DataLayer\DataLayer.csproj" />
 		<ProjectReference Include="..\Entity\Entity.csproj" />
 		<ProjectReference Include="..\Facades\Facades.csproj" />
+		<ProjectReference Include="..\HrSystem.Facades\HrSystem.Facades.csproj" />
 		<ProjectReference Include="..\Model\Model.csproj" />
 		<ProjectReference Include="..\Services\Services.csproj" />
 	</ItemGroup>

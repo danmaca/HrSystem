@@ -147,6 +147,7 @@ public static class ServiceCollectionExtensions
 		services.AddByServiceAttribute(typeof(DanM.HrSystem.DataLayer.Properties.AssemblyInfo).Assembly, configuration.ServiceProfiles);
 		services.AddByServiceAttribute(typeof(DanM.HrSystem.Services.Properties.AssemblyInfo).Assembly, configuration.ServiceProfiles);
 		services.AddByServiceAttribute(typeof(DanM.Core.Facades.Properties.AssemblyInfo).Assembly, configuration.ServiceProfiles);
+		services.AddByServiceAttribute(typeof(DanM.HrSystem.Facades.Properties.AssemblyInfo).Assembly, configuration.ServiceProfiles);
 	}
 
 	private static void InstallAuthorizationHandlers(IServiceCollection services)

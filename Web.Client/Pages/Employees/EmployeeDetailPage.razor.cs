@@ -9,8 +9,6 @@ public partial class EmployeeDetailPage
 	[Parameter] public EventCallback<EmployeeDetailData> OnEntryCreated { get; set; }
 	[Parameter] public EventCallback<EmployeeDetailData> OnEntryUpdated { get; set; }
 
-	[Inject] protected IControllerManager ControllerManager { get; set; }
-
 	private async Task HandleCreateOrUpdateButtonClick()
 	{
 	}

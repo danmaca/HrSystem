@@ -93,9 +93,11 @@ public static class Program
 	{
 		builder.Services.AddTransient<IOperationFailedExceptionGrpcClientListener, HxMessengerOperationFailedExceptionGrpcClientListener>();
 
-		builder.Services.AddGrpcClientInfrastructure(assemblyToScanForDataContracts: typeof(Dto).Assembly);
+		builder.Services.AddGrpcClientInfrastructure(assemblyToScanForDataContracts: typeof(DanM.Core.Contracts.Properties.AssemblyInfo).Assembly);
+		builder.Services.AddGrpcClientInfrastructure(assemblyToScanForDataContracts: typeof(DanM.HrSystem.Contracts.Properties.AssemblyInfo).Assembly);
 
-		builder.Services.AddGrpcClientsByApiContractAttributes(typeof(IDataSeedFacade).Assembly);
+		builder.Services.AddGrpcClientsByApiContractAttributes(typeof(DanM.Core.Contracts.Properties.AssemblyInfo).Assembly);
+		builder.Services.AddGrpcClientsByApiContractAttributes(typeof(DanM.HrSystem.Contracts.Properties.AssemblyInfo).Assembly);
 	}
 
 	private static async ValueTask SetLanguageAsync(WebAssemblyHost webAssemblyHost)

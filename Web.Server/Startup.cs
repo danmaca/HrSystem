@@ -83,7 +83,8 @@ public class Startup
 		services.AddControllersWithViews();
 
 		// gRPC
-		services.AddGrpcServerInfrastructure(assemblyToScanForDataContracts: typeof(Dto).Assembly);
+		services.AddGrpcServerInfrastructure(assemblyToScanForDataContracts: typeof(DanM.Core.Contracts.Properties.AssemblyInfo).Assembly);
+		services.AddGrpcServerInfrastructure(assemblyToScanForDataContracts: typeof(DanM.HrSystem.Contracts.Properties.AssemblyInfo).Assembly);
 		services.AddCodeFirstGrpcReflection();
 
 		// Health checks
@@ -141,7 +142,13 @@ public class Startup
 			.AddAdditionalAssemblies(typeof(DanM.HrSystem.Web.Client.Program).Assembly);
 
 		app.MapGrpcServicesByApiContractAttributes(
-				typeof(IDataSeedFacade).Assembly,
+				typeof(DanM.Core.Contracts.Properties.AssemblyInfo).Assembly,
+				configureEndpointWithAuthorization: endpoint =>
+				{
+					endpoint.RequireAuthorization(); // TODO? AuthorizationPolicyNames.ApiScopePolicy when needed
+				});
+		app.MapGrpcServicesByApiContractAttributes(
+				typeof(DanM.HrSystem.Contracts.Properties.AssemblyInfo).Assembly,
 				configureEndpointWithAuthorization: endpoint =>
 				{
 					endpoint.RequireAuthorization(); // TODO? AuthorizationPolicyNames.ApiScopePolicy when needed
