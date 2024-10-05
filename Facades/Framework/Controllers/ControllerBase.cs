@@ -1,5 +1,6 @@
 ﻿using DanM.Core.Contracts.ControlDatas;
-using DanM.Core.Contracts.Framework.Controllers;
+using DanM.Core.Contracts.Controllers;
+using DanM.HrSystem.Primitives.Utils;
 
 namespace DanM.Core.Facades.Framework.Controllers;
 
@@ -16,7 +17,7 @@ public abstract class ControllerBase<TData> : IControllerBase<TData>
 
 		if (requestInfo.IsPostback == false)
 		{
-			Type controllerDataType = typeof(ControlData).Assembly.GetType(requestInfo.ContentDataTypeName);
+			Type controllerDataType = TypeResolver.GetType(requestInfo.ContentDataTypeName);
 			contentData = (IControllerData)Activator.CreateInstance(controllerDataType);
 			contentData.Setup.Navigation = requestInfo.Navigation;
 			requestInfo.Navigation = null;

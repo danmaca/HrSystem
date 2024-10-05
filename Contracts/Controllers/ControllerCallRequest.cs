@@ -1,8 +1,8 @@
 ﻿using System.Runtime.Serialization;
 using DanM.Core.Contracts.ControlDatas;
-using DanM.Core.Contracts.Framework.Navigation;
+using DanM.Core.Contracts.Navigation;
 
-namespace DanM.Core.Contracts.Framework.Controllers;
+namespace DanM.Core.Contracts.Controllers;
 
 [DataContract]
 public class ControllerCallRequest

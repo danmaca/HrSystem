@@ -7,24 +7,6 @@ namespace DanM.HrSystem.Primitives.Utils;
 
 public class DataContractSerialization
 {
-	#region SerializationMethod enum
-
-	public enum SerializationMethod
-	{
-		Xml,
-		Json
-	}
-
-	#endregion
-
-	#region TypeKind enum
-	public enum TypeKind
-	{
-		None,
-		Controller,
-	}
-	#endregion
-
 	private static readonly List<KnownTypeInfo> _knownTypeBases = new List<KnownTypeInfo>();
 	private static readonly Dictionary<string, HashSet<Type>> _knownTypes = new Dictionary<string, HashSet<Type>>();
 
@@ -381,7 +363,17 @@ public class DataContractSerialization
 		return Encoding.UTF8.GetString(source, 0, source.Length);
 	}
 
-	#region Nested type: KnownTypeInfo
+	public enum SerializationMethod
+	{
+		Xml,
+		Json
+	}
+
+	public enum TypeKind
+	{
+		None,
+		Controller,
+	}
 
 	public class KnownTypeInfo
 	{
@@ -429,9 +421,7 @@ public class DataContractSerialization
 		{
 			return base.GetHashCode() ^ KnownTypeGenericMember.GetHashCode();
 		}
-
 	}
-	#endregion
 
 	public static class MemberCoder
 	{

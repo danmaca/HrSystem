@@ -1,6 +1,6 @@
 ﻿using System.Collections.ObjectModel;
 
-namespace DanM.Core.Contracts.Framework.Navigation;
+namespace DanM.Core.Contracts.Navigation;
 
 public class NavigationParamCollection : Collection<NavigationParam>
 {
@@ -16,25 +16,25 @@ public class NavigationParamCollection : Collection<NavigationParam>
 	}
 	private void SetParam(string name, string value)
 	{
-		var param = this.GetParam(name);
+		var param = GetParam(name);
 		if (param == null)
 		{
 			param = new NavigationParam()
 			{
 				Name = name,
 			};
-			this.Add(param);
+			Add(param);
 		}
 		param.Value = value ?? string.Empty;
 	}
 
 	public int? GetInt(string name)
 	{
-		string value = this.GetParam(name)?.Value;
+		string value = GetParam(name)?.Value;
 		return string.IsNullOrEmpty(value) == false ? int.Parse(value) : null;
 	}
 	public void SetInt(string name, int? value)
 	{
-		this.SetParam(name, value?.ToString());
+		SetParam(name, value?.ToString());
 	}
 }

@@ -1,4 +1,4 @@
-﻿using DanM.Core.Contracts.Framework.Controllers;
+﻿using DanM.Core.Contracts.Controllers;
 using DanM.HrSystem.Contracts.Employees;
 using Havit;
 

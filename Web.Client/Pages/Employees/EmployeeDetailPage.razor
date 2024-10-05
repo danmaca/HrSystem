@@ -4,37 +4,35 @@
 @inherits DetailPageBase<EmployeeDetailData>
 @if (Data != null)
 {
-	<HxFormState>
-		<HxCard>
-			<BodyTemplate>
-				<div>detail</div>
-				<ActionButtonizer Data="@Data.conActionButtonizer" />
-				<div class="row g-4">
-					<div>
-						<TextBox Data="@Data.tbxLastName" />
-						<TextBox Data="@Data.tbxFirstName" />
-					</div>
+	<HxCard>
+		<BodyTemplate>
+			<div>detail</div>
+			<ActionButtonizer Data="@Data.conActionButtonizer" />
+			<div class="row g-4">
+				<div>
+					<TextBox Data="@Data.tbxLastName" />
+					<TextBox Data="@Data.tbxFirstName" />
 				</div>
+			</div>
 
-				<div class="d-flex">
-					@* @if (Data.UpdatedDtt is not null)
-					{
-						<small class="text-muted align-self-end">vloženo @Data.UpdatedDtt.Value.ToString("g")</small>
-					} *@
+			<div class="d-flex">
+				@* @if (Data.UpdatedDtt is not null)
+				{
+					<small class="text-muted align-self-end">vloženo @Data.UpdatedDtt.Value.ToString("g")</small>
+				} *@
 
-					<div class="d-lg-flex gap-1 ms-lg-auto flex-grow-1 flex-lg-grow-0">
-						<HxButton Color="ThemeColor.Primary"
-										OnValidClick="HandleCreateOrUpdateButtonClick"
-										CssClass="w-100"
-										Text="@(IsNewEntity ? "Vytvořit" : "Uložit")" />
+				<div class="d-lg-flex gap-1 ms-lg-auto flex-grow-1 flex-lg-grow-0">
+					<HxButton Color="ThemeColor.Primary"
+									OnValidClick="HandleCreateOrUpdateButtonClick"
+									CssClass="w-100"
+									Text="@(IsNewEntity ? "Vytvořit" : "Uložit")" />
 
-						<HxButton Color="ThemeColor.Primary"
-										OnValidClick="HandleEditable"
-										CssClass="w-100"
-										Text="Editable" />
-					</div>
+					<HxButton Color="ThemeColor.Primary"
+									OnValidClick="HandleEditable"
+									CssClass="w-100"
+									Text="Editable" />
 				</div>
-			</BodyTemplate>
-		</HxCard>
-	</HxFormState>
+			</div>
+		</BodyTemplate>
+	</HxCard>
 }

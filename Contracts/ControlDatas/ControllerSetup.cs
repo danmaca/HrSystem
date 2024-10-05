@@ -1,4 +1,4 @@
-﻿using DanM.Core.Contracts.Framework.Navigation;
+﻿using DanM.Core.Contracts.Navigation;
 
 namespace DanM.Core.Contracts.ControlDatas;
 

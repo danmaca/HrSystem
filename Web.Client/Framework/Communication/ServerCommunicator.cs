@@ -1,6 +1,6 @@
 ﻿using DanM.Core.Contracts;
-using DanM.Core.Contracts.Framework.Communication;
-using DanM.Core.Contracts.Framework.Controllers;
+using DanM.Core.Contracts.Communication;
+using DanM.Core.Contracts.Controllers;
 using DanM.HrSystem.Primitives.Utils;
 
 namespace DanM.HrSystem.Web.Client.Framework.Communication;

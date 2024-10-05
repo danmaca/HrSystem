@@ -1,4 +1,4 @@
-﻿namespace DanM.Core.Contracts.Framework.Navigation;
+﻿namespace DanM.Core.Contracts.Navigation;
 
 public class NavigationQuery
 {
