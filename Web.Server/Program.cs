@@ -3,6 +3,7 @@ using DanM.Core.Contracts.Infrastructure;
 using DanM.HrSystem.Contracts.Infrastructure;
 using DanM.HrSystem.DependencyInjection.Configuration;
 using DanM.HrSystem.Web.Server.Infrastructure.LoggingExtensions;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 
 namespace DanM.HrSystem.Web.Server;
 
@@ -21,6 +22,8 @@ public static class Program
 		ConfigureEndpoints(app);
 
 		new LibraryInitialization().InitLibrary();
+
+		new StartupHrSystem().SetupHrSystem(app);
 
 		app.Run();
 	}

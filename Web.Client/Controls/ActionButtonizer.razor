@@ -2,7 +2,13 @@
 @using DanM.HrSystem.Web.Client.Controls.Framework
 @inherits DataControlBase<ActionButtonizerData>
 
+<div class="d-flex">
+	<div class="d-lg-flex gap-1 ms-lg-auto flex-grow-1 flex-lg-grow-0">
 @foreach (var action in this.Data.Actions)
 {
-	<HxButton Text="@action.Text" />
+	<HxButton Text="@action.Text" CssClass="w-100"
+		OnClick="@action.OnClickInvokedAsync"
+		Color="ThemeColor.Primary" />
 }
+	</div>
+</div>

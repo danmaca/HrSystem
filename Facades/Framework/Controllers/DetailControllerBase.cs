@@ -1,6 +1,7 @@
 ﻿using DanM.Core.Contracts.ControlDatas;
 using DanM.HrSystem.Model.Framework;
 using DanM.HrSystem.Services.Binders;
+using DanM.HrSystem.Services.Workflows;
 
 namespace DanM.Core.Facades.Framework.Controllers;
 
@@ -76,6 +77,11 @@ public abstract class DetailControllerBase<TEntity, TData> : ControllerBase<TDat
 		var ctx = new BindingContext();
 		ctx.Mode = bindingMode;
 		ctx.BindingEntity = this.Entity;
+		ctx.WorkflowRequest = new WorkflowRequest();
+		ctx.WorkflowRequest.WorkflowEntity = this.Entity;
+		ctx.WorkflowRequest.BindingEntity = this.Entity;
+
+		this.Binders.WorkflowActionsBinder.Bind(ctx, Data.conActionButtonizer);
 
 		this.OnBindingProperties(ctx);
 	}
