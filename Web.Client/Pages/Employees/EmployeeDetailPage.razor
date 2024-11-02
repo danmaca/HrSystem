@@ -1,7 +1,9 @@
 ﻿@using DanM.HrSystem.Contracts.Employees
 @using DanM.HrSystem.Web.Client.Framework
+@using DanM.HrSystem.Web.Client.Infrastructure.Rendering
 @attribute [Route($"{HrNavigationRoutes.Employees.EmployeeDetail}{{{nameof(EntityId)}:int?}}")]
 @inherits DetailPageBase<EmployeeDetailData>
+<CascadingValue Name="PageShare" Value="@this.CurrentPageShare">
 @if (Data != null)
 {
 	<HxCard>
@@ -36,3 +38,4 @@
 		</BodyTemplate>
 	</HxCard>
 }
+</CascadingValue>

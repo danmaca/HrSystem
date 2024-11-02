@@ -7,7 +7,7 @@
 @foreach (var action in this.Data.Actions)
 {
 	<HxButton Text="@action.Text" CssClass="w-100"
-		OnClick="@action.OnClickInvokedAsync"
+		OnClick="async (args) => await this.OnClickInvokedAsync(action)"
 		Color="ThemeColor.Primary" />
 }
 	</div>

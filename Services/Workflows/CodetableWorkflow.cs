@@ -12,6 +12,15 @@ public class CodetableWorkflow : WorkflowBase
 		{
 			Key = "Edit",
 			Name = "Upravit",
+			ChangeToDialog = WorkflowDialog.Editing,
+		}
+			.WithDialogRequiredRule(WorkflowDialog.Detail));
+
+		this.Transitions.Add(new WorkflowTransition()
+		{
+			Key = "SaveTest",
+			Name = "UložitTEst",
+			ChangeToDialog = WorkflowDialog.Detail,
 		}
 			.WithDialogRequiredRule(WorkflowDialog.Detail));
 
@@ -19,6 +28,7 @@ public class CodetableWorkflow : WorkflowBase
 		{
 			Key = "Save",
 			Name = "Uložit",
+			ChangeToDialog = WorkflowDialog.Detail,
 		}
 			.WithDialogRequiredRule(WorkflowDialog.Editing));
 
@@ -26,6 +36,7 @@ public class CodetableWorkflow : WorkflowBase
 		{
 			Key = "Cancel",
 			Name = "Storno",
+			ChangeToDialog = WorkflowDialog.Detail,
 		}
 			.WithDialogRequiredRule(WorkflowDialog.Editing));
 	}

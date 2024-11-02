@@ -1,7 +1,7 @@
 ﻿using DanM.Core.Contracts;
 using DanM.Core.Contracts.Communication;
 using DanM.Core.Contracts.Controllers;
-using DanM.Core.Facades.Framework.Controllers;
+using DanM.Core.Services.Controllers;
 using DanM.HrSystem.Primitives.Utils;
 using Havit.Extensions.DependencyInjection.Abstractions;
 using Microsoft.AspNetCore.Authorization;
@@ -27,7 +27,7 @@ public class ClientServerCommunicator : IClientServerCommunicator
 			request = serializer.Deserialize<ControllerCallRequest>(jsonRequest.Value, DataContractSerialization.TypeKind.Controller);
 		}
 
-		string controllerTypeName = NameConventionResolver.TranslateDataToController(request.ContentDataTypeName);
+		string controllerTypeName = NameConventionResolver.TranslateDataToController(request.ContentData?.GetType().FullName ?? request.ContentDataTypeName);
 		Type controllerType = TypeResolver.GetType(controllerTypeName);
 		var controller = (IControllerBase)_serviceProvider.GetService(controllerType);
 

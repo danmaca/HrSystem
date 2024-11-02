@@ -2,10 +2,11 @@
 using DanM.HrSystem.Model.Framework;
 using DanM.HrSystem.Services.Binders;
 using DanM.HrSystem.Services.Workflows;
+using Org.BouncyCastle.Tls.Crypto;
 
-namespace DanM.Core.Facades.Framework.Controllers;
+namespace DanM.Core.Services.Controllers;
 
-public abstract class DetailControllerBase<TEntity, TData> : ControllerBase<TData>, IDetailControllerBase<TData>
+public abstract class DetailControllerBase<TEntity, TData> : ControllerBase<TData>, IDetailControllerBase<TData>, IDetailControllerBase
 	where TEntity : class, IEntity, new()
 	where TData : DetailControllerData
 {
@@ -38,6 +39,7 @@ public abstract class DetailControllerBase<TEntity, TData> : ControllerBase<TDat
 		await base.OnInitAsync();
 
 		this.Entity = await this.GetEntityAsync();
+		await this.Binders.WorkflowBinder.TryRunTransition(Data.conActionButtonizer, this.RunWorkflowTransition);
 	}
 
 	protected override async Task OnLoadAsync()
@@ -74,14 +76,16 @@ public abstract class DetailControllerBase<TEntity, TData> : ControllerBase<TDat
 
 	private void BindProperties(BindingMode bindingMode)
 	{
-		var ctx = new BindingContext();
-		ctx.Mode = bindingMode;
+		var ctx = new BindingContext()
+		{
+			Mode = bindingMode,
+		};
 		ctx.BindingEntity = this.Entity;
 		ctx.WorkflowRequest = new WorkflowRequest();
 		ctx.WorkflowRequest.WorkflowEntity = this.Entity;
 		ctx.WorkflowRequest.BindingEntity = this.Entity;
 
-		this.Binders.WorkflowActionsBinder.Bind(ctx, Data.conActionButtonizer);
+		this.Binders.WorkflowBinder.Bind(ctx, Data.conActionButtonizer);
 
 		this.OnBindingProperties(ctx);
 	}
@@ -101,9 +105,37 @@ public abstract class DetailControllerBase<TEntity, TData> : ControllerBase<TDat
 
 		await _services.UnitOfWork.CommitAsync();
 	}
+
+	public async Task RunWorkflowTransition(string transitionKey)
+	{
+		await this.UpdateEntityAsync();
+
+		var wfRequest = new WorkflowRequest();
+		wfRequest.Dialog = Data.conActionButtonizer.CurrentDialog;
+		wfRequest.WorkflowEntity = this.Entity;
+		wfRequest.BindingEntity = this.Entity;
+
+		wfRequest.RunTransitionKey = transitionKey;
+		var workflow = this.Binders.WorkflowBinder.WorkflowManager.ResolveWorkflow(wfRequest);
+
+		var runResult = workflow.RunTransition(wfRequest);
+
+		if (runResult.Result.IsValid)
+		{
+			if (runResult.ChangeToDialog != null)
+				Data.conActionButtonizer.CurrentDialog = runResult.ChangeToDialog;
+
+			await this.UpdateFormAsync();
+		}
+	}
 }
 
 public interface IDetailControllerBase<TData> : IControllerBase<TData>
 	where TData : DetailControllerData
 {
+}
+
+public interface IDetailControllerBase
+{
+	Task RunWorkflowTransition(string transitionKey);
 }

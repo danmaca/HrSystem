@@ -2,13 +2,8 @@
 
 public class ActionButtonDto
 {
+	public string UniqueKey => (this.OwnerIdent ?? "") + this.Key;
 	public string Key { get; set; }
+	public string OwnerIdent { get; set; }
 	public string Text { get; set; }
-	public event Func<Task> ActionInvoked;
-
-	public async Task OnClickInvokedAsync()
-	{
-		if (this.ActionInvoked != null)
-			await this.ActionInvoked();
-	}
 }

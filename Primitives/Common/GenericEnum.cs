@@ -28,7 +28,7 @@ public abstract class GenericEnum<TEnum, TValue>
 
 		foreach (PropertyInfo propInfo in enumType.GetProperties(bf))
 		{
-			if (propInfo.PropertyType == valueType)
+			if (propInfo.PropertyType == enumType)
 			{
 				var enumValue = (TEnum)propInfo.GetValue(null);
 				enumValue.Name = propInfo.Name;

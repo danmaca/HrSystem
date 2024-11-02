@@ -9,7 +9,7 @@ public abstract class ControllerData<TSetup> : ControllerData, IControllerData
 	ControllerSetup IControllerData.Setup => this.Setup;
 }
 
-public abstract class ControllerData
+public abstract class ControllerData : ControlData
 {
 }
 

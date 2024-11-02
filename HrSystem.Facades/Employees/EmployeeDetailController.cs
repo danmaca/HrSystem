@@ -1,5 +1,5 @@
-﻿using DanM.Core.Facades.Framework.Controllers;
-using DanM.Core.Facades.ModelDescriptors;
+﻿using DanM.Core.Facades.ModelDescriptors;
+using DanM.Core.Services.Controllers;
 using DanM.HrSystem.Contracts.Employees;
 using DanM.HrSystem.DataLayer.Repositories.Employees;
 using DanM.HrSystem.Model.Employees;

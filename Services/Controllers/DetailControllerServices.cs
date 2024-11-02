@@ -3,7 +3,7 @@ using DanM.HrSystem.Services.Workflows;
 using Havit.Data.Patterns.UnitOfWorks;
 using Havit.Extensions.DependencyInjection.Abstractions;
 
-namespace DanM.Core.Facades.Framework.Controllers;
+namespace DanM.Core.Services.Controllers;
 
 [Service]
 public class DetailControllerServices : IDetailControllerServices

@@ -6,17 +6,17 @@ namespace DanM.HrSystem.Services.Binders;
 public class StandardBinders : IStandardBinders
 {
 	public ITextBinder TextBinder { get; init; }
-	public IWorkflowActionsBinder WorkflowActionsBinder { get; }
+	public IWorkflowBinder WorkflowBinder { get; }
 
-	public StandardBinders(ITextBinder textBinder, IWorkflowActionsBinder actionButtonizerBinder)
+	public StandardBinders(ITextBinder textBinder, IWorkflowBinder workflowBinder)
 	{
 		this.TextBinder = textBinder;
-		this.WorkflowActionsBinder = actionButtonizerBinder;
+		this.WorkflowBinder = workflowBinder;
 	}
 }
 
 public interface IStandardBinders
 {
 	ITextBinder TextBinder { get; init; }
-	IWorkflowActionsBinder WorkflowActionsBinder { get; }
+	IWorkflowBinder WorkflowBinder { get; }
 }

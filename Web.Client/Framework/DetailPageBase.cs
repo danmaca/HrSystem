@@ -15,8 +15,6 @@ public abstract class DetailPageBase<TData> : DataPageBase<TData>
 	{
 		base.InitialControllerRequest(request);
 
-		request.ContentDataTypeName = typeof(TData).FullName;
-
 		request.Navigation.Params.Add(new NavigationParam()
 		{
 			Name = "Id",

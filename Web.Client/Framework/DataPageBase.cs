@@ -4,7 +4,7 @@ using DanM.HrSystem.Web.Client.Framework.Communication;
 
 namespace DanM.HrSystem.Web.Client.Framework;
 
-public abstract class DataPageBase<TData> : PageBase
+public abstract class DataPageBase<TData> : PageBase, IDataPageBase
 	where TData : IControllerData, new()
 {
 	public TData Data { get; private set; }
@@ -21,10 +21,18 @@ public abstract class DataPageBase<TData> : PageBase
 
 	protected virtual void InitialControllerRequest(ControllerCallRequest request)
 	{
+		request.ContentDataTypeName = typeof(TData).FullName;
 	}
 
 	protected virtual void PrepareControllerRequest(ControllerCallRequest request)
 	{
+	}
+
+	public async Task DoPageDataPostback()
+	{
+		var response = await this.CallControllerRequest();
+		this.Data = (TData)response.ContentData;
+		this.StateHasChanged();
 	}
 
 	protected async Task<ControllerCallResponse> CallControllerRequest()
@@ -46,4 +54,9 @@ public abstract class DataPageBase<TData> : PageBase
 		var response = await _serverCommunicator.CallController(request);
 		return response;
 	}
+}
+
+public interface IDataPageBase
+{
+	Task DoPageDataPostback();
 }

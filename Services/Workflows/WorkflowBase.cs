@@ -24,4 +24,26 @@ public abstract class WorkflowBase
 		}
 		return result;
 	}
+
+	public RunTransitionResult RunTransition(WorkflowRequest wfRequest)
+	{
+		var runResult = new RunTransitionResult
+		{
+			Request = wfRequest,
+		};
+		var transition = this.Transitions.FirstOrDefault(obj => obj.Key == wfRequest.RunTransitionKey);
+		var transAvailInfo = transition.IsAvailable(wfRequest);
+		runResult.Result.AddResult(transAvailInfo.Result);
+
+		if (transAvailInfo.Result.IsValid == false)
+		{
+			runResult.Result.AddError($"Transition {transition.Key} not available");
+			return runResult;
+		}
+
+		transition.RunOperations(runResult);
+
+		runResult.ChangeToDialog = transition.ChangeToDialog;
+		return runResult;
+	}
 }
