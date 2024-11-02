@@ -1,4 +1,4 @@
-﻿using DanM.HrSystem.Services.Mailing;
+﻿using DanM.Core.Services.Mailing;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 

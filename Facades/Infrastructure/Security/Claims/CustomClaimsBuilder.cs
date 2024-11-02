@@ -7,7 +7,7 @@ using DanM.Core.Contracts.Infrastructure.Security;
 using DanM.HrSystem.DataLayer.Repositories.Security;
 using DanM.HrSystem.Model.Security;
 using DanM.HrSystem.Primitives.Security;
-using DanM.HrSystem.Services.Infrastructure;
+using DanM.Core.Services.Infrastructure;
 using Havit.Services.Caching;
 
 namespace DanM.Core.Facades.Infrastructure.Security.Claims;

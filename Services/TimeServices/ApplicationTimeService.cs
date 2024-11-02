@@ -1,7 +1,7 @@
 ﻿using System.Runtime.InteropServices;
 using Havit.Services.TimeServices;
 
-namespace DanM.HrSystem.Services.TimeServices;
+namespace DanM.Core.Services.TimeServices;
 
 /// <summary>
 /// Provides current time in local time-zone ("Central Europe Standard Time", "Europe/Prague" for non-Windows platforms).

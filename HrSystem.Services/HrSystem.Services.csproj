@@ -2,12 +2,11 @@
 
 	<PropertyGroup>
 		<TargetFramework>net8.0</TargetFramework>
-		<AssemblyName>DanM.Core.Services</AssemblyName>
-		<RootNamespace>DanM.Core.Services</RootNamespace>
+		<AssemblyName>DanM.HrSystem.Services</AssemblyName>
+		<RootNamespace>DanM.HrSystem.Services</RootNamespace>
 	</PropertyGroup>
 
 	<ItemGroup>
-		<InternalsVisibleTo Include="DanM.Core.Services.Tests" />
 		<InternalsVisibleTo Include="DanM.HrSystem.Services.Tests" />
 	</ItemGroup>
 	
@@ -26,5 +25,6 @@
 		<ProjectReference Include="..\HrSystem.Contracts\HrSystem.Contracts.csproj" />
 		<ProjectReference Include="..\Model\Model.csproj" />
 		<ProjectReference Include="..\Primitives\Primitives.csproj" />
+		<ProjectReference Include="..\Services\Services.csproj" />
 	</ItemGroup>
 </Project>	 

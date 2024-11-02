@@ -1,6 +1,6 @@
 ﻿using Havit.Services.FileStorage;
 
-namespace DanM.HrSystem.Services.Infrastructure.FileStorages;
+namespace DanM.Core.Services.Infrastructure.FileStorages;
 
 public interface IApplicationFileStorageService : IFileStorageService<ApplicationFileStorage>
 {

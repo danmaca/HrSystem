@@ -1,5 +1,5 @@
 ﻿using Havit.AspNetCore.ExceptionMonitoring.Services;
-using DanM.HrSystem.Services.Infrastructure.MigrationTool;
+using DanM.Core.Services.Infrastructure.MigrationTool;
 using Microsoft.Extensions.Options;
 
 namespace DanM.HrSystem.Web.Server.Infrastructure.MigrationTool;

@@ -9,11 +9,11 @@ using DanM.HrSystem.DataLayer.DataSources.Common;
 using DanM.HrSystem.DataLayer.Repositories.Common;
 using DanM.HrSystem.DependencyInjection.ConfigurationOptions;
 using DanM.HrSystem.Entity;
-using DanM.HrSystem.Services.Infrastructure;
-using DanM.HrSystem.Services.Infrastructure.FileStorages;
-using DanM.HrSystem.Services.Infrastructure.MigrationTool;
-using DanM.HrSystem.Services.Jobs;
-using DanM.HrSystem.Services.TimeServices;
+using DanM.Core.Services.Infrastructure;
+using DanM.Core.Services.Infrastructure.FileStorages;
+using DanM.Core.Services.Infrastructure.MigrationTool;
+using DanM.Core.Services.Jobs;
+using DanM.Core.Services.TimeServices;
 using Havit.Services.Azure.FileStorage;
 using Havit.Services.Caching;
 using Havit.Services.FileStorage;
@@ -145,14 +145,14 @@ public static class ServiceCollectionExtensions
 	private static void InstallByServiceAttribute(IServiceCollection services, InstallConfiguration configuration)
 	{
 		services.AddByServiceAttribute(typeof(DanM.HrSystem.DataLayer.Properties.AssemblyInfo).Assembly, configuration.ServiceProfiles);
-		services.AddByServiceAttribute(typeof(DanM.HrSystem.Services.Properties.AssemblyInfo).Assembly, configuration.ServiceProfiles);
+		services.AddByServiceAttribute(typeof(DanM.Core.Services.Properties.AssemblyInfo).Assembly, configuration.ServiceProfiles);
 		services.AddByServiceAttribute(typeof(DanM.Core.Facades.Properties.AssemblyInfo).Assembly, configuration.ServiceProfiles);
 		services.AddByServiceAttribute(typeof(DanM.HrSystem.Facades.Properties.AssemblyInfo).Assembly, configuration.ServiceProfiles);
 	}
 
 	private static void InstallAuthorizationHandlers(IServiceCollection services)
 	{
-		services.Scan(scan => scan.FromAssemblyOf<DanM.HrSystem.Services.Properties.AssemblyInfo>()
+		services.Scan(scan => scan.FromAssemblyOf<DanM.Core.Services.Properties.AssemblyInfo>()
 			.AddClasses(classes => classes.AssignableTo<IAuthorizationHandler>())
 			.As<IAuthorizationHandler>()
 			.WithScopedLifetime()

@@ -2,7 +2,7 @@
 using DanM.Core.Contracts.Infrastructure.Security;
 using DanM.HrSystem.DataLayer.Repositories.Security;
 using DanM.HrSystem.Model.Security;
-using DanM.HrSystem.Services.Infrastructure.Security;
+using DanM.Core.Services.Infrastructure.Security;
 
 namespace DanM.HrSystem.Web.Server.Infrastructure.Security;
 

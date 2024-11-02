@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace DanM.HrSystem.Services.Infrastructure.MigrationTool;
+namespace DanM.Core.Services.Infrastructure.MigrationTool;
 
 [Service]
 public class MigrationService : IMigrationService

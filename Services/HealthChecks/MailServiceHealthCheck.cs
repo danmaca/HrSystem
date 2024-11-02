@@ -1,7 +1,7 @@
-﻿using DanM.HrSystem.Services.Mailing;
+﻿using DanM.Core.Services.Mailing;
 using Microsoft.Extensions.Diagnostics.HealthChecks;
 
-namespace DanM.HrSystem.Services.HealthChecks;
+namespace DanM.Core.Services.HealthChecks;
 
 public class MailServiceHealthCheck : BaseHealthCheck
 {

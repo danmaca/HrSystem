@@ -1,4 +1,4 @@
-﻿namespace DanM.HrSystem.Services.Jobs;
+﻿namespace DanM.Core.Services.Jobs;
 
 public interface IRunnableJob
 {

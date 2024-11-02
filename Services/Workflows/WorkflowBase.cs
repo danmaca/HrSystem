@@ -1,7 +1,7 @@
 ﻿using DanM.Core.Contracts.Workflows;
 using DanM.Core.Services.Descriptors;
 using DanM.HrSystem.Primitives.Utils;
-using DanM.HrSystem.Services.Workflows.Internals;
+using DanM.Core.Services.Workflows.Internals;
 
 namespace DanM.Core.Services.Workflows;
 

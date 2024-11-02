@@ -1,6 +1,6 @@
 ﻿using DanM.HrSystem.Primitives.Security;
 
-namespace DanM.HrSystem.Services.Infrastructure.Security;
+namespace DanM.Core.Services.Infrastructure.Security;
 
 public interface IApplicationAuthorizationService
 {

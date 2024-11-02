@@ -1,5 +1,5 @@
 ﻿using DanM.HrSystem.DependencyInjection;
-using DanM.HrSystem.Services.Infrastructure.MigrationTool;
+using DanM.Core.Services.Infrastructure.MigrationTool;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;

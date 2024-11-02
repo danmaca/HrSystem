@@ -2,7 +2,7 @@
 using DanM.Core.Services.Descriptors;
 using DanM.Core.Services.Workflows;
 
-namespace DanM.HrSystem.Services.Workflows.Internals;
+namespace DanM.Core.Services.Workflows.Internals;
 
 public class WorkflowQueryDefinition
 {

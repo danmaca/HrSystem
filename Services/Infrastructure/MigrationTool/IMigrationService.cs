@@ -1,4 +1,4 @@
-﻿namespace DanM.HrSystem.Services.Infrastructure.MigrationTool;
+﻿namespace DanM.Core.Services.Infrastructure.MigrationTool;
 
 public interface IMigrationService
 {

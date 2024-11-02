@@ -1,8 +1,8 @@
 ﻿using Havit.Extensions.DependencyInjection.Abstractions;
-using DanM.HrSystem.Services.Infrastructure;
+using DanM.Core.Services.Infrastructure;
 using Microsoft.Extensions.Logging;
 
-namespace DanM.HrSystem.Services.Jobs;
+namespace DanM.Core.Services.Jobs;
 
 [Service(Profile = ServiceProfiles.JobsRunner)]
 public class EmptyJob : IEmptyJob

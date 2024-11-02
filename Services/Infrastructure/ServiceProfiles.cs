@@ -1,4 +1,4 @@
-﻿namespace DanM.HrSystem.Services.Infrastructure;
+﻿namespace DanM.Core.Services.Infrastructure;
 
 public static class ServiceProfiles
 {

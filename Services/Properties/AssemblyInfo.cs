@@ -1,4 +1,4 @@
-﻿namespace DanM.HrSystem.Services.Properties;
+﻿namespace DanM.Core.Services.Properties;
 
 public class AssemblyInfo
 {

@@ -11,7 +11,7 @@ using Havit.Hangfire.Extensions.RecurringJobs;
 using DanM.HrSystem.DependencyInjection;
 using DanM.HrSystem.DependencyInjection.Configuration;
 using DanM.HrSystem.JobsRunner.Infrastructure.ApplicationInsights;
-using DanM.HrSystem.Services.Jobs;
+using DanM.Core.Services.Jobs;
 using Microsoft.ApplicationInsights;
 using Microsoft.ApplicationInsights.DependencyCollector;
 using Microsoft.ApplicationInsights.Extensibility;

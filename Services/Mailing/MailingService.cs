@@ -1,10 +1,9 @@
 ﻿using Havit.Extensions.DependencyInjection.Abstractions;
-using DanM.Core.Contracts.Infrastructure;
 using MailKit.Net.Smtp;
 using Microsoft.Extensions.Options;
 using MimeKit;
 
-namespace DanM.HrSystem.Services.Mailing;
+namespace DanM.Core.Services.Mailing;
 
 [Service]
 public class MailingService : IMailingService

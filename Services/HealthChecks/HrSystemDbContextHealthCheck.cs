@@ -1,7 +1,7 @@
 ﻿using Havit.Data.EntityFrameworkCore;
 using Microsoft.Extensions.Diagnostics.HealthChecks;
 
-namespace DanM.HrSystem.Services.HealthChecks;
+namespace DanM.Core.Services.HealthChecks;
 
 public class HrSystemDbContextHealthCheck : BaseHealthCheck
 {

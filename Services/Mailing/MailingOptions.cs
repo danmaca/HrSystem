@@ -1,4 +1,4 @@
-﻿namespace DanM.HrSystem.Services.Mailing;
+﻿namespace DanM.Core.Services.Mailing;
 
 public class MailingOptions
 {

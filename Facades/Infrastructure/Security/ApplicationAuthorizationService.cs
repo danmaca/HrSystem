@@ -2,7 +2,7 @@
 using Havit.Extensions.DependencyInjection.Abstractions;
 using DanM.HrSystem.Primitives.Security;
 
-namespace DanM.HrSystem.Services.Infrastructure.Security;
+namespace DanM.Core.Services.Infrastructure.Security;
 
 [Service(Profile = ServiceProfiles.WebServer)]
 public class ApplicationAuthorizationService : IApplicationAuthorizationService
