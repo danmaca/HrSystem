@@ -6,6 +6,7 @@ using DanM.HrSystem.Model.Employees;
 using DanM.Core.Services.Binders;
 using Havit.Extensions.DependencyInjection.Abstractions;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace DanM.HrSystem.Facades.Employees;
 
@@ -30,7 +31,8 @@ public class EmployeeDetailController : DetailControllerBase<Employee, EmployeeD
 
 	protected override async Task<Employee> OnLoadEntityAsync()
 	{
-		return await _employeeRepository.GetObjectAsync(this.Data.Setup.EntityId.Value);
+		var repos = _services.ServiceProvider.CreateScope().ServiceProvider.GetRequiredService<IEmployeeRepository>();
+		return await repos.GetObjectAsync(this.Data.Setup.EntityId.Value);
 	}
 
 	protected override void OnBindingProperties(BindingContext ctx)

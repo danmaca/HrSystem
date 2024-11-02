@@ -31,6 +31,7 @@ public class CodetableWorkflow : WorkflowBase
 			Key = "Save",
 			Name = "Uložit",
 			ChangeToDialog = WorkflowDialog.Detail,
+			SaveWorkflowEntityRequested = true,
 		}
 			.WithDialogRequiredRule(WorkflowDialog.Editing)
 			.WithValidQueries(WorkflowQuery.PropertyEditing));

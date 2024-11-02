@@ -2,6 +2,9 @@
 using DanM.Core.Services.Binders;
 using DanM.Core.Services.Workflows;
 using DanM.HrSystem.Model.Framework;
+using Havit.Data.Patterns.UnitOfWorks;
+using Microsoft.Extensions.DependencyInjection;
+using Org.BouncyCastle.Tls.Crypto;
 
 namespace DanM.Core.Services.Controllers;
 
@@ -11,6 +14,7 @@ public abstract class DetailControllerBase<TEntity, TData> : ControllerBase<TDat
 {
 	public IDetailControllerServices Services { get; }
 
+	public bool IsNewEntity => this.Data.Setup.EntityId == null;
 	public TEntity Entity { get; set; }
 	public IStandardBinders Binders => this.Services.Binders;
 
@@ -66,10 +70,10 @@ public abstract class DetailControllerBase<TEntity, TData> : ControllerBase<TDat
 	protected async Task<TEntity> GetEntityAsync()
 	{
 		TEntity entity;
-		if (this.Data.Setup.EntityId != null)
-			entity = await this.OnLoadEntityAsync();
-		else
+		if (this.IsNewEntity)
 			entity = this.OnCreateEntity();
+		else
+			entity = await this.OnLoadEntityAsync();
 		return entity;
 	}
 
@@ -80,9 +84,7 @@ public abstract class DetailControllerBase<TEntity, TData> : ControllerBase<TDat
 			Mode = bindingMode,
 		};
 		ctx.BindingEntity = this.Entity;
-		ctx.WorkflowRequest = new WorkflowRequest();
-		ctx.WorkflowRequest.WorkflowEntity = this.Entity;
-		ctx.WorkflowRequest.BindingEntity = this.Entity;
+		ctx.WorkflowRequest = this.CreateWorkflowRequest();
 		ctx.Workflow = this.Services.WorkflowManager.ResolveWorkflow(ctx.WorkflowRequest);
 
 		this.Binders.WorkflowBinder.Bind(ctx, Data.conActionButtonizer);
@@ -94,30 +96,27 @@ public abstract class DetailControllerBase<TEntity, TData> : ControllerBase<TDat
 	{
 	}
 
-	public async Task PersistDetailDtoAsync()
+	private WorkflowRequest CreateWorkflowRequest()
 	{
-		await this.UpdateEntityAsync();
-
-		if (this.Data.Setup.EntityId != null)
-			this.Services.UnitOfWork.AddForUpdate(this.Entity);
-		else
-			this.Services.UnitOfWork.AddForInsert(this.Entity);
-
-		await this.Services.UnitOfWork.CommitAsync();
+		var wfRequest = new WorkflowRequest()
+		{
+			UnitOfWork = this.Services.ServiceProvider.CreateScope().ServiceProvider.GetRequiredService<IUnitOfWork>(),
+			IsNewEntity = this.IsNewEntity,
+		};
+		wfRequest.Dialog = Data.conActionButtonizer.CurrentDialog;
+		wfRequest.WorkflowEntity = this.Entity;
+		wfRequest.BindingEntity = this.Entity;
+		return wfRequest;
 	}
 
 	public async Task RunWorkflowTransition(string transitionKey)
 	{
 		await this.UpdateEntityAsync();
 
-		var wfRequest = new WorkflowRequest();
-		wfRequest.Dialog = Data.conActionButtonizer.CurrentDialog;
-		wfRequest.WorkflowEntity = this.Entity;
-		wfRequest.BindingEntity = this.Entity;
-
+		var wfRequest = this.CreateWorkflowRequest();
 		wfRequest.TransitionKey = transitionKey;
-		var workflow = this.Services.WorkflowManager.ResolveWorkflow(wfRequest);
 
+		var workflow = this.Services.WorkflowManager.ResolveWorkflow(wfRequest);
 		var runResult = workflow.RunTransition(wfRequest);
 
 		if (runResult.Result.IsValid)
@@ -125,6 +124,7 @@ public abstract class DetailControllerBase<TEntity, TData> : ControllerBase<TDat
 			if (runResult.ChangeToDialog != null)
 				Data.conActionButtonizer.CurrentDialog = runResult.ChangeToDialog;
 
+			this.Entity = await this.GetEntityAsync();
 			await this.UpdateFormAsync();
 		}
 	}

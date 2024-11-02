@@ -1,5 +1,6 @@
 ﻿using DanM.Core.Contracts.Workflows;
 using DanM.Core.Services.Descriptors;
+using DanM.HrSystem.Primitives.Utils;
 using DanM.HrSystem.Services.Workflows.Internals;
 
 namespace DanM.Core.Services.Workflows;
@@ -49,8 +50,22 @@ public abstract class WorkflowBase
 
 		transition.RunOperations(runResult);
 
+		if (transition.SaveWorkflowEntityRequested)
+		{
+			this.SaveWorkflowEntity(wfRequest);
+			wfRequest.UnitOfWork.Commit();
+		}
+
 		runResult.ChangeToDialog = transition.ChangeToDialog;
 		return runResult;
+	}
+
+	protected virtual void SaveWorkflowEntity(WorkflowRequest wfRequest)
+	{
+		if (wfRequest.IsNewEntity)
+			MethodInvoker.Invoke(wfRequest.UnitOfWork, nameof(wfRequest.UnitOfWork.AddForInsert), wfRequest.WorkflowEntity);
+		else
+			MethodInvoker.Invoke(wfRequest.UnitOfWork, nameof(wfRequest.UnitOfWork.AddForUpdate), wfRequest.WorkflowEntity);
 	}
 
 	public bool IsQueryValid(WorkflowQuery query, WorkflowRequest wfRequest)

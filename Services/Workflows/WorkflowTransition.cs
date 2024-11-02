@@ -14,6 +14,7 @@ public class WorkflowTransition
 	public List<TransitionOperationBase> Operations { get; } = new List<TransitionOperationBase>();
 	public WorkflowDialog ChangeToDialog { get; set; }
 	public List<WorkflowQuery> ValidQueries { get; } = new List<WorkflowQuery>();
+	public bool SaveWorkflowEntityRequested { get; set; }
 
 	public WorkflowTransitionInfo IsAvailable(WorkflowRequest request)
 	{
