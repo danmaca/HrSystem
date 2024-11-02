@@ -2,7 +2,7 @@
 using Havit.Extensions.DependencyInjection.Abstractions;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace DanM.HrSystem.Services.Workflows;
+namespace DanM.Core.Services.Workflows;
 
 [Service(Lifetime = ServiceLifetime.Singleton)]
 public class WorkflowManager : IWorkflowManager

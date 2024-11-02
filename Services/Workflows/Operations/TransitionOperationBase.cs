@@ -1,4 +1,4 @@
-﻿namespace DanM.HrSystem.Services.Workflows.Operations;
+﻿namespace DanM.Core.Services.Workflows.Operations;
 
 public abstract class TransitionOperationBase
 {

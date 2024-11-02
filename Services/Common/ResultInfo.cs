@@ -1,5 +1,4 @@
-﻿
-namespace DanM.HrSystem.Services.Common;
+﻿namespace DanM.Core.Services.Common;
 
 public class ResultInfo
 {

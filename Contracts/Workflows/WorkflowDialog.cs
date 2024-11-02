@@ -10,4 +10,5 @@ public class WorkflowDialog : StringEnum<WorkflowDialog>
 	private WorkflowDialog()
 	{
 	}
+	static WorkflowDialog() => InitializeEnum();
 }

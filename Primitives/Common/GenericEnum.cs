@@ -10,13 +10,13 @@ public abstract class GenericEnum<TEnum, TValue>
 	public string Name { get; private set; }
 	public TValue Value { get; private set; }
 
-	private static readonly List<TEnum> _enums;
+	private static readonly List<TEnum> _enums = new List<TEnum>();
 
 	protected GenericEnum()
 	{
 	}
 
-	static GenericEnum()
+	protected static void InitializeEnum()
 	{
 		Type enumType = typeof(TEnum);
 		Type valueType = typeof(TValue);
@@ -24,7 +24,6 @@ public abstract class GenericEnum<TEnum, TValue>
 			throw new InvalidOperationException($"{enumType.Name} and its underlying type cannot be the same");
 
 		BindingFlags bf = BindingFlags.Static | BindingFlags.Public;
-		_enums = new List<TEnum>();
 
 		foreach (PropertyInfo propInfo in enumType.GetProperties(bf))
 		{

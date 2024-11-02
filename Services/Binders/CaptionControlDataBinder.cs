@@ -1,7 +1,7 @@
 ﻿using DanM.Core.Contracts.ControlDatas;
-using DanM.HrSystem.Services.Descriptors;
+using DanM.Core.Services.Descriptors;
 
-namespace DanM.HrSystem.Services.Binders;
+namespace DanM.Core.Services.Binders;
 
 public abstract class CaptionControlDataBinder : ControlDataBinder
 {

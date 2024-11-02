@@ -1,8 +1,7 @@
 ﻿using DanM.Core.Contracts.ControlDatas;
+using DanM.Core.Services.Binders;
+using DanM.Core.Services.Workflows;
 using DanM.HrSystem.Model.Framework;
-using DanM.HrSystem.Services.Binders;
-using DanM.HrSystem.Services.Workflows;
-using Org.BouncyCastle.Tls.Crypto;
 
 namespace DanM.Core.Services.Controllers;
 
@@ -10,14 +9,14 @@ public abstract class DetailControllerBase<TEntity, TData> : ControllerBase<TDat
 	where TEntity : class, IEntity, new()
 	where TData : DetailControllerData
 {
-	private readonly IDetailControllerServices _services;
+	public IDetailControllerServices Services { get; }
 
 	public TEntity Entity { get; set; }
-	public IStandardBinders Binders => _services.Binders;
+	public IStandardBinders Binders => this.Services.Binders;
 
 	protected DetailControllerBase(IDetailControllerServices services)
 	{
-		_services = services;
+		this.Services = services;
 	}
 
 	protected override void OnControllerDataSet()
@@ -84,6 +83,7 @@ public abstract class DetailControllerBase<TEntity, TData> : ControllerBase<TDat
 		ctx.WorkflowRequest = new WorkflowRequest();
 		ctx.WorkflowRequest.WorkflowEntity = this.Entity;
 		ctx.WorkflowRequest.BindingEntity = this.Entity;
+		ctx.Workflow = this.Services.WorkflowManager.ResolveWorkflow(ctx.WorkflowRequest);
 
 		this.Binders.WorkflowBinder.Bind(ctx, Data.conActionButtonizer);
 
@@ -99,11 +99,11 @@ public abstract class DetailControllerBase<TEntity, TData> : ControllerBase<TDat
 		await this.UpdateEntityAsync();
 
 		if (this.Data.Setup.EntityId != null)
-			_services.UnitOfWork.AddForUpdate(this.Entity);
+			this.Services.UnitOfWork.AddForUpdate(this.Entity);
 		else
-			_services.UnitOfWork.AddForInsert(this.Entity);
+			this.Services.UnitOfWork.AddForInsert(this.Entity);
 
-		await _services.UnitOfWork.CommitAsync();
+		await this.Services.UnitOfWork.CommitAsync();
 	}
 
 	public async Task RunWorkflowTransition(string transitionKey)
@@ -115,8 +115,8 @@ public abstract class DetailControllerBase<TEntity, TData> : ControllerBase<TDat
 		wfRequest.WorkflowEntity = this.Entity;
 		wfRequest.BindingEntity = this.Entity;
 
-		wfRequest.RunTransitionKey = transitionKey;
-		var workflow = this.Binders.WorkflowBinder.WorkflowManager.ResolveWorkflow(wfRequest);
+		wfRequest.TransitionKey = transitionKey;
+		var workflow = this.Services.WorkflowManager.ResolveWorkflow(wfRequest);
 
 		var runResult = workflow.RunTransition(wfRequest);
 

@@ -1,7 +1,7 @@
 ﻿using DanM.Core.Contracts.Workflows;
-using DanM.HrSystem.Services.Common;
+using DanM.Core.Services.Common;
 
-namespace DanM.HrSystem.Services.Workflows.Rules;
+namespace DanM.Core.Services.Workflows.Rules;
 
 public class DialogRequiredRule : RuleBase
 {

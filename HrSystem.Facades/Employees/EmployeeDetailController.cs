@@ -3,7 +3,7 @@ using DanM.Core.Services.Controllers;
 using DanM.HrSystem.Contracts.Employees;
 using DanM.HrSystem.DataLayer.Repositories.Employees;
 using DanM.HrSystem.Model.Employees;
-using DanM.HrSystem.Services.Binders;
+using DanM.Core.Services.Binders;
 using Havit.Extensions.DependencyInjection.Abstractions;
 using Microsoft.AspNetCore.Authorization;
 

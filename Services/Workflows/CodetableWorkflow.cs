@@ -1,12 +1,14 @@
 ﻿using DanM.Core.Contracts.Workflows;
 
-namespace DanM.HrSystem.Services.Workflows;
+namespace DanM.Core.Services.Workflows;
 
 public class CodetableWorkflow : WorkflowBase
 {
 	protected override void OnCreateTransitions()
 	{
 		base.OnCreateTransitions();
+
+		this.PropertyIsEditableDefinition.CommonQueries.Add(WorkflowQuery.PropertyEditing);
 
 		this.Transitions.Add(new WorkflowTransition()
 		{
@@ -30,7 +32,8 @@ public class CodetableWorkflow : WorkflowBase
 			Name = "Uložit",
 			ChangeToDialog = WorkflowDialog.Detail,
 		}
-			.WithDialogRequiredRule(WorkflowDialog.Editing));
+			.WithDialogRequiredRule(WorkflowDialog.Editing)
+			.WithValidQueries(WorkflowQuery.PropertyEditing));
 
 		this.Transitions.Add(new WorkflowTransition()
 		{

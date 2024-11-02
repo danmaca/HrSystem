@@ -1,6 +1,6 @@
-﻿using DanM.HrSystem.Services.Binders;
+﻿using DanM.Core.Services.Binders;
 
-namespace DanM.HrSystem.Services.Descriptors;
+namespace DanM.Core.Services.Descriptors;
 
 public class EntityProperty : IEntityProperty
 {

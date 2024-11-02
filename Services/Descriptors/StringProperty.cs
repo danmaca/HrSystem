@@ -1,4 +1,4 @@
-﻿namespace DanM.HrSystem.Services.Descriptors;
+﻿namespace DanM.Core.Services.Descriptors;
 
 public class StringProperty : EntityProperty
 {

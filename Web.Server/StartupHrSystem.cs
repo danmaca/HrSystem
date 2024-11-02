@@ -1,4 +1,4 @@
-﻿using DanM.HrSystem.Services.Workflows;
+﻿using DanM.Core.Services.Workflows;
 
 namespace DanM.HrSystem.Web.Server;
 

@@ -1,6 +1,6 @@
-﻿using DanM.HrSystem.Services.Common;
+﻿using DanM.Core.Services.Common;
 
-namespace DanM.HrSystem.Services.Workflows;
+namespace DanM.Core.Services.Workflows;
 
 public class WorkflowTransitionInfo
 {

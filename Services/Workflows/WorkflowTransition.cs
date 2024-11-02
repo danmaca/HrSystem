@@ -1,9 +1,9 @@
 ﻿using DanM.Core.Contracts.Workflows;
-using DanM.HrSystem.Services.Common;
-using DanM.HrSystem.Services.Workflows.Operations;
-using DanM.HrSystem.Services.Workflows.Rules;
+using DanM.Core.Services.Common;
+using DanM.Core.Services.Workflows.Operations;
+using DanM.Core.Services.Workflows.Rules;
 
-namespace DanM.HrSystem.Services.Workflows;
+namespace DanM.Core.Services.Workflows;
 
 public class WorkflowTransition
 {
@@ -13,6 +13,7 @@ public class WorkflowTransition
 	public List<RuleBase> ActionRules { get; } = new List<RuleBase>();
 	public List<TransitionOperationBase> Operations { get; } = new List<TransitionOperationBase>();
 	public WorkflowDialog ChangeToDialog { get; set; }
+	public List<WorkflowQuery> ValidQueries { get; } = new List<WorkflowQuery>();
 
 	public WorkflowTransitionInfo IsAvailable(WorkflowRequest request)
 	{
@@ -38,6 +39,12 @@ public class WorkflowTransition
 	public WorkflowTransition WithDialogRequiredRule(WorkflowDialog dialog)
 	{
 		this.ButtonRules.Insert(0, new DialogRequiredRule(dialog));
+		return this;
+	}
+
+	public WorkflowTransition WithValidQueries(params WorkflowQuery[] queries)
+	{
+		this.ValidQueries.AddRange(queries);
 		return this;
 	}
 }

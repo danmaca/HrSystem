@@ -1,11 +1,12 @@
-﻿using Havit.Extensions.DependencyInjection.Abstractions;
+﻿using DanM.Core.Services.Workflows;
+using Havit.Extensions.DependencyInjection.Abstractions;
 
-namespace DanM.HrSystem.Services.Binders;
+namespace DanM.Core.Services.Binders;
 
 [Service]
 public class StandardBinders : IStandardBinders
 {
-	public ITextBinder TextBinder { get; init; }
+	public ITextBinder TextBinder { get; }
 	public IWorkflowBinder WorkflowBinder { get; }
 
 	public StandardBinders(ITextBinder textBinder, IWorkflowBinder workflowBinder)
@@ -17,6 +18,6 @@ public class StandardBinders : IStandardBinders
 
 public interface IStandardBinders
 {
-	ITextBinder TextBinder { get; init; }
+	ITextBinder TextBinder { get; }
 	IWorkflowBinder WorkflowBinder { get; }
 }

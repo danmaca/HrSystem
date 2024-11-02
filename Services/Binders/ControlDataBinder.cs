@@ -1,12 +1,13 @@
 ﻿using DanM.Core.Contracts.ControlDatas;
-using DanM.HrSystem.Services.Descriptors;
+using DanM.Core.Services.Descriptors;
 
-namespace DanM.HrSystem.Services.Binders;
+namespace DanM.Core.Services.Binders;
 
 public abstract class ControlDataBinder : IControlDataBinder
 {
 	public virtual void BindProperty(BindingContext context, ControlData data, IEntityProperty property)
 	{
+		data.IsEditable = context.Workflow.PropertyIsEditable(property, context.WorkflowRequest);
 	}
 }
 
