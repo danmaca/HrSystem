@@ -41,7 +41,7 @@ public abstract class DetailControllerBase<TEntity, TData> : ControllerBase<TDat
 		await base.OnInitAsync();
 
 		this.Entity = await this.GetEntityAsync();
-		await this.Binders.WorkflowBinder.TryRunTransition(Data.conActionButtonizer, this.RunWorkflowTransition);
+		await this.Binders.WorkflowBinder.TryRunTransition(Data.conActionButtonizer, this.RunWorkflowTransitionAsync);
 	}
 
 	protected override async Task OnLoadAsync()
@@ -108,7 +108,11 @@ public abstract class DetailControllerBase<TEntity, TData> : ControllerBase<TDat
 		return wfRequest;
 	}
 
-	public async Task RunWorkflowTransition(string transitionKey)
+	protected virtual void ClearEntityCache()
+	{
+	}
+
+	public async Task RunWorkflowTransitionAsync(string transitionKey)
 	{
 		await this.UpdateEntityAsync();
 
@@ -123,6 +127,7 @@ public abstract class DetailControllerBase<TEntity, TData> : ControllerBase<TDat
 			if (runResult.ChangeToDialog != null)
 				Data.conActionButtonizer.CurrentDialog = runResult.ChangeToDialog;
 
+			this.ClearEntityCache();
 			this.Entity = await this.GetEntityAsync();
 			await this.UpdateFormAsync();
 		}
@@ -136,5 +141,5 @@ public interface IDetailControllerBase<TData> : IControllerBase<TData>
 
 public interface IDetailControllerBase
 {
-	Task RunWorkflowTransition(string transitionKey);
+	Task RunWorkflowTransitionAsync(string transitionKey);
 }
