@@ -1,5 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using DanM.HrSystem.Model.Framework;
+using DanM.Core.Model.Framework;
 using DanM.HrSystem.Model.Security;
 using DanM.HrSystem.Primitives.Common;
 

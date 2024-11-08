@@ -1,5 +1,5 @@
 ﻿using DanM.Core.Contracts.Workflows;
-using DanM.HrSystem.Model.Framework;
+using DanM.Core.Model.Framework;
 using Havit.Data.Patterns.UnitOfWorks;
 
 namespace DanM.Core.Services.Workflows;

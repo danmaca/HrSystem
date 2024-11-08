@@ -1,4 +1,4 @@
-﻿namespace DanM.HrSystem.Model.Framework;
+﻿namespace DanM.Core.Model.Framework;
 
 public interface IEntity
 {

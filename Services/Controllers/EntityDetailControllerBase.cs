@@ -1,5 +1,5 @@
 ﻿using DanM.Core.Contracts.ControlDatas;
-using DanM.HrSystem.Model.Framework;
+using DanM.Core.Model.Framework;
 using Havit.Data.Patterns.Repositories;
 using Microsoft.Extensions.DependencyInjection;
 

@@ -1,7 +1,7 @@
 ﻿using DanM.Core.Contracts.ControlDatas;
 using DanM.Core.Services.Binders;
 using DanM.Core.Services.Workflows;
-using DanM.HrSystem.Model.Framework;
+using DanM.Core.Model.Framework;
 using Havit.Data.Patterns.UnitOfWorks;
 using Microsoft.Extensions.DependencyInjection;
 

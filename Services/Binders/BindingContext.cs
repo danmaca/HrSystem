@@ -1,6 +1,6 @@
 ﻿using DanM.Core.Services.Controllers;
 using DanM.Core.Services.Workflows;
-using DanM.HrSystem.Model.Framework;
+using DanM.Core.Model.Framework;
 
 namespace DanM.Core.Services.Binders;
 
