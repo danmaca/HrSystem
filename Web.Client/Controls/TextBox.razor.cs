@@ -1,6 +1,6 @@
 ﻿using DanM.Core.Contracts.ControlDatas;
 
-namespace DanM.HrSystem.Web.Client.Controls;
+namespace DanM.Core.Web.Client.Controls;
 
 public partial class TextBox
 {

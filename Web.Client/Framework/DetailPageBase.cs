@@ -2,7 +2,7 @@
 using DanM.Core.Contracts.Controllers;
 using DanM.Core.Contracts.Navigation;
 
-namespace DanM.HrSystem.Web.Client.Framework;
+namespace DanM.Core.Web.Client.Framework;
 
 public abstract class DetailPageBase<TData> : DataPageBase<TData>
 	where TData : DetailControllerData, new()

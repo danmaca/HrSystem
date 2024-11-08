@@ -1,6 +1,6 @@
 ﻿using DanM.Core.Contracts.ControlDatas;
 
-namespace DanM.HrSystem.Web.Client.FwControls;
+namespace DanM.Core.Web.Client.FwControls;
 
 public class CaptionControlBase<TData> : DataControlBase<TData>, ICaptionControlBase
 	where TData : ICaptionControlData

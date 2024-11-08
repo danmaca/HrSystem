@@ -1,4 +1,4 @@
-﻿namespace DanM.HrSystem.Web.Client.FwControls;
+﻿namespace DanM.Core.Web.Client.FwControls;
 
 public partial class CaptionControlWrapper
 {

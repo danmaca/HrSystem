@@ -12,7 +12,7 @@ using DanM.HrSystem.Web.Client.Infrastructure.Grpc;
 using DanM.HrSystem.Web.Client.Infrastructure.Security;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
-using DanM.HrSystem.Web.Client.Framework.Communication;
+using DanM.Core.Web.Client.Framework.Communication;
 using DanM.HrSystem.Contracts.Infrastructure;
 
 namespace DanM.HrSystem.Web.Client;

@@ -1,8 +1,8 @@
 ﻿using DanM.Core.Contracts.ControlDatas;
 using DanM.Core.Contracts.Controllers;
-using DanM.HrSystem.Web.Client.Framework.Communication;
+using DanM.Core.Web.Client.Framework.Communication;
 
-namespace DanM.HrSystem.Web.Client.Framework;
+namespace DanM.Core.Web.Client.Framework;
 
 public abstract class DataPageBase<TData> : PageBase, IDataPageBase
 	where TData : IControllerData, new()

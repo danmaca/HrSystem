@@ -1,6 +1,6 @@
-﻿using DanM.HrSystem.Web.Client.Infrastructure.Rendering;
+﻿using DanM.Core.Web.Client.FwControls;
 
-namespace DanM.HrSystem.Web.Client.Framework;
+namespace DanM.Core.Web.Client.Framework;
 
 public class PageBase : ComponentBase
 {

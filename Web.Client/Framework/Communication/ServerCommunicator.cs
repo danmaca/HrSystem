@@ -3,7 +3,7 @@ using DanM.Core.Contracts.Communication;
 using DanM.Core.Contracts.Controllers;
 using DanM.HrSystem.Primitives.Utils;
 
-namespace DanM.HrSystem.Web.Client.Framework.Communication;
+namespace DanM.Core.Web.Client.Framework.Communication;
 
 public class ServerCommunicator : IServerCommunicator
 {

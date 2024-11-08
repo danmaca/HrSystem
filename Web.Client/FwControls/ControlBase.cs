@@ -1,6 +1,4 @@
-﻿using DanM.HrSystem.Web.Client.Infrastructure.Rendering;
-
-namespace DanM.HrSystem.Web.Client.FwControls;
+﻿namespace DanM.Core.Web.Client.FwControls;
 
 public class ControlBase : ComponentBase, IControlBase
 {
