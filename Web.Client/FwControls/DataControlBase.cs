@@ -1,14 +1,14 @@
 ﻿using DanM.Core.Contracts.ControlDatas;
 
-namespace DanM.HrSystem.Web.Client.Controls.Framework;
+namespace DanM.HrSystem.Web.Client.FwControls;
 
 public class DataControlBase<TData> : ControlBase, IDataControlBase<TData>
 	where TData : IControlData
 {
-	public IControlData ControlData { get => this.Data; set => this.Data = (TData)value; }
+	public IControlData ControlData { get => Data; set => Data = (TData)value; }
 	[Parameter] public TData Data { get; set; }
 
-	TData IDataControlBase<TData>.ControlData { get => this.Data; set => this.Data = value; }
+	TData IDataControlBase<TData>.ControlData { get => Data; set => Data = value; }
 }
 
 public interface IDataControlBase : IDataControlBase<IControlData>

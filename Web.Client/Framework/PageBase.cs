@@ -1,5 +1,4 @@
-﻿using DanM.HrSystem.Web.Client.Controls.Framework;
-using DanM.HrSystem.Web.Client.Infrastructure.Rendering;
+﻿using DanM.HrSystem.Web.Client.Infrastructure.Rendering;
 
 namespace DanM.HrSystem.Web.Client.Framework;
 
