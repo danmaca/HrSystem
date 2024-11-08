@@ -1,4 +1,8 @@
-﻿@attribute [Route(HrNavigationRoutes.Employees.EmployeeList)]
+﻿@using DanM.HrSystem.Contracts.Employees
+@using DanM.HrSystem.Web.Client.Framework
+@attribute [Route(HrNavigationRoutes.Employees.EmployeeList)]
+@inherits ListPageBase<EmployeeListData>
+
 <h4>Zaměstnanci</h4>
 <HxCard>
 	<BodyTemplate>
