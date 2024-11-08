@@ -7,7 +7,7 @@ public abstract class EntityListControllerBase<TEntity, TData> : ListControllerB
 	where TEntity : class, IEntity, new()
 	where TData : ListControllerData
 {
-	protected EntityListControllerBase(IDetailControllerServices services)
+	protected EntityListControllerBase(IListControllerServices services)
 		: base(services)
 	{
 	}

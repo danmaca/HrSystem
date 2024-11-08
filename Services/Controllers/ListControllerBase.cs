@@ -6,11 +6,11 @@ namespace DanM.Core.Services.Controllers;
 public abstract class ListControllerBase<TData> : ControllerBase<TData>, IListControllerBase<TData>, IListControllerBase
 	where TData : ListControllerData
 {
-	public IDetailControllerServices Services { get; }
+	public IListControllerServices Services { get; }
 
 	public IStandardBinders Binders => this.Services.Binders;
 
-	protected ListControllerBase(IDetailControllerServices services)
+	protected ListControllerBase(IListControllerServices services)
 	{
 		this.Services = services;
 	}
