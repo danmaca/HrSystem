@@ -1,6 +1,6 @@
-﻿using DanM.Core.Web.Client.FwControls;
+﻿using DanM.HrSystem.Web.Client.FwPages.Internals;
 
-namespace DanM.Core.Web.Client.Framework;
+namespace DanM.Core.Web.Client.FwPages;
 
 public class PageBase : ComponentBase
 {

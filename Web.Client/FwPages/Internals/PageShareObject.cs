@@ -1,6 +1,6 @@
-﻿using DanM.Core.Web.Client.Framework;
+﻿using DanM.Core.Web.Client.FwPages;
 
-namespace DanM.Core.Web.Client.FwControls;
+namespace DanM.HrSystem.Web.Client.FwPages.Internals;
 
 public class PageShareObject
 {

@@ -1,4 +1,6 @@
-﻿namespace DanM.Core.Web.Client.FwControls;
+﻿using DanM.HrSystem.Web.Client.FwPages.Internals;
+
+namespace DanM.Core.Web.Client.FwControls;
 
 public class ControlBase : ComponentBase, IControlBase
 {
