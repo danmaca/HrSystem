@@ -3,12 +3,8 @@
 @attribute [Route($"{HrNavigationRoutes.Employees.EmployeeDetail}{{{nameof(EntityId)}:int?}}")]
 @inherits DetailPageBase<EmployeeDetailData>
 <CascadingValue Name="PageShare" Value="@this.CurrentPageShare">
-@if (Data != null)
-{
-	<HxCard>
-		<BodyTemplate>
-			<div>detail</div>
-			<ActionButtonizer Data="@Data.conActionButtonizer" />
+	<DatailMasterpage Data="@Data">
+		<ContenTemplate>
 			<div class="row g-4">
 				<div>
 					<TextBox Data="@Data.tbxLastName" />
@@ -34,7 +30,6 @@
 									Text="Editable" />
 				</div>
 			</div>
-		</BodyTemplate>
-	</HxCard>
-}
+		</ContenTemplate>
+	</DatailMasterpage>
 </CascadingValue>

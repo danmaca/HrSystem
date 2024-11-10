@@ -7,6 +7,6 @@ public partial class ActionButtonizer
 	private async Task OnClickInvokedAsync(ActionButtonDto action)
 	{
 		Data.InvokedActionKey = action.UniqueKey;
-		await PageShare.OwnerDataPage.DoPageDataPostback();
+		await this.PageShare.OwnerDataPage.DoPageDataPostback();
 	}
 }

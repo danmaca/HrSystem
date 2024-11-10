@@ -1,0 +1,14 @@
+﻿@namespace DanM.Core.Web.Client.FwPages
+@using DanM.Core.Web.Client.Controls
+@if (Data != null)
+{
+<HxCard>
+	<BodyTemplate>
+		<div>detail</div>
+		<div class="buttonizer">
+			<ActionButtonizer Data="@Data.conActionButtonizer" />
+		</div>
+		@ContenTemplate
+	</BodyTemplate>
+</HxCard>
+}

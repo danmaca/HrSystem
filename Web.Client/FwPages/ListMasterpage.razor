@@ -1,0 +1,21 @@
+﻿@namespace DanM.Core.Web.Client.FwPages
+@using DanM.Core.Web.Client.Controls
+@if (Data != null)
+{
+<HxCard>
+	<BodyTemplate>
+		<AuthorizeView>
+			<Authorized>
+				@ContenTemplate
+			</Authorized>
+			<NotAuthorized>
+				<h6>NotAuthorized</h6>
+				<p><label>User?.ToString()</label> @context.User?.ToString()</p>
+			</NotAuthorized>
+			<Authorizing>
+				<h6>Authorizing</h6>
+			</Authorizing>
+		</AuthorizeView>
+	</BodyTemplate>
+</HxCard>
+}

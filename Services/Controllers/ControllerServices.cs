@@ -10,6 +10,7 @@ public class ControllerServices : IControllerServices
 
 	public ControllerServices(IServiceProvider serviceProvider)
 	{
+		this.ServiceProvider = serviceProvider;
 	}
 
 	public TService CreateScopeService<TService>() => this.ServiceProvider.CreateScope().ServiceProvider.GetRequiredService<TService>();
