@@ -3,5 +3,5 @@
 [ApiContract]
 public interface IEmployeeFacade
 {
-	Task<List<EmployeeGridDto>> GetAllEmployeesAsync(CancellationToken cancellationToken = default);
+	Task<List<EmployeeGridDto>> GetItemsAsync(CancellationToken cancellationToken = default);
 }

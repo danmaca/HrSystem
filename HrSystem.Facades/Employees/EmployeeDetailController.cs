@@ -29,6 +29,7 @@ public class EmployeeDetailController : EntityDetailControllerBase<Employee, IEm
 
 		this.Binders.TextBinder.Bind(ctx, this.Data.tbxFirstName, _employeeDescriptor.FirstName);
 		this.Binders.TextBinder.Bind(ctx, this.Data.tbxLastName, _employeeDescriptor.LastName);
+		this.Binders.TextBinder.Bind(ctx, this.Data.tbxPersonalNumber, _employeeDescriptor.PersonalNumber);
 	}
 }
 

@@ -5,7 +5,7 @@ using DanM.HrSystem.Primitives.Common;
 
 namespace DanM.HrSystem.Model.Employees;
 
-public class Employee : IJournaledEntity
+public class Agreement : IJournaledEntity
 {
 	public int Id { get; set; }
 
@@ -18,18 +18,8 @@ public class Employee : IJournaledEntity
 	public DateTimeOffset? UpdatedDtt { get; set; }
 
 	[Required]
-	[MaxLength(30)]
-	public string FirstName { get; set; }
-
-	[Required]
-	[MaxLength(30)]
-	public string LastName { get; set; }
-
-	[MaxLength(10)]
-	public string PersonalNumber { get; set; }
-
-	[MaxLength(255)]
-	public string Email { get; set; }
+	[MaxLength(300)]
+	public string Name { get; set; }
 
 	[Required]
 	public EntityState State { get; set; } = EntityState.Active;

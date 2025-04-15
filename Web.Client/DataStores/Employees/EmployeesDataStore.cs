@@ -16,7 +16,7 @@ public class EmployeesDataStore : DictionaryStaticDataStore<int, EmployeeGridDto
 
 	protected override async Task<IEnumerable<EmployeeGridDto>> LoadDataAsync()
 	{
-		return await _employeeFacade.GetAllEmployeesAsync();
+		return await _employeeFacade.GetItemsAsync();
 	}
 
 	protected override bool ShouldRefresh() => false;
