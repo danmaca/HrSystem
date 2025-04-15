@@ -24,12 +24,12 @@ public class EmployeeFacade : IEmployeeFacade
 	public async Task<List<EmployeeGridDto>> GetItemsAsync(CancellationToken cancellationToken = default)
 	{
 		var employees = await _employeeRepository.GetAllAsync(cancellationToken);
-		return employees.Select(e => new EmployeeGridDto()
+		return employees.Select(obj => new EmployeeGridDto()
 		{
-			EmployeeId = e.Id,
-			FirstName = e.FirstName,
-			LastName = e.LastName,
-			State = e.State,
+			EmployeeId = obj.Id,
+			FirstName = obj.FirstName,
+			LastName = obj.LastName,
+			State = obj.State,
 		}).ToList();
 	}
 }

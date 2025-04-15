@@ -6,22 +6,23 @@
 		  SelectedDataItemChanged="GridItemSelected"
 		  TItem="AgreementGridDto">
 	<Columns>
-		<HxGridColumn HeaderText="Příjmení"
-						  ItemTextSelector="i => i.OwnerEmployeeLastName"
-						  SortKeySelector="i => i.OwnerEmployeeLastName"
+		<HxGridColumn HeaderText="Název"
+						  ItemTextSelector="i => i.Name"
+						  SortKeySelector="i => i.Name"
 						  IsDefaultSortColumn="true" />
-		<HxGridColumn HeaderText="Jméno"
-						  ItemTextSelector="i => i.OwnerEmployeeFirstName"
-						  SortKeySelector="i => i.OwnerEmployeeFirstName"
-						  IsDefaultSortColumn="true" />
+		<HxGridColumn HeaderText="Platnost od"
+						  ItemTextSelector="i => i.ValidFrom.ToShortDateString()"
+						  SortKeySelector="i => i.ValidFrom" />
+		<HxGridColumn HeaderText="Platnost do"
+						  ItemTextSelector="i => i.ValidTo.ToShortDateString()"
+						  SortKeySelector="i => i.ValidTo" />
+		<HxGridColumn HeaderText="Zaměstnanec"
+						  ItemTextSelector="i => i.OwnerEmployeeFullName"
+						  SortKeySelector="i => i.OwnerEmployeeFullName"
+						  IsDefaultSortColumn="false" />
 
 		<HxGridColumn HeaderText="Stav"
 						  ItemTextSelector="i => i.State.ToString()"
 						  SortKeySelector="i => i.State" />
-		@* 		  <HxGridColumn HeaderText="Předběžná částka"
-		TItem="ResultItemDto"
-		ItemTextSelector='i => $"{(i.ValueSum / grandTotal * budget):n0} Kč"'
-		SortKeySelector="i => i.ValueSum"
-		FooterText="@($"{budget:n0} Kč")" /> *@
 	</Columns>
 </HxGrid>

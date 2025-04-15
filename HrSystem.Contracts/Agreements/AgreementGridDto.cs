@@ -6,7 +6,8 @@ public class AgreementGridDto
 {
 	public int AgreementId { get; set; }
 	public string Name { get; set; }
-	public string OwnerEmployeeFirstName { get; set; }
-	public string OwnerEmployeeLastName { get; set; }
+	public DateOnly ValidFrom { get; set; }
+	public DateOnly ValidTo { get; set; }
+	public string OwnerEmployeeFullName { get; set; }
 	public EntityState State { get; set; }
 }

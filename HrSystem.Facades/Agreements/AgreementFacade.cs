@@ -28,8 +28,7 @@ public class AgreementFacade : IAgreementFacade
 		{
 			AgreementId = obj.Id,
 			Name = obj.Name,
-			OwnerEmployeeFirstName = obj.OwnerEmployee?.FirstName,
-			OwnerEmployeeLastName = obj.OwnerEmployee?.LastName,
+			OwnerEmployeeFullName = obj.OwnerEmployee?.LastName + " " + obj.OwnerEmployee?.FirstName,
 			State = obj.State,
 		}).ToList();
 	}

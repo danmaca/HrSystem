@@ -1,5 +1,6 @@
 ﻿@using DanM.Core.Web.Client.FwPages
 @using DanM.HrSystem.Contracts.Employees
+@using DanM.HrSystem.Web.Client.Pages.Agreements
 @attribute [Route($"{HrNavigationRoutes.Employees.EmployeeDetail}{{{nameof(EntityId)}:int?}}")]
 @inherits DetailPageBase<EmployeeDetailData>
 <CascadingValue Name="PageShare" Value="@this.CurrentPageShare">
@@ -10,6 +11,8 @@
 					<TextBox Data="@Data.tbxLastName" />
 					<TextBox Data="@Data.tbxFirstName" />
 					<TextBox Data="@Data.tbxPersonalNumber" />
+
+					<AgreementGridTable />
 				</div>
 			</div>
 

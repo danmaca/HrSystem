@@ -7,7 +7,6 @@ public class StringProperty : EntityProperty
 	public StringProperty(Func<string> captionText)
 		: base(captionText)
 	{
-
 	}
 
 	public string GetValue(object entity) => ObjectValueGetter(entity) as string;

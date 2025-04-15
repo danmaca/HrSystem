@@ -1,0 +1,18 @@
+﻿@using DanM.Core.Web.Client.FwPages
+@using DanM.HrSystem.Contracts.Agreements
+@using DanM.HrSystem.Web.Client.Pages.Agreements
+@attribute [Route($"{HrNavigationRoutes.Agreements.AgreementDetail}{{{nameof(EntityId)}:int?}}")]
+@inherits DetailPageBase<AgreementDetailData>
+<CascadingValue Name="PageShare" Value="@this.CurrentPageShare">
+	<DatailMasterpage Data="@Data">
+		<ContenTemplate>
+			<div class="row g-4">
+				<div>
+					<TextBox Data="@Data.tbxName" />
+					<DatePicker Data="@Data.dtpValidFrom" />
+					<DatePicker Data="@Data.dtpValidTo" />
+				</div>
+			</div>
+		</ContenTemplate>
+	</DatailMasterpage>
+</CascadingValue>

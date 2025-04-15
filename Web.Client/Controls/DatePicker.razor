@@ -1,0 +1,18 @@
+﻿@using DanM.Core.Contracts.ControlDatas
+@using DanM.Core.Web.Client.FwControls
+@using Microsoft.AspNetCore.Components.Sections
+@namespace DanM.Core.Web.Client.Controls
+@inherits CaptionControlBase<DateControlData>
+
+<CaptionControlWrapper CaptionControl="@this">
+	<ElementContent>
+		@if (@Data.IsEditable)
+		{
+			<HxInputDate @bind-Value="@Data.SelectedDate" />
+		}
+		else
+		{
+			<div>@Data.SelectedDate?.Date.ToShortDateString()</div>
+		}
+	</ElementContent>
+</CaptionControlWrapper>
