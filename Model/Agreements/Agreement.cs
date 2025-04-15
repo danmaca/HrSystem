@@ -1,9 +1,10 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using DanM.Core.Model.Framework;
+using DanM.HrSystem.Model.Employees;
 using DanM.HrSystem.Model.Security;
 using DanM.HrSystem.Primitives.Common;
 
-namespace DanM.HrSystem.Model.Employees;
+namespace DanM.HrSystem.Model.Agreements;
 
 public class Agreement : IJournaledEntity
 {
@@ -23,4 +24,10 @@ public class Agreement : IJournaledEntity
 
 	[Required]
 	public EntityState State { get; set; } = EntityState.Active;
+
+	public DateOnly ValidFrom { get; set; }
+	public DateOnly ValidTo { get; set; }
+
+	public Employee OwnerEmployee { get; set; }
+	public int? OwnerEmployeeId { get; set; }
 }

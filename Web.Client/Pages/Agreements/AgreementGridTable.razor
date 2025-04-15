@@ -1,0 +1,27 @@
+﻿@using DanM.HrSystem.Contracts.Agreements
+<HxGrid @ref="conGrid"
+		  DataProvider="GetGridDataAsync"
+		  PageSize="40"
+		  FooterRowCssClass="fw-bold"
+		  SelectedDataItemChanged="GridItemSelected"
+		  TItem="AgreementGridDto">
+	<Columns>
+		<HxGridColumn HeaderText="Příjmení"
+						  ItemTextSelector="i => i.OwnerEmployeeLastName"
+						  SortKeySelector="i => i.OwnerEmployeeLastName"
+						  IsDefaultSortColumn="true" />
+		<HxGridColumn HeaderText="Jméno"
+						  ItemTextSelector="i => i.OwnerEmployeeFirstName"
+						  SortKeySelector="i => i.OwnerEmployeeFirstName"
+						  IsDefaultSortColumn="true" />
+
+		<HxGridColumn HeaderText="Stav"
+						  ItemTextSelector="i => i.State.ToString()"
+						  SortKeySelector="i => i.State" />
+		@* 		  <HxGridColumn HeaderText="Předběžná částka"
+		TItem="ResultItemDto"
+		ItemTextSelector='i => $"{(i.ValueSum / grandTotal * budget):n0} Kč"'
+		SortKeySelector="i => i.ValueSum"
+		FooterText="@($"{budget:n0} Kč")" /> *@
+	</Columns>
+</HxGrid>

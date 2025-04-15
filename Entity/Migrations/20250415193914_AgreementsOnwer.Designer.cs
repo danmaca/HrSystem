@@ -5,6 +5,7 @@ using Havit.Data.EntityFrameworkCore.Attributes;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -12,9 +13,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DanM.HrSystem.Entity.Migrations
 {
     [DbContext(typeof(HrSystemDbContext))]
-    partial class HrSystemDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250415193914_AgreementsOnwer")]
+    partial class AgreementsOnwer
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

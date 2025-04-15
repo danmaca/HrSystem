@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using DanM.Core.Model.Framework;
+using DanM.HrSystem.Model.Agreements;
 using DanM.HrSystem.Model.Security;
 using DanM.HrSystem.Primitives.Common;
 
@@ -33,4 +34,6 @@ public class Employee : IJournaledEntity
 
 	[Required]
 	public EntityState State { get; set; } = EntityState.Active;
+
+	public ICollection<Agreement> Agreements { get; set; } = new List<Agreement>();
 }

@@ -5,6 +5,7 @@ using Havit.Data.EntityFrameworkCore.Attributes;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -12,9 +13,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DanM.HrSystem.Entity.Migrations
 {
     [DbContext(typeof(HrSystemDbContext))]
-    partial class HrSystemDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250415193159_AgreementsValid")]
+    partial class AgreementsValid
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -42,9 +45,6 @@ namespace DanM.HrSystem.Entity.Migrations
                         .HasMaxLength(300)
                         .HasColumnType("nvarchar(300)");
 
-                    b.Property<int?>("OwnerEmployeeId")
-                        .HasColumnType("int");
-
                     b.Property<int>("State")
                         .HasColumnType("int");
 
@@ -63,8 +63,6 @@ namespace DanM.HrSystem.Entity.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("CreatedById");
-
-                    b.HasIndex("OwnerEmployeeId");
 
                     b.HasIndex("UpdatedById");
 
@@ -317,19 +315,12 @@ namespace DanM.HrSystem.Entity.Migrations
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("DanM.HrSystem.Model.Employees.Employee", "OwnerEmployee")
-                        .WithMany("Agreements")
-                        .HasForeignKey("OwnerEmployeeId")
-                        .OnDelete(DeleteBehavior.Restrict);
-
                     b.HasOne("DanM.HrSystem.Model.Security.User", "UpdatedBy")
                         .WithMany()
                         .HasForeignKey("UpdatedById")
                         .OnDelete(DeleteBehavior.Restrict);
 
                     b.Navigation("CreatedBy");
-
-                    b.Navigation("OwnerEmployee");
 
                     b.Navigation("UpdatedBy");
                 });
@@ -393,11 +384,6 @@ namespace DanM.HrSystem.Entity.Migrations
             modelBuilder.Entity("DanM.HrSystem.Model.Common.Country", b =>
                 {
                     b.Navigation("Localizations");
-                });
-
-            modelBuilder.Entity("DanM.HrSystem.Model.Employees.Employee", b =>
-                {
-                    b.Navigation("Agreements");
                 });
 
             modelBuilder.Entity("DanM.HrSystem.Model.Security.User", b =>

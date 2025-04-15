@@ -1,4 +1,4 @@
-﻿using DanM.Core.Facades.ModelDescriptors;
+﻿using DanM.Core.Facades.ModelDescriptors.Employees;
 using DanM.Core.Services.Binders;
 using DanM.Core.Services.Controllers;
 using DanM.HrSystem.Contracts.Employees;
