@@ -1,4 +1,5 @@
-﻿using DanM.HrSystem.Contracts.Employees;
+﻿using DanM.Core.Web.Client.Controls;
+using DanM.HrSystem.Contracts.Employees;
 using Havit;
 
 namespace DanM.HrSystem.Web.Client.Pages.Employees;
@@ -10,7 +11,7 @@ public partial class EmployeeGridTable
 	[Inject] protected NavigationManager Navigation { get; set; }
 
 	private List<EmployeeGridDto> gridData;
-	private HxGrid<EmployeeGridDto> conGrid;
+	private GridView<EmployeeGridDto> conGrid;
 
 	private async Task<GridDataProviderResult<EmployeeGridDto>> GetGridDataAsync(GridDataProviderRequest<EmployeeGridDto> request)
 	{

@@ -1,28 +1,29 @@
 ﻿@using DanM.HrSystem.Contracts.Agreements
-<HxGrid @ref="conGrid"
+@using DanM.HrSystem.Web.Client.Controls
+<GridView @ref="conGrid"
 		  DataProvider="GetGridDataAsync"
 		  PageSize="40"
 		  FooterRowCssClass="fw-bold"
 		  SelectedDataItemChanged="GridItemSelected"
 		  TItem="AgreementGridDto">
 	<Columns>
-		<HxGridColumn HeaderText="Název"
+		<GridColumn HeaderText="Název"
 						  ItemTextSelector="i => i.Name"
 						  SortKeySelector="i => i.Name"
 						  IsDefaultSortColumn="true" />
-		<HxGridColumn HeaderText="Platnost od"
+		<GridColumn HeaderText="Platnost od"
 						  ItemTextSelector="i => i.ValidFrom.ToShortDateString()"
 						  SortKeySelector="i => i.ValidFrom" />
-		<HxGridColumn HeaderText="Platnost do"
+		<GridColumn HeaderText="Platnost do"
 						  ItemTextSelector="i => i.ValidTo.ToShortDateString()"
 						  SortKeySelector="i => i.ValidTo" />
-		<HxGridColumn HeaderText="Zaměstnanec"
+		<GridColumn HeaderText="Zaměstnanec"
 						  ItemTextSelector="i => i.OwnerEmployeeFullName"
 						  SortKeySelector="i => i.OwnerEmployeeFullName"
 						  IsDefaultSortColumn="false" />
 
-		<HxGridColumn HeaderText="Stav"
+		<GridColumn HeaderText="Stav"
 						  ItemTextSelector="i => i.State.ToString()"
 						  SortKeySelector="i => i.State" />
 	</Columns>
-</HxGrid>
+</GridView>

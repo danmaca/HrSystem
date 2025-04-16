@@ -1,4 +1,5 @@
-﻿using DanM.HrSystem.Contracts.Agreements;
+﻿using DanM.Core.Web.Client.Controls;
+using DanM.HrSystem.Contracts.Agreements;
 using Havit;
 
 namespace DanM.HrSystem.Web.Client.Pages.Agreements;
@@ -10,7 +11,7 @@ public partial class AgreementGridTable
 	[Inject] protected NavigationManager Navigation { get; set; }
 
 	private List<AgreementGridDto> gridData;
-	private HxGrid<AgreementGridDto> conGrid;
+	private GridView<AgreementGridDto> conGrid;
 
 	private async Task<GridDataProviderResult<AgreementGridDto>> GetGridDataAsync(GridDataProviderRequest<AgreementGridDto> request)
 	{

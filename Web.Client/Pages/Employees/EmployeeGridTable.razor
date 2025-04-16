@@ -1,21 +1,21 @@
-﻿@using DanM.HrSystem.Contracts.Employees
-<HxGrid @ref="conGrid"
+﻿@using DanM.Core.Web.Client.Controls
+@using DanM.HrSystem.Contracts.Employees
+@using DanM.HrSystem.Web.Client.Controls
+<GridView @ref="conGrid"
 		  DataProvider="GetGridDataAsync"
-		  PageSize="40"
-		  FooterRowCssClass="fw-bold"
-		  SelectedDataItemChanged="GridItemSelected"
+		  
 		  TItem="EmployeeGridDto">
 	<Columns>
-		<HxGridColumn HeaderText="Příjmení"
+		<GridColumn HeaderText="Příjmení"
 						  ItemTextSelector="i => i.LastName"
 						  SortKeySelector="i => i.LastName"
 						  IsDefaultSortColumn="true" />
-		<HxGridColumn HeaderText="Jméno"
+		<GridColumn HeaderText="Jméno"
 						  ItemTextSelector="i => i.FirstName"
 						  SortKeySelector="i => i.FirstName"
 						  IsDefaultSortColumn="true" />
 
-		<HxGridColumn HeaderText="Stav"
+		<GridColumn HeaderText="Stav"
 						  ItemTextSelector="i => i.State.ToString()"
 						  SortKeySelector="i => i.State" />
 		@* 		  <HxGridColumn HeaderText="Předběžná částka"
@@ -24,4 +24,8 @@
 		SortKeySelector="i => i.ValueSum"
 		FooterText="@($"{budget:n0} Kč")" /> *@
 	</Columns>
-</HxGrid>
+</GridView>
+@* 
+PageSize="40"
+		  FooterRowCssClass="fw-bold"
+		  SelectedDataItemChanged="GridItemSelected" *@
