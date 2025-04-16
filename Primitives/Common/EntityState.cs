@@ -1,4 +1,4 @@
-﻿namespace DanM.HrSystem.Primitives.Common;
+﻿namespace DanM.Core.Primitives.Common;
 
 public enum EntityState
 {

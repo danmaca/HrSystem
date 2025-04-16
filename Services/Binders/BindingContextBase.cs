@@ -1,6 +1,5 @@
-﻿using DanM.Core.Model.Framework;
+﻿using DanM.Core.Primitives.Common;
 using DanM.Core.Services.Controllers;
-using DanM.HrSystem.Primitives.Common;
 
 namespace DanM.Core.Services.Binders;
 

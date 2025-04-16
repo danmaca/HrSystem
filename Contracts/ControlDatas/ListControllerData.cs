@@ -2,5 +2,5 @@
 
 public abstract class ListControllerData : ControllerData<ListControllerSetup>
 {
-	public ListControlData lstMainGrid { get; set; }
+	public ListControlData lstMainGrid { get; set; } = new ListControlData();
 }

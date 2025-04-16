@@ -1,6 +1,6 @@
 ﻿using System.Reflection;
 
-namespace DanM.HrSystem.Primitives.Common;
+namespace DanM.Core.Primitives.Common;
 
 public abstract class GenericEnum<TEnum, TValue>
 	where TEnum : GenericEnum<TEnum, TValue>

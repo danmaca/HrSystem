@@ -1,8 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using DanM.Core.Model.Framework;
+using DanM.Core.Primitives.Common;
 using DanM.HrSystem.Model.Agreements;
 using DanM.HrSystem.Model.Security;
-using DanM.HrSystem.Primitives.Common;
 
 namespace DanM.HrSystem.Model.Employees;
 

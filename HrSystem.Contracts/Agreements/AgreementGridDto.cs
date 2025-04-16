@@ -1,4 +1,4 @@
-﻿using DanM.HrSystem.Primitives.Common;
+﻿using DanM.Core.Primitives.Common;
 
 namespace DanM.HrSystem.Contracts.Agreements;
 
