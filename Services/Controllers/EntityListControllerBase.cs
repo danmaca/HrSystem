@@ -1,10 +1,12 @@
 ﻿using DanM.Core.Contracts.ControlDatas;
+using DanM.Core.Contracts.Filtering;
 using DanM.Core.Model.Framework;
 
 namespace DanM.Core.Services.Controllers;
 
-public abstract class EntityListControllerBase<TEntity, TData> : ListControllerBase<TData>
+public abstract class EntityListControllerBase<TEntity, TFilter, TData> : ListControllerBase<TFilter, TData>
 	where TEntity : class, IEntity, new()
+	where TFilter : class, IFilterBase, new()
 	where TData : ListControllerData
 {
 	protected EntityListControllerBase(IListControllerServices services)
@@ -13,8 +15,9 @@ public abstract class EntityListControllerBase<TEntity, TData> : ListControllerB
 	}
 }
 
-public interface IEntityListControllerBase<TEntity, TData> : IListControllerBase<TData>
+public interface IEntityListControllerBase<TEntity, TFilter, TData> : IListControllerBase<TFilter, TData>
 	where TEntity : class, IEntity, new()
+	where TFilter : class, IFilterBase, new()
 	where TData : ListControllerData
 {
 }

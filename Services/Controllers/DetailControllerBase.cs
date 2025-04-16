@@ -78,7 +78,7 @@ public abstract class DetailControllerBase<TEntity, TData> : ControllerBase<TDat
 
 	private void BindProperties(BindingMode bindingMode)
 	{
-		var ctx = new BindingContext()
+		var ctx = new DetailBindingContext()
 		{
 			Mode = bindingMode,
 		};
@@ -91,7 +91,7 @@ public abstract class DetailControllerBase<TEntity, TData> : ControllerBase<TDat
 		this.OnBindingProperties(ctx);
 	}
 
-	protected virtual void OnBindingProperties(BindingContext ctx)
+	protected virtual void OnBindingProperties(DetailBindingContext ctx)
 	{
 	}
 

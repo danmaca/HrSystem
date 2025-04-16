@@ -9,7 +9,7 @@ public class WorkflowBinder : ControlDataBinder, IWorkflowBinder
 {
 	private const string ButtonOwnerIdent = "WfTrans";
 
-	public void Bind(BindingContext context, ActionButtonizerData data)
+	public void Bind(BindingContextBase context, ActionButtonizerData data)
 	{
 		switch (context.Mode)
 		{
@@ -18,15 +18,19 @@ public class WorkflowBinder : ControlDataBinder, IWorkflowBinder
 
 				if (data.CurrentDialog == null)
 					data.CurrentDialog = WorkflowDialog.Detail;
-				context.WorkflowRequest.Dialog = data.CurrentDialog;
 
-				foreach (var transInfo in context.Workflow.ResolveAllowedTransitions(context.WorkflowRequest).Transitions)
+				if (context is DetailBindingContext detailCtx)
 				{
-					var btnTransition = new ActionButtonDto();
-					btnTransition.OwnerIdent = ButtonOwnerIdent;
-					btnTransition.Key = transInfo.Transition.Key;
-					btnTransition.Text = transInfo.Transition.Name;
-					data.Actions.Add(btnTransition);
+					detailCtx.WorkflowRequest.Dialog = data.CurrentDialog;
+
+					foreach (var transInfo in detailCtx.Workflow.ResolveAllowedTransitions(detailCtx.WorkflowRequest).Transitions)
+					{
+						var btnTransition = new ActionButtonDto();
+						btnTransition.OwnerIdent = ButtonOwnerIdent;
+						btnTransition.Key = transInfo.Transition.Key;
+						btnTransition.Text = transInfo.Transition.Name;
+						data.Actions.Add(btnTransition);
+					}
 				}
 				break;
 		}
@@ -42,6 +46,6 @@ public class WorkflowBinder : ControlDataBinder, IWorkflowBinder
 
 public interface IWorkflowBinder : IControlDataBinder
 {
-	void Bind(BindingContext context, ActionButtonizerData data);
+	void Bind(BindingContextBase context, ActionButtonizerData data);
 	Task TryRunTransition(ActionButtonizerData data, Func<string, Task> runWorkflowTransitionAction);
 }

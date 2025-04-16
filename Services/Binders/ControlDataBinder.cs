@@ -5,9 +5,12 @@ namespace DanM.Core.Services.Binders;
 
 public abstract class ControlDataBinder : IControlDataBinder
 {
-	public virtual void BindProperty(BindingContext context, ControlData data, IEntityProperty property)
+	public virtual void BindProperty(BindingContextBase context, ControlData data, IEntityProperty property)
 	{
-		data.IsEditable = context.Workflow.PropertyIsEditable(property, context.WorkflowRequest);
+		if (context is DetailBindingContext detailCtx)
+		{
+			data.IsEditable = detailCtx.Workflow.PropertyIsEditable(property, detailCtx.WorkflowRequest);
+		}
 	}
 }
 

@@ -5,7 +5,7 @@ namespace DanM.Core.Services.Binders;
 
 public abstract class CaptionControlDataBinder : ControlDataBinder
 {
-	public override void BindProperty(BindingContext context, ControlData data, IEntityProperty property)
+	public override void BindProperty(BindingContextBase context, ControlData data, IEntityProperty property)
 	{
 		base.BindProperty(context, data, property);
 

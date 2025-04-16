@@ -23,7 +23,7 @@ public class AgreementDetailController : EntityDetailControllerBase<Agreement, I
 		_agreementDescriptor = agreementDescriptor;
 	}
 
-	protected override void OnBindingProperties(BindingContext ctx)
+	protected override void OnBindingProperties(DetailBindingContext ctx)
 	{
 		base.OnBindingProperties(ctx);
 

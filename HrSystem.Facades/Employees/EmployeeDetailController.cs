@@ -13,23 +13,23 @@ namespace DanM.HrSystem.Facades.Employees;
 [Authorize]
 public class EmployeeDetailController : EntityDetailControllerBase<Employee, IEmployeeRepository, EmployeeDetailData>, IEmployeeDetailController
 {
-	private readonly IEmployeeDescriptor _employeeDescriptor;
+	private readonly IEmployeeDescriptor _entityDesc;
 
 	public EmployeeDetailController(
 		IDetailControllerServices services,
-		IEmployeeDescriptor employeeDescriptor)
+		IEmployeeDescriptor entityDesc)
 		: base(services)
 	{
-		_employeeDescriptor = employeeDescriptor;
+		_entityDesc = entityDesc;
 	}
 
-	protected override void OnBindingProperties(BindingContext ctx)
+	protected override void OnBindingProperties(DetailBindingContext ctx)
 	{
 		base.OnBindingProperties(ctx);
 
-		this.Binders.TextBinder.Bind(ctx, this.Data.tbxFirstName, _employeeDescriptor.FirstName);
-		this.Binders.TextBinder.Bind(ctx, this.Data.tbxLastName, _employeeDescriptor.LastName);
-		this.Binders.TextBinder.Bind(ctx, this.Data.tbxPersonalNumber, _employeeDescriptor.PersonalNumber);
+		this.Binders.TextBinder.Bind(ctx, this.Data.tbxFirstName, _entityDesc.FirstName);
+		this.Binders.TextBinder.Bind(ctx, this.Data.tbxLastName, _entityDesc.LastName);
+		this.Binders.TextBinder.Bind(ctx, this.Data.tbxPersonalNumber, _entityDesc.PersonalNumber);
 	}
 }
 

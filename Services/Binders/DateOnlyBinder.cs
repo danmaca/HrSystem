@@ -7,7 +7,7 @@ namespace DanM.Core.Services.Binders;
 [Service]
 public class DateOnlyBinder : CaptionControlDataBinder, IDateOnlyBinder
 {
-	public void Bind(BindingContext context, DateControlData data, DateOnlyProperty property)
+	public void Bind(BindingContextBase context, DateControlData data, DateOnlyProperty property)
 	{
 		this.BindProperty(context, data, property);
 
@@ -26,5 +26,5 @@ public class DateOnlyBinder : CaptionControlDataBinder, IDateOnlyBinder
 
 public interface IDateOnlyBinder
 {
-	void Bind(BindingContext context, DateControlData data, DateOnlyProperty property);
+	void Bind(BindingContextBase context, DateControlData data, DateOnlyProperty property);
 }

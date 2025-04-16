@@ -7,7 +7,7 @@ namespace DanM.Core.Services.Binders;
 [Service]
 public class TextBinder : CaptionControlDataBinder, ITextBinder
 {
-	public void Bind(BindingContext context, TextControlData data, StringProperty property)
+	public void Bind(BindingContextBase context, TextControlData data, StringProperty property)
 	{
 		this.BindProperty(context, data, property);
 
@@ -26,5 +26,5 @@ public class TextBinder : CaptionControlDataBinder, ITextBinder
 
 public interface ITextBinder
 {
-	void Bind(BindingContext context, TextControlData data, StringProperty property);
+	void Bind(BindingContextBase context, TextControlData data, StringProperty property);
 }

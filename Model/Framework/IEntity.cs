@@ -1,5 +1,7 @@
-﻿namespace DanM.Core.Model.Framework;
+﻿using DanM.HrSystem.Primitives.Common;
 
-public interface IEntity
+namespace DanM.Core.Model.Framework;
+
+public interface IEntity : IBindableEntity
 {
 }

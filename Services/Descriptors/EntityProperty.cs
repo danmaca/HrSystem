@@ -13,7 +13,7 @@ public class EntityProperty : IEntityProperty
 		CaptionText = captionText;
 	}
 
-	public string GetCaptionText(BindingContext context)
+	public string GetCaptionText(BindingContextBase context)
 	{
 		return CaptionText();
 	}
@@ -25,5 +25,5 @@ public interface IEntityProperty
 	Func<object, object> ObjectValueGetter { get; set; }
 	Action<object, object> ObjectValueSetter { get; set; }
 
-	string GetCaptionText(BindingContext context);
+	string GetCaptionText(BindingContextBase context);
 }
