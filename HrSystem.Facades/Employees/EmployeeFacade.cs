@@ -1,4 +1,5 @@
-﻿using DanM.HrSystem.Contracts.Employees;
+﻿using DanM.Core.Contracts.Collections;
+using DanM.HrSystem.Contracts.Employees;
 using DanM.HrSystem.DataLayer.Repositories.Employees;
 using Havit.Data.Patterns.UnitOfWorks;
 using Havit.Extensions.DependencyInjection.Abstractions;
@@ -21,15 +22,15 @@ public class EmployeeFacade : IEmployeeFacade
 		_unitOfWork = unitOfWork;
 	}
 
-	public async Task<List<EmployeeGridDto>> GetDtosAsync(EmployeeListFilter filter, CancellationToken cancellationToken = default)
+	public async Task<ListSource<EmployeeGridDto>> GetDtosAsync(EmployeeListFilter filter, CancellationToken cancellationToken = default)
 	{
 		var employees = await _employeeRepository.GetByFilterAsync(filter, cancellationToken);
-		return employees.Select(obj => new EmployeeGridDto()
+		return employees.Transform(obj => new EmployeeGridDto()
 		{
 			EmployeeId = obj.Id,
 			FirstName = obj.FirstName,
 			LastName = obj.LastName,
 			State = obj.State,
-		}).ToList();
+		});
 	}
 }

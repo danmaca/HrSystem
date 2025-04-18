@@ -20,7 +20,7 @@ public class ServerCommunicator : IServerCommunicator
 
 		string jsonRequest = serializer.SerializeToString(request, DataContractSerialization.TypeKind.Controller);
 
-		var jsonResponse = await _clientServerCommunicator.CallControllerSerialized(Dto.FromValue(jsonRequest));
+		var jsonResponse = await _clientServerCommunicator.CallControllerSerialized(Dto.FromValue(jsonRequest), cancellationToken);
 
 		var response = serializer.Deserialize<ControllerCallResponse>(jsonResponse.Value, DataContractSerialization.TypeKind.Controller);
 		return response;
