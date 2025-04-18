@@ -7,7 +7,6 @@ namespace DanM.HrSystem.Web.Client.Pages.Employees;
 public partial class EmployeeGridTable
 {
 	[Inject] protected IEmployeeFacade EmployeeFacade { get; set; }
-	[Inject] protected IHxMessageBoxService MessageBox { get; set; }
 	[Inject] protected NavigationManager Navigation { get; set; }
 
 	private List<EmployeeGridDto> gridData;
@@ -17,8 +16,13 @@ public partial class EmployeeGridTable
 	{
 		try
 		{
-			gridData = await EmployeeFacade.GetItemsAsync();
-			return request.ApplyTo(gridData);
+			var filter = (EmployeeListFilter)this.Data.DataFilter;
+			gridData = await EmployeeFacade.GetDtosAsync(filter);
+			return new GridDataProviderResult<EmployeeGridDto>()
+			{
+				Data = gridData,
+				TotalCount = 10
+			};
 		}
 		catch (OperationFailedException)
 		{

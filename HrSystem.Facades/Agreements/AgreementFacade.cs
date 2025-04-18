@@ -21,7 +21,7 @@ public class AgreementFacade : IAgreementFacade
 		_unitOfWork = unitOfWork;
 	}
 
-	public async Task<List<AgreementGridDto>> GetItemsAsync(CancellationToken cancellationToken = default)
+	public async Task<List<AgreementGridDto>> GetDtosAsync(CancellationToken cancellationToken = default)
 	{
 		var employees = await _agreementRepository.GetAllAsync(cancellationToken);
 		return employees.Select(obj => new AgreementGridDto()

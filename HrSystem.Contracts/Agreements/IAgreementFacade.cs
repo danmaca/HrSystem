@@ -3,5 +3,5 @@
 [ApiContract]
 public interface IAgreementFacade
 {
-	Task<List<AgreementGridDto>> GetItemsAsync(CancellationToken cancellationToken = default);
+	Task<List<AgreementGridDto>> GetDtosAsync(CancellationToken cancellationToken = default);
 }

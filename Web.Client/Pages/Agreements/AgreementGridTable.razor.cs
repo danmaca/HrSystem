@@ -17,7 +17,7 @@ public partial class AgreementGridTable
 	{
 		try
 		{
-			gridData = await AgreementFacade.GetItemsAsync();
+			gridData = await AgreementFacade.GetDtosAsync();
 			return request.ApplyTo(gridData);
 		}
 		catch (OperationFailedException)

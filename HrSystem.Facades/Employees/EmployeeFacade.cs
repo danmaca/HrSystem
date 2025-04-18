@@ -21,9 +21,9 @@ public class EmployeeFacade : IEmployeeFacade
 		_unitOfWork = unitOfWork;
 	}
 
-	public async Task<List<EmployeeGridDto>> GetItemsAsync(CancellationToken cancellationToken = default)
+	public async Task<List<EmployeeGridDto>> GetDtosAsync(EmployeeListFilter filter, CancellationToken cancellationToken = default)
 	{
-		var employees = await _employeeRepository.GetAllAsync(cancellationToken);
+		var employees = await _employeeRepository.GetByFilterAsync(filter, cancellationToken);
 		return employees.Select(obj => new EmployeeGridDto()
 		{
 			EmployeeId = obj.Id,

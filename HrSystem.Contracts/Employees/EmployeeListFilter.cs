@@ -2,7 +2,7 @@
 
 namespace DanM.HrSystem.Contracts.Employees;
 
-public class EmployeeListFilter : IFilterBase
+public class EmployeeListFilter : FilterBase
 {
 	public string NameLike { get; set; }
 }

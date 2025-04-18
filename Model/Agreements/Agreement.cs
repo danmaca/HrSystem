@@ -26,7 +26,7 @@ public class Agreement : IJournaledEntity
 	public EntityState State { get; set; } = EntityState.Active;
 
 	public DateOnly ValidFrom { get; set; }
-	public DateOnly ValidTo { get; set; }
+	public DateOnly? ValidTo { get; set; }
 
 	public Employee OwnerEmployee { get; set; }
 	public int? OwnerEmployeeId { get; set; }

@@ -13,13 +13,16 @@ namespace DanM.HrSystem.Facades.Employees;
 public class EmployeeListController : EntityListControllerBase<Employee, EmployeeListFilter, EmployeeListData>, IEmployeeListController
 {
 	private readonly IEmployeeListFilterDescriptor _filterDesc;
+	private readonly IEmployeeFacade _employeeFacade;
 
 	public EmployeeListController(
 		IListControllerServices services,
-		IEmployeeListFilterDescriptor filterDesc)
+		IEmployeeListFilterDescriptor filterDesc,
+		IEmployeeFacade employeeFacade)
 		: base(services)
 	{
 		_filterDesc = filterDesc;
+		_employeeFacade = employeeFacade;
 	}
 
 	protected override void OnBindingProperties(ListBindingContext ctx)
@@ -31,7 +34,7 @@ public class EmployeeListController : EntityListControllerBase<Employee, Employe
 
 	protected override void OnFillMainGrid()
 	{
-		//Data.lstMainGrid;
+		Data.lstMainGrid.FillData(this.Filter, typeof(IEmployeeFacade));
 	}
 }
 

@@ -1,23 +1,26 @@
-﻿@using DanM.Core.Web.Client.Controls
+﻿@using DanM.Core.Contracts.ControlDatas
+@using DanM.Core.Web.Client.Controls
+@using DanM.Core.Web.Client.FwControls
 @using DanM.HrSystem.Contracts.Employees
 @using DanM.HrSystem.Web.Client.Controls
+@inherits DataControlBase<ListControlData>
 <GridView @ref="conGrid"
-		  DataProvider="GetGridDataAsync"
-		  
-		  TItem="EmployeeGridDto">
+	Data="@Data"
+	DataProvider="GetGridDataAsync"
+	TItem="EmployeeGridDto">
 	<Columns>
 		<GridColumn HeaderText="Příjmení"
-						  ItemTextSelector="i => i.LastName"
-						  SortKeySelector="i => i.LastName"
-						  IsDefaultSortColumn="true" />
+						ItemTextSelector="i => i.LastName"
+						SortKeySelector="i => i.LastName"
+						IsDefaultSortColumn="true" />
 		<GridColumn HeaderText="Jméno"
-						  ItemTextSelector="i => i.FirstName"
-						  SortKeySelector="i => i.FirstName"
-						  IsDefaultSortColumn="true" />
+						ItemTextSelector="i => i.FirstName"
+						SortKeySelector="i => i.FirstName"
+						IsDefaultSortColumn="true" />
 
 		<GridColumn HeaderText="Stav"
-						  ItemTextSelector="i => i.State.ToString()"
-						  SortKeySelector="i => i.State" />
+						ItemTextSelector="i => i.State.ToString()"
+						SortKeySelector="i => i.State" />
 		@* 		  <HxGridColumn HeaderText="Předběžná částka"
 		TItem="ResultItemDto"
 		ItemTextSelector='i => $"{(i.ValueSum / grandTotal * budget):n0} Kč"'
