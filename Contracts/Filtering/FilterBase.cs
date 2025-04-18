@@ -1,22 +1,19 @@
 ﻿using System.Runtime.Serialization;
 using DanM.Core.Primitives.Common;
+using ProtoBuf;
 
 namespace DanM.Core.Contracts.Filtering;
 
 [DataContract]
+[ProtoContract]
 public class FilterBase : IFilterBase
 {
 	[DataMember]
+	[ProtoMember(1)]
 	public FilterPaging Paging { get; set; } = new FilterPaging();
-	[DataMember]
-	public int PagingStartRowIndex { get; set; }
-	[DataMember]
-	public int? PagingRowsCount { get; set; }
 }
 
 public interface IFilterBase : IBindableEntity
 {
-	//FilterPaging Paging { get; }
-	int PagingStartRowIndex { get; set; }
-	int? PagingRowsCount { get; set; }
+	FilterPaging Paging { get; }
 }

@@ -1,4 +1,5 @@
-﻿using ProtoBuf;
+﻿using DanM.Core.Contracts.Filtering;
+using ProtoBuf;
 
 namespace DanM.Core.Contracts.Collections;
 
@@ -34,13 +35,20 @@ public static class ListSourceExtensions
 		return new ListSource<TItem>(source);
 	}
 
-	public static async Task<ListSource<TItem>> ToListSourceAsync<TItem>(this IQueryable<TItem> source, CancellationToken cancellationToken = default)
+	public static async Task<ListSource<TItem>> ToListSourceAsync<TItem>(this IQueryable<TItem> query, IFilterBase filter, CancellationToken cancellationToken = default)
 	{
 		var list = new ListSource<TItem>();
 
-		list.TotalCount = source.Count();
+		list.TotalCount = query.Count();
 
-      await foreach (var element in ((IAsyncEnumerable<TItem>)source).WithCancellation(cancellationToken))
+		if (filter.Paging.RowsCount != null)
+		{
+			if (filter.Paging.StartRowIndex > 0)
+				query = query.Skip(filter.Paging.StartRowIndex);
+			query = query.Take(filter.Paging.RowsCount.Value);
+		}
+
+      await foreach (var element in ((IAsyncEnumerable<TItem>)query).WithCancellation(cancellationToken))
          list.Items.Add(element);
 		return list;
 	}

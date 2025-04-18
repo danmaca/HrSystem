@@ -12,6 +12,6 @@ public partial class EmployeeDbRepository : IEmployeeRepository
 		var query = this.GetData(filter);
 		if (filter.NameLike != null)
 			query = query.Where(obj => obj.LastName.IndexOf(filter.NameLike) >= 0);
-		return await query.ToListSourceAsync(cancellationToken);
+		return await query.ToListSourceAsync(filter, cancellationToken);
 	}
 }

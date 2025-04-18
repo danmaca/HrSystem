@@ -11,12 +11,6 @@ public static class DbRepositoryExtensions
 	{
 		var dataProp = repository.GetType().GetProperty("Data", BindingFlags.NonPublic | BindingFlags.Instance);
 		IQueryable<TEntity> query = (IQueryable<TEntity>)dataProp.GetValue(repository);
-		if (filter.PagingRowsCount != null)
-		{
-			if (filter.PagingStartRowIndex > 0)
-				query = query.Skip(filter.PagingStartRowIndex);
-			query = query.Take(filter.PagingRowsCount.Value);
-		}
 		return query;
 	}
 }

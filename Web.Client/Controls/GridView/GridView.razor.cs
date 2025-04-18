@@ -36,8 +36,8 @@ public partial class GridView<TItem>
 				var getDtosMethodMember = dtosFetchFacadeType.GetMethod("GetDtosAsync");
 
 				var filter = this.Data.DataFilter;
-				filter.PagingStartRowIndex = request.StartIndex;
-				filter.PagingRowsCount = request.Count;
+				filter.Paging.StartRowIndex = request.StartIndex;
+				filter.Paging.RowsCount = request.Count;
 
 				var dtosFetchFacade = this.ServiceProvider.GetRequiredService(dtosFetchFacadeType);
 				var gridDataTask = (Task<ListSource<TItem>>)getDtosMethodMember.Invoke(dtosFetchFacade, new object[] { filter, request.CancellationToken });
