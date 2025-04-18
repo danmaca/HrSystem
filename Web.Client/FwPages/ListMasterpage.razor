@@ -6,6 +6,15 @@
 	<BodyTemplate>
 		<AuthorizeView>
 			<Authorized>
+				<div>
+					@TitlePanel
+				</div>
+				<FilterPanel Data="@Data.pnlMainFilter">
+					<FilterControls>
+						@FilterPanel
+					</FilterControls>
+				</FilterPanel>
+
 				@ContenTemplate
 			</Authorized>
 			<NotAuthorized>

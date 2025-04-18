@@ -1,0 +1,10 @@
+﻿@using DanM.Core.Contracts.ControlDatas
+@using DanM.Core.Web.Client.FwControls
+@using Microsoft.AspNetCore.Components.Sections
+@namespace DanM.Core.Web.Client.Controls
+@inherits DataControlBase<FilterPanelData>
+
+<div style="background-color: antiquewhite">
+	@FilterControls
+	<Button Text="Vyhledat" OnClick="@OnSearchInvokedAsync" />
+</div>

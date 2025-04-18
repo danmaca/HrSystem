@@ -4,8 +4,13 @@
 @inherits ListPageBase<EmployeeListData>
 <CascadingValue Name="PageShare" Value="@this.CurrentPageShare">
 	<ListMasterpage Data="@Data">
-		<ContenTemplate>
+		<TitlePanel>
 			<h4>Zaměstnanci</h4>
+		</TitlePanel>
+		<FilterPanel>
+			<TextBox Data="@Data.tbxNameLike" />
+		</FilterPanel>
+		<ContenTemplate>
 			<EmployeeGridTable Data="@Data.lstMainGrid" />
 		</ContenTemplate>
 	</ListMasterpage>

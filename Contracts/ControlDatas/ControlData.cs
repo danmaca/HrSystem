@@ -2,7 +2,7 @@
 
 public class ControlData : IControlData
 {
-	public bool IsEditable { get; set; }
+	public bool IsEditable { get; set; } = true;
 	public ControlData ParentData { get; set; }
 
 	public ControllerData GetControllerData()

@@ -30,12 +30,23 @@ public class ListSource<TItem>
 
 public static class ListSourceExtensions
 {
-	public static ListSource<TItem> ToListSource<TItem>(this IQueryable<TItem> source, CancellationToken cancellationToken = default)
+	public static ListSource<TItem> ToListSource<TItem>(this IQueryable<TItem> query, IFilterBase filter, CancellationToken cancellationToken = default)
 	{
-		return new ListSource<TItem>(source);
+		var list = PrepareListSource(ref query, filter);
+		list.Items.AddRange(query);
+		return list;
 	}
 
 	public static async Task<ListSource<TItem>> ToListSourceAsync<TItem>(this IQueryable<TItem> query, IFilterBase filter, CancellationToken cancellationToken = default)
+	{
+		var list = PrepareListSource(ref query, filter);
+
+		await foreach (var element in ((IAsyncEnumerable<TItem>)query).WithCancellation(cancellationToken))
+			list.Items.Add(element);
+		return list;
+	}
+
+	private static ListSource<TItem> PrepareListSource<TItem>(ref IQueryable<TItem> query, IFilterBase filter)
 	{
 		var list = new ListSource<TItem>();
 
@@ -48,8 +59,6 @@ public static class ListSourceExtensions
 			query = query.Take(filter.Paging.RowsCount.Value);
 		}
 
-      await foreach (var element in ((IAsyncEnumerable<TItem>)query).WithCancellation(cancellationToken))
-         list.Items.Add(element);
 		return list;
 	}
 }

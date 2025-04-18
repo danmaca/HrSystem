@@ -36,6 +36,15 @@ public abstract class ListControllerBase<TFilter, TData> : ControllerBase<TData>
 			await this.UpdateFormAsync();
 			this.OnFillMainGrid();
 		}
+		else
+		{
+			if (Data.pnlMainFilter.IsFilteringRequested)
+			{
+				await this.UpdateEntityAsync();
+				Data.pnlMainFilter.IsFilteringRequested = false;
+				this.OnFillMainGrid();
+			}
+		}
 	}
 
 	protected virtual Task UpdateFormAsync()

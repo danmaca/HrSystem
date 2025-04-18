@@ -1,4 +1,5 @@
 ﻿using DanM.Core.Contracts.Collections;
+using DanM.HrSystem.Contracts.Employees;
 using Havit;
 
 namespace DanM.Core.Web.Client.Controls;
