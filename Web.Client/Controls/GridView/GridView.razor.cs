@@ -1,5 +1,5 @@
 ﻿using DanM.Core.Contracts.Collections;
-using DanM.HrSystem.Contracts.Employees;
+using DanM.HrSystem.Web.Client.FwControls;
 using Havit;
 
 namespace DanM.Core.Web.Client.Controls;
@@ -12,10 +12,25 @@ public partial class GridView<TItem>
 	private IServiceProvider ServiceProvider { get; set; }
 
 	private GridDataProviderDelegate<TItem> DataProvider { get; set; }
+	private GridViewControl<TItem> conGrid;
 
 	public GridView()
 	{
 		this.DataProvider = this.GetGridDataAsync;
+	}
+
+	protected async override Task OnParametersSetAsync()
+	{
+		await base.OnParametersSetAsync();
+
+		if (Data == null || conGrid == null)
+			return;
+
+		if (Data.IsSourceRefreshRequested)
+		{
+			await conGrid.RefreshDataAsync();
+			Data.IsSourceRefreshRequested = false;
+		}
 	}
 
 	private async Task<GridDataProviderResult<TItem>> GetGridDataAsync(GridDataProviderRequest<TItem> request)

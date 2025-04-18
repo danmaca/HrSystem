@@ -7,7 +7,7 @@
 @typeparam TItem
 @inherits DataControlBase<ListControlData>
 
-<GridViewControl
+<GridViewControl @ref="conGrid"
 	DataProvider="@this.DataProvider"
 	PageSize="@Data.PageSize"
 	TItem="@TItem"
