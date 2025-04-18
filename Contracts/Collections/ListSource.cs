@@ -1,26 +1,27 @@
-﻿using System.Runtime.Serialization;
-using ProtoBuf;
+﻿using ProtoBuf;
 
 namespace DanM.Core.Contracts.Collections;
 
-[DataContract]
 [ProtoContract]
-public class ListSource<TItem> : List<TItem>
+public class ListSource<TItem>
 {
 	[ProtoMember(1)]
+	public List<TItem> Items { get; set; }
+	[ProtoMember(2)]
 	public int? TotalCount { get; set; }
 
 	public ListSource()
 	{
+		this.Items = new List<TItem>();
 	}
 	public ListSource(IEnumerable<TItem> source)
-		: base(source)
 	{
+		this.Items = source.ToList();
 	}
 
 	public ListSource<TResult> Transform<TResult>(Func<TItem, TResult> transformation)
 	{
-		var result = new ListSource<TResult>(this.Select(transformation));
+		var result = new ListSource<TResult>(this.Items.Select(transformation));
 		result.TotalCount = this.TotalCount;
 		return result;
 	}
@@ -40,7 +41,7 @@ public static class ListSourceExtensions
 		list.TotalCount = source.Count();
 
       await foreach (var element in ((IAsyncEnumerable<TItem>)source).WithCancellation(cancellationToken))
-         list.Add(element);
+         list.Items.Add(element);
 		return list;
 	}
 }

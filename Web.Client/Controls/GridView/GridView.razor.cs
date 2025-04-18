@@ -1,5 +1,4 @@
 ﻿using DanM.Core.Contracts.Collections;
-using DanM.HrSystem.Contracts.Employees;
 using Havit;
 
 namespace DanM.Core.Web.Client.Controls;
@@ -45,7 +44,7 @@ public partial class GridView<TItem>
 				var gridDataSource = await gridDataTask;
 				return new GridDataProviderResult<TItem>()
 				{
-					Data = gridDataSource,
+					Data = gridDataSource.Items,
 					TotalCount = gridDataSource.TotalCount,
 				};
 			}
