@@ -12,24 +12,6 @@ public partial class EmployeeGridTable
 	private List<EmployeeGridDto> gridData;
 	private GridView<EmployeeGridDto> conGrid;
 
-	private async Task<GridDataProviderResult<EmployeeGridDto>> GetGridDataAsync(GridDataProviderRequest<EmployeeGridDto> request)
-	{
-		try
-		{
-			var filter = (EmployeeListFilter)this.Data.DataFilter;
-			gridData = await EmployeeFacade.GetDtosAsync(filter);
-			return new GridDataProviderResult<EmployeeGridDto>()
-			{
-				Data = gridData,
-				TotalCount = 10
-			};
-		}
-		catch (OperationFailedException)
-		{
-			return new() { Data = null, TotalCount = 0 };
-		}
-	}
-
 	private Task GridItemSelected(EmployeeGridDto item)
 	{
 		this.Navigation.NavigateTo(HrNavigationRoutes.Employees.EmployeeDetail + item.EmployeeId);

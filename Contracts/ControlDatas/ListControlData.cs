@@ -4,10 +4,14 @@ namespace DanM.Core.Contracts.ControlDatas;
 
 public class ListControlData : ControlData
 {
-	public IFilterBase DataFilter { get; set; }
 	public List<object> DataRows { get; set; }
 
-	public void FillData(IFilterBase DataFilter, Type facadeType)
+	public IFilterBase DataFilter { get; set; }
+	public string DtosFetchFacadeTypeName { get; set; }
+
+	public void FillData(IFilterBase dataFilter, Type dtosFetchFacadeType)
 	{
+		this.DataFilter = dataFilter;
+		this.DtosFetchFacadeTypeName = dtosFetchFacadeType.AssemblyQualifiedName;
 	}
 }
