@@ -34,7 +34,7 @@ public class EmployeeListController : EntityListControllerBase<Employee, Employe
 
 	protected override void OnFillMainGrid()
 	{
-		Data.lstMainGrid.FillData(this.Filter, typeof(IEmployeeFacade));
+		Data.lstMainGrid.FillDataAsync(_employeeFacade, this.Filter);
 	}
 }
 

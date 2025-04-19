@@ -4,12 +4,14 @@ using ProtoBuf;
 namespace DanM.Core.Contracts.Collections;
 
 [ProtoContract]
-public class ListSource<TItem>
+public class ListSource<TItem> : IListSource
 {
 	[ProtoMember(1)]
 	public List<TItem> Items { get; set; }
 	[ProtoMember(2)]
 	public int? TotalCount { get; set; }
+
+	IEnumerable<object> IListSource.Items => this.Items.Cast<object>();
 
 	public ListSource()
 	{
@@ -19,6 +21,11 @@ public class ListSource<TItem>
 	{
 		this.Items = source.ToList();
 	}
+	public ListSource(IEnumerable<TItem> source, int? totalCount)
+		: this(source)
+	{
+		this.TotalCount = totalCount;
+	}
 
 	public ListSource<TResult> Transform<TResult>(Func<TItem, TResult> transformation)
 	{
@@ -26,6 +33,12 @@ public class ListSource<TItem>
 		result.TotalCount = this.TotalCount;
 		return result;
 	}
+}
+
+public interface IListSource
+{
+	IEnumerable<object> Items { get; }
+	int? TotalCount { get; set; }
 }
 
 public static class ListSourceExtensions

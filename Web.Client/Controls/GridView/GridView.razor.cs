@@ -1,4 +1,5 @@
 ﻿using DanM.Core.Contracts.Collections;
+using DanM.Core.Contracts.Utils;
 using DanM.HrSystem.Web.Client.FwControls;
 using Havit;
 
@@ -48,16 +49,11 @@ public partial class GridView<TItem>
 		{
 			if (this.Data.DataFilter != null && this.Data.DtosFetchFacadeTypeName != null)
 			{
-				Type dtosFetchFacadeType = Type.GetType(this.Data.DtosFetchFacadeTypeName);
-				var getDtosMethodMember = dtosFetchFacadeType.GetMethod("GetDtosAsync");
-
 				var filter = this.Data.DataFilter;
 				filter.Paging.StartRowIndex = request.StartIndex;
 				filter.Paging.RowsCount = request.Count;
 
-				var dtosFetchFacade = this.ServiceProvider.GetRequiredService(dtosFetchFacadeType);
-				var gridDataTask = (Task<ListSource<TItem>>)getDtosMethodMember.Invoke(dtosFetchFacade, new object[] { filter, request.CancellationToken });
-				var gridDataSource = await gridDataTask;
+				var gridDataSource = await FacadeCaller.FetchDtosAsync<TItem>(this.Data.DtosFetchFacadeTypeName, filter, this.ServiceProvider, request.CancellationToken);
 				return new GridDataProviderResult<TItem>()
 				{
 					Data = gridDataSource.Items,
