@@ -63,9 +63,9 @@ public abstract class WorkflowBase
 	protected virtual void SaveWorkflowEntity(WorkflowRequest wfRequest)
 	{
 		if (wfRequest.IsNewEntity)
-			MethodInvoker.Invoke(wfRequest.UnitOfWork, nameof(wfRequest.UnitOfWork.AddForInsert), wfRequest.WorkflowEntity);
+			MethodHelper.Invoke(wfRequest.UnitOfWork, nameof(wfRequest.UnitOfWork.AddForInsert), wfRequest.WorkflowEntity);
 		else
-			MethodInvoker.Invoke(wfRequest.UnitOfWork, nameof(wfRequest.UnitOfWork.AddForUpdate), wfRequest.WorkflowEntity);
+			MethodHelper.Invoke(wfRequest.UnitOfWork, nameof(wfRequest.UnitOfWork.AddForUpdate), wfRequest.WorkflowEntity);
 	}
 
 	public bool IsQueryValid(WorkflowQuery query, WorkflowRequest wfRequest)

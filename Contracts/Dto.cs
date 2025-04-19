@@ -20,10 +20,7 @@ public class Dto<TValue>
 	}
 }
 
-public static class Dto
+public class Dto
 {
-	public static Dto<TValue> FromValue<TValue>(TValue value)
-	{
-		return new Dto<TValue>(value);
-	}
+	public static Dto<TValue> FromValue<TValue>(TValue value) => new Dto<TValue>(value);
 }
