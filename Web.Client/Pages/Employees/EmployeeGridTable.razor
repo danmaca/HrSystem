@@ -1,4 +1,4 @@
-﻿@using DanM.Core.Contracts.ControlDatas
+@using DanM.Core.Contracts.ControlDatas
 @using DanM.Core.Web.Client.Controls
 @using DanM.Core.Web.Client.FwControls
 @using DanM.HrSystem.Contracts.Employees
@@ -16,7 +16,9 @@
 						ItemTextSelector="i => i.FirstName"
 						SortKeySelector="i => i.FirstName"
 						IsDefaultSortColumn="true" />
-
+		<GridColumn HeaderText="Osobní číslo"
+						ItemTextSelector="i => i.PersonalNumber"
+						SortKeySelector="i => i.PersonalNumber" />
 		<GridColumn HeaderText="Stav"
 						ItemTextSelector="i => i.State.ToString()"
 						SortKeySelector="i => i.State" />

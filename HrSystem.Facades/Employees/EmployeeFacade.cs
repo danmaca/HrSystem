@@ -1,4 +1,4 @@
-﻿using DanM.Core.Contracts.Collections;
+using DanM.Core.Contracts.Collections;
 using DanM.HrSystem.Contracts.Employees;
 using DanM.HrSystem.DataLayer.Repositories.Employees;
 using Havit.Data.Patterns.UnitOfWorks;
@@ -28,6 +28,7 @@ public class EmployeeFacade : IEmployeeFacade
 		return employees.Transform(obj => new EmployeeGridDto()
 		{
 			EmployeeId = obj.Id,
+			PersonalNumber = obj.PersonalNumber,
 			FirstName = obj.FirstName,
 			LastName = obj.LastName,
 			State = obj.State,
